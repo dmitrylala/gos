@@ -18,8 +18,6 @@
 \usepackage{graphicx}
 \usepackage{wrapfig}
 
-\setpapersize{A2}  % чтоб буквы были меньше
-\setmarginsrb{1cm}{1cm}{1cm}{1cm}{0pt}{0mm}{0pt}{0mm}
 \usepackage{indentfirst}
 \sloppy
 \usepackage{multicol}
@@ -27,7 +25,10 @@
 
 \usepackage[many]{tcolorbox}
 \usepackage[shortlabels]{enumitem}
-% \usepackage{MathNotesTex}
+\usepackage{MathNotesTex}
+
+\setpapersize{A2}  % чтоб буквы были меньше
+\setmarginsrb{1cm}{1cm}{1cm}{1cm}{0pt}{0mm}{0pt}{0mm}
 
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
 
@@ -59,7 +60,7 @@
 {\begin{itemize2}}
 {\end{itemize2}}
 
-\newenvironment{proof}  % док-во теорем
+\renewenvironment{proof}  % док-во теорем
     {$\blacktriangle$}  % without '$'a does not work
     {$\blacksquare$}
 

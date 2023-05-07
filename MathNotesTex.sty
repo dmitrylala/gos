@@ -42,9 +42,9 @@
 % ----------------------------------------------------------------------
 
 \usepackage{marginnote,sidenotes,fancyhdr,titlesec,geometry}
-\usepackage[dvipsnames]{xcolor}
-\usepackage[many]{tcolorbox}
-\usepackage{arcs}
+% \usepackage[dvipsnames]{xcolor}
+% \usepackage[many]{tcolorbox}
+% \usepackage{arcs}
 
 % ----------------------------------------------------------------------
 %                         Colors
@@ -72,7 +72,7 @@
 \usepackage[T1]{fontenc}                            % Font Styling
 \usepackage{lmodern,mathrsfs}
 
-\usepackage[shortlabels]{enumitem}
+% \usepackage[shortlabels]{enumitem}
 
 \usepackage{mathtools,amssymb,amsfonts,amsthm,bm}   % Math Presets
 \usepackage{array,tabularx,booktabs}                % Table Presets
@@ -137,7 +137,7 @@
 \usepackage{here}
 %\usepackage{MnSymbol}
 %\usepackage{fnpct}
-\usepackage{xcolor}
+%\usepackage{xcolor}
 
 
 \usepackage{lipsum}
@@ -156,11 +156,11 @@
 % ----------------------------------------------------------------------
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
 
-\geometry{paperheight=845pt,paperwidth=597pt,                   %fix paperwidth and height.
-          marginparsep=.02\paperwidth,marginparwidth=.23\paperwidth,
-          inner=.05\paperwidth,voffset=-1in,headheight=.02\paperheight,
-          headsep=.03\paperheight,footskip=20pt,
-          textheight=.84\paperheight,textwidth=.64\paperwidth}
+% \geometry{paperheight=845pt,paperwidth=597pt,                   %fix paperwidth and height.
+%           marginparsep=.02\paperwidth,marginparwidth=.23\paperwidth,
+%           inner=.05\paperwidth,voffset=-1in,headheight=.02\paperheight,
+%           headsep=.03\paperheight,footskip=20pt,
+%           textheight=.84\paperheight,textwidth=.64\paperwidth}
 
 % \pagestyle{fancy}%
 % \newlength{\myoddoffset}%
@@ -321,7 +321,7 @@
 \advance\baselineskip -1pt}{\end{list}\vskip5pt} % Tighter line spacing and white space after remark
 
 
-\renewenvironment{proof}{{\sffamily\bfseries Доказательство. }}{\qed}
+% \renewenvironment{proof}{{\sffamily\bfseries Доказательство. }}{\qed}
 
 \newenvironment{proofocre}{{\sffamily\bfseries Доказательство. }}{\qed}
 
@@ -655,17 +655,17 @@
   breakable,
 }
 
-\tcolorboxenvironment{proof}{
-  boxrule=0pt,
-  boxsep=2pt,
-  colback={grey!25},
-  borderline west={1pt}{0pt}{NavyBlue!80!white},
-  before skip=10pt,
-  after skip=10pt,
-  left=12pt,
-  right=12pt,
-  breakable,
-}
+% \tcolorboxenvironment{proof}{
+%   boxrule=0pt,
+%   boxsep=2pt,
+%   colback={grey!25},
+%   borderline west={1pt}{0pt}{NavyBlue!80!white},
+%   before skip=10pt,
+%   after skip=10pt,
+%   left=12pt,
+%   right=12pt,
+%   breakable,
+% }
 
 \tcolorboxenvironment{proofocre}{
   boxrule=0pt,
@@ -1006,7 +1006,7 @@
 %     colorlinks=true,
 %     linkcolor=blue,
 %     citecolor=magenta,
-%     filecolor=magenta,      
+%     filecolor=magenta,
 %     urlcolor=cyan,
 %     pdftitle={Overleaf Example},
 %     pdfpagemode=FullScreen,
@@ -1207,16 +1207,16 @@
 
 
 % Page layout
-\renewcommand{\baselinestretch}{1.15}\normalsize
-\setlength\lineskip{1\p@}
-\setlength\parindent{1.2\parindent}
-\setlength\normallineskip{1\p@}
-\setlength\parskip{0\p@ \@plus \p@}
-\@lowpenalty   51
-\@medpenalty  151
-\@highpenalty 301
-\widowpenalty 1000
-\clubpenalty 1000
+% \renewcommand{\baselinestretch}{1.15}\normalsize
+% \setlength\lineskip{1\p@}
+% \setlength\parindent{1.2\parindent}
+% \setlength\normallineskip{1\p@}
+% \setlength\parskip{0\p@ \@plus \p@}
+% \@lowpenalty   51
+% \@medpenalty  151
+% \@highpenalty 301
+% \widowpenalty 1000
+% \clubpenalty 1000
 
 \setcounter{topnumber}{4}
 \renewcommand\topfraction{1}
