@@ -18,14 +18,18 @@
 \usepackage{graphicx}
 \usepackage{wrapfig}
 
-\setpapersize{A2}  % чтоб буквы были меньше
-\setmarginsrb{1cm}{1cm}{1cm}{1cm}{0pt}{0mm}{0pt}{0mm}
 \usepackage{indentfirst}
 \sloppy
 \usepackage{multicol}
 \setlength{\columnseprule}{1pt}
 
+\usepackage[dvipsnames]{xcolor}
+\usepackage[many]{tcolorbox}
+\usepackage[shortlabels]{enumitem}
 \usepackage{MathNotesTex}
+
+\setpapersize{A2}  % чтоб буквы были меньше
+\setmarginsrb{1cm}{1cm}{1cm}{1cm}{0pt}{0mm}{0pt}{0mm}
 
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
 
@@ -57,6 +61,10 @@
 {\begin{itemize2}}
 {\end{itemize2}}
 
+\renewenvironment{proof}  % док-во теорем
+    {$\blacktriangle$}  % without '$'a does not work
+    {$\blacksquare$}
+
 \begin{document}
 
 % ------------------------- ПРЕЛЮДИЯ -----------------------------
@@ -84,7 +92,7 @@
 %---------------------
 \end{multicols}
 \end{tcolorbox}
---- END OF PAGE ----
+% --- END OF PAGE ----
 
 
 
@@ -112,7 +120,7 @@
 %---------------------
 \end{multicols}
 \end{tcolorbox}
---- END OF PAGE ----
+% --- END OF PAGE ----
 
 
 
@@ -139,7 +147,7 @@
 %---------------------
 \end{multicols}
 \end{tcolorbox}
---- END OF PAGE ----
+% --- END OF PAGE ----
 
 
 
