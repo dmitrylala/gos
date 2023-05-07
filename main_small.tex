@@ -25,7 +25,9 @@
 \usepackage{multicol}
 \setlength{\columnseprule}{1pt}
 
-\usepackage{MathNotesTex}
+\usepackage[many]{tcolorbox}
+\usepackage[shortlabels]{enumitem}
+% \usepackage{MathNotesTex}
 
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
 
@@ -57,6 +59,10 @@
 {\begin{itemize2}}
 {\end{itemize2}}
 
+\newenvironment{proof}  % док-во теорем
+    {$\blacktriangle$}  % without '$'a does not work
+    {$\blacksquare$}
+
 \begin{document}
 
 % ------------------------- ПРЕЛЮДИЯ -----------------------------
@@ -84,7 +90,7 @@
 %---------------------
 \end{multicols}
 \end{tcolorbox}
---- END OF PAGE ----
+% --- END OF PAGE ----
 
 
 
@@ -112,7 +118,7 @@
 %---------------------
 \end{multicols}
 \end{tcolorbox}
---- END OF PAGE ----
+% --- END OF PAGE ----
 
 
 
@@ -139,7 +145,7 @@
 %---------------------
 \end{multicols}
 \end{tcolorbox}
---- END OF PAGE ----
+% --- END OF PAGE ----
 
 
 
