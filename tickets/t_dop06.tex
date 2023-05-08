@@ -16,6 +16,26 @@ $\forall x,y,z\in V,~\alpha\in\bbR$.
 Билинейная форма называется \emph{симметрической}, если $\mcA(x,y)=\mcA(y,x),\forall x,y\in V$, и \emph{кососимметрической}, если $\mcA(y,x)=-\mcA(x,y),\forall x,y\in V$.
 \end{definition}
 
+\begin{example}
+В $n$-мерном пространстве $V$ с базисом $e_1,\ldots,e_n$ отображение\\ $\mcA:V\times V\to\bbR$, определенное правилом
+\begin{equation}
+\label{eq общий вид билин. формы}
+    \mcA(x,y)=\sum_{i,j=1}^na_{ij}x_iy_j,
+\end{equation}
+$\forall x=\sum_{i=1}^nx_ie_i,~y=\sum_{i=1}^ny_ie_i$, где $a_{ij}~(i,j=\overline{1,n})$~--- фиксированные числа, является билинейной формой (в силу линейности координат).
+\end{example}
+
+\begin{definition}
+Представление билинейной формы в виде (\ref{eq общий вид билин. формы}) называется \emph{общим видом билинейной формы в базисе $e$}.\\
+Матрица $A_e=(a_{ij})\in\bbR^{n\times n}:a_{ij}=\mcA(e_i,e_j),~i,j=\overline{1,n}$ называется \emph{матрицей билинейной формы $\mcA(x,y)$ в базисе $e$}.\\
+Общий вид билинейной формы может быть записан в компактном виде: если $x_e,~y_e$~--- координатные столбцы векторов $x$ и $y$ в базисе $e$, то
+\begin{equation}
+\label{eq комп. вид билин. формы}
+    \mcA(x,y)=x_e^TA_ey_e,~\mcA(x,y)=y_e^TA_e^Tx_e.
+\end{equation}
+Первое из равенств проверяется непосредственно, второе можно получить транспонированием обеих частей первого.
+\end{definition}
+
 \begin{definition}
 Пусть $\mcA(x,y)$~--- симметрическая билинейная форма в пространстве $V$ над полем $\bbP$. \emph{Квадратичной формой} называется отображение $\mcA\colon V\to\bbP$, которое $\forall x\in V\mapsto \mcA(x,x)$, то есть сужение симметрической билинейной формы на диагональ декартова квадрата $V\times V$.\\
 \textsf{Обозначение:}~$\mcA(x,x)$ или $\mcA(x)$
@@ -159,7 +179,7 @@ $\forall x,y,z\in V,~\alpha\in\bbR$.
 \end{equation}
 где $a_i>0,~b_i>0,~i=\overline{1,r}$.\\
 Докажем, что $p\le q$. От противного: пусть $p>q$.\\
-Рассмотрим подпространства $L_1=\mcL(e_1,\ldots,e_p)$ и $L_2=\mcL(f_{q+1},\ldots,f_n)$. Согласно $\dim (L_1+L_2) = \dim L_1 + \dim L_2 - \dim(L_1 \cap L_2)$, $dim(L_1\cap L_2)=p+(n-q)-dim(L_1+L_2);~dim(L_1+L_2)\le n,\\p>q \Rightarrow dim(L_1+L_2)>0 \Rightarrow\exists~x_0\neq\theta,~x_0\in L_1\cap L_2$.\\ 
+Рассмотрим подпространства $L_1=\mcL(e_1,\ldots,e_p)$ и $L_2=\mcL(f_{q+1},\ldots,f_n)$. Согласно $\dim (L_1+L_2) = \dim L_1 + \dim L_2 - \dim(L_1 \cap L_2)$, $dim(L_1\cap L_2)=p+(n-q)-dim(L_1+L_2);~dim(L_1+L_2)\le n,\\p>q \Rightarrow dim(L_1+L_2)>0 \Rightarrow\exists~x_0\neq\theta,~x_0\in L_1\cap L_2$.\\
 Пусть $x_0=\alpha_1e_1+\ldots+\alpha_pe_p=\beta_{q+1}f_{q+1}+\ldots+\beta_nf_n$. Тогда, согласно (\ref{eq 43.1})
 \begin{equation}
     \mcA(x_0,x_0)=a_1\alpha_1^2+\ldots+a_p\alpha_p^2=-b_{q+1}\beta_{q+1}^2-\ldots-b_r\beta_r^2.
