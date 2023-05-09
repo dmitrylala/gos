@@ -1,0 +1,62 @@
+\textbf{\LARGE dop 12. Теорема Гильберта-Шмидта.}
+
+\rule{275pt}{0.5pt} 
+
+\textbf{Базовая теория:}
+
+1. Оператор называется \textbf{вполне непрерывным}, если он любую слабо сходящуюся последовательность переводит в последовательность, сходящуюся по норме.
+
+2. \textbf{Гильбертово пространство} -- банахово пространство, в котором введено скалярное произведение, согласованное с нормой.
+
+3. \textbf{Банахово пространство} -- полное линейное нормированное пространство.
+
+4. Точка $\lambda \in \mathbb{C}$ называется \textbf{регулярной точкой} оператора $A$ ($\;\lambda \in \rho(A)$), если оператор $R_\lambda = (A - \lambda E)^{-1}$ существует, определен на всем пр-ве и ограничен. Число $\lambda \not\in \rho(A)$ называется \textbf{спектральным}. Множество спектральных чисел называется \textbf{спектром} оператора: $\sigma(A) = \mathbb{C} \setminus \rho(A)$.
+
+5. Если $\ker\big(A-\lambda E) \ne \{0\}$, то $\lambda$ принадлежит \textbf{точечному спектру} $\sigma_p(A)$, т.е. точечный спектр -- множество собств. знач. оператора $A$.
+
+6. \textbf{Слабая сходимость} $ x_{n}\xrightarrow{w} x$ означает, что $\forall$ $h \in H \; (x_n, h) \to (x, h)$.
+
+\rule{275pt}{0.5pt} 
+
+$\mathLet H$ -- гильбертово пространство. \faEye\; оператор $A:\;H\to H$ -- линейный вполне непрерывный самосопряженный оператор. Введем обозначения: 
+$$
+M = \sup_{\|x\|= 1}\big(Ax,\,x\big), \quad -m = \inf_{\|x\|= 1}\big(Ax,\,x\big).
+$$
+\textbf{Лемма:\;} Спектр $\sigma(A)$ оператора $A$  удовлетворяет условию: $\sigma(A) \;\in\;[-m, \,M]$. Если $H$ -- бесконечномерное, то $0\;\in\;[-m, \,M]$.
+
+$\blacktriangleright\;$ Заметим, что $A x = \lambda x, \; \|x\| = 1 \;\implies\; \lambda = \big(Ax,\,x\big)$. Ненулевые точки спектра -- собственные значения $\implies\;\sigma(A) \;\in\;[-m, \,M]$.$\;\blacksquare$
+
+\textbf{Теорема:\;} $\exists \;\lambda \in \;\sigma_p(A):\quad |\lambda| = \|A\|$.
+
+$\blacktriangleright\;$ Так как $\displaystyle \|A\| = \sup_{\|x\|=1} \big|\big(Ax,\,x\big)\big|$, то $\|A\| = M$ или $\|A\| = m$. $\mathLet \;\|A\| = M$. Покажем, что $M \in \sigma_p(A)$. По определению точной верхней грани $\exists\{x_n\}, \; \|x_n\| = 1:\; \big(Ax_n,\,x_n\big)\to M$. Выберем подпоследовательность $\{n_k\}: \; x_{n_k}\xrightarrow{w} x$. Тогда имеем:
+$$
+0 \leq \|(A - M E)\,x_{n_k}\|^2 = \|A x_{n_k}\|^2 - 2 M \Re\big(Ax_{n_k},\,x_{n_k}\big) + M^2 \;\to $$
+$$
+\to\; \|A x\|^2 - M^2 \leq 0.
+$$
+Следовательно, $\|(A - M E)\,x_{n_k}\| \to 0 \;\implies\;x_{n_k}\to x$ и $\|x\| =1$. В пределе получаем $\|(A-M E) x\| = 0 \;\implies\; A x = M x, \;x\ne 0$. \; $\blacksquare$
+
+\textbf{Теорема Гильберта-Шмидта:\;} В замыкании образа $\overline{R(A)}$ оператора $A$ существует полная ортонормированная система собственных векторов оператора $A$, отвечающих $\lambda \ne 0$.
+
+$\blacktriangleright\;$ 
+\textbf{1.} В силу доказанной теоремы $\exists \,\lambda_1 \in \mathbb{R}, \;\exists\,x_1\in H: \; |\lambda_1| = \|A\|, \; A x_1 = \lambda_1 x_1, \; \|x_1\| = 1$. 
+Обозначим $H_1 = \mathcal{L} (x_1)$ -- линейная оболочка вектора $x_1$. Легко видеть, что $H_1^\bot$ инвариантно относительно $A$: если $x \in H_1^\bot$, т.е. $x\bot x_1$, то $\displaystyle \big(A x,\,x_1\big) = \{\textit{самосопряженность}\}=\big(x,\, A x_1\big) = \lambda_1 \big(x,\,x_1\big) = \{ x\bot x_1\} = 0 \;\implies\; A x \in H_1^\bot$. 
+Сужение оператора $A$ на подпространство $H_1^\bot$ обладает теми же свойствами (линейность, ограниченность, компактность, самосопряженность) $\implies \; \exists \, \lambda_2 \in \mathbb{R}, \; \exists\,x_2 \in H_1^{\bot} \,: \; |\lambda_2| = \big\|A\big|_{H_1^\bot}\big\| \leq |\lambda_1|, \; Ax_2 = \lambda_2 x_2, \; \|x_2\| = 1$ (если $\lambda_2 = 0,$ то $R(A) = H_1$, и все доказано). Аналогично строим $H_2 = \mathcal{L}(x_1, x_2), $  и т.д.
+
+\textbf{2.} Если на каком-то этапе $\lambda_n = 0$, то все доказано, так как образ $R(A)$ конечномерный, следовательно, существует ОНМ система векторов.
+
+Предположим, что $|\lambda_1| \geq |\lambda_2| \geq\ldots> 0$, покажем, что построенная система $\{x_n\}$ полна в $\overline{R(A)}$. Пусть $y \in R(A)$, тогда $\exists x \in H: \; A x = y$. Приблизим элемент конечной суммой его ряда Фурье: 
+$$
+y - \sum\limits_{k=1}^n (y, x_k) \, x_k \;=\; A x - \sum\limits_{k=1}^n \big(x, A x_k\big) x_k\; =\; A \,\left(x - \sum\limits_{k=1}^n \big(x, x_k\big) x_k \right)
+$$
+Так как $\displaystyle\;\sum\limits_{k=1}^n \big(x, x_k\big) x_k$ -- проекция $x$ на $H_n$, то $\;\displaystyle x - \sum\limits_{k=1}^n \big(x, x_k\big) x_k \;\in\; H_n^\bot $. Тогда имеем 
+$$
+\bigg\| y - \sum\limits_{k=1}^n \big(y, x_k\big) x_k  \bigg\| \leq \bigg\| A \,\left(x - \sum\limits_{k=1}^n \big(x, x_k\big) x_k \right) \bigg\| \leq \big\|A\big|_{H_n^\bot}\big\| \;=$$
+$$ =\; |\lambda_{n+1}| \xrightarrow[n\to\infty]{} 0.
+$$
+Это означает, что произвольный элемент $y\in R(A)$ можно приблизить с $\forall$ точностью конечными линейными комбинациями $\{x_n\}$ $\implies \;\{x_n\}$ полна в $R(A)$. Если $y \in \overline{R(A)}$, то его можно приблизить элементов $\widetilde{y} \in R(A)\; \implies \; \{x_n\}$\; полна в $\overline{R(A)}$. \; $\blacksquare$
+
+\textbf{Следствие:\;} Так как $H = \overline{R(A)} \oplus \ker(A)$, то, дополнив базис подпространства $\overline{R(A)}$ базисом подпространства $\ker(A)$ (если последнее ненулевое), получим ОНБ в $H$.
+% -------- source --------
+\bigbreak
+[\cite[page 24-25]{funcan_spring}]
