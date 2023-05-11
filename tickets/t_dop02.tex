@@ -1,0 +1,72 @@
+\textbf{\LARGE dop 2. Формулы Стокса, Остроградского.}
+
+
+
+\par \textbf{Односвязная область}- область $D$ называется односвязной, если
+граница ее состоит из одного замкнутого контура.
+
+\par \textbf{Гладкая поверхность}- $\Phi$ в $Oxyz$ называется гладкой, если у каждой точки $\Phi$ есть окрестность, допускающая гладкую параметризацию, т.е. каждая указанная окрестность представляет собой гомеоморфное отображение некоторой элементарной области $G$ в плоскости $\left( u,v\right)$ при
+$x = x\left( u,v\right)$ , $y = y\left( u,v\right)$, $z = z\left( u,v\right)$, $\left( u,v\right) \in G$, 
+\par коротко: $\overrightarrow{r}=r\left( u,v\right)$,  $\overrightarrow{r}=r\left\{ x,y,z\right\}$, в которых $x = x\left( u,v\right)$, $y = y\left( u,v\right)$, $z = z\left( u,v\right)$ являются непрерывно дифференцируемыми в $G$ (гладкие, непрер. диффер. и все частные производные первого порядка непрерывны).
+
+\par \textbf{Обыкновенная точка}- если $\exists$ такая гладкая параметризация $x = x\left( u,v\right)$ , $y = y\left( u,v\right)$, $z = z\left( u,v\right)$, $\left( u,v\right) \in G$ некоторой ее окрестности, что в этой точке ранг матрицы $A=\begin{pmatrix} x_{u} & y_{u} & z_{u} \\ x_{v} & y_{v} & z_{v} \end{pmatrix}$ равен двум. Иначе это точка особая.
+
+\par \textbf{Двусторонняя поверхность}- поверхности, на которых $\exists$ непрерывное в целом(т.е. на всей поверхности) векторное поле нормалей.
+
+\par \textbf{Ограниченная поверхность}-поверность ограниченная, если ее можно поместить в некоторый шар конечного радиуса.
+
+\par \textbf{Полная поверхность}- если любая фундаментальная последовательность точек этой поверхности сходится к некоторой точке поверхности $\Phi$; т.е. поверхность $\Phi$ полная, если множество точек ее составляющее является замкнутым.
+
+\par Пусть $V\subset E^{3}$ - односвязная область с границей $\partial V=\Phi $. Пусть $\Phi$: кусочно-гладкая, без особых точек, двусторонняя, ограниченная,полная; Пусть $Oxyz$: для каждой из осей $\forall$ прямая, параллельная оси, пересекается с $\Phi$ не более, чем в двух точках.
+\par \textbf{Теорема 1}: Пусть множество $V$ удовлетворяет указанным выше требованиям, $\overrightarrow{n}$– внешний единичный вектор нормали к $\Phi$, $\overrightarrow{p}$ определена и непрерывна в $\overline{V}=V\cup \Phi$, дифф. в $V$ и $\dfrac{\partial \overrightarrow{p}}{\partial \overrightarrow{e}}$ непрерывна в $\overline{V}$ , $\forall \overrightarrow{e}$.
+Тогда: $\iiint _{\overline{V}}div\overrightarrow{p}dv=\iint _{\Phi }\left( \overrightarrow{p},\overline{n}\right) d\sigma$ -формула Остроградского-Гаусса в инвариантной форме.
+
+\par \textbf{Доказательство}: Интегралы $\exists$, так как подынтегральные функции непрерывны.
+\par Все величины, входящие в формулу инвариантны относительно выбора базиса в пространстве. Докажем эту формулу в ОНБ. Выберем систему координат так, чтобы для каждой из осей любая прямая, параллельная оси, пересекалась с поверхностью $\Phi$ не более, чем в двух точках. Координаты векторов: $\overrightarrow{p}=\left\{ P,Q,R\right\}$, $\overrightarrow{n}=\left\{ \cos X,\cos Y,\cos Z\right\}$, получаем: $\iiint _{\overline{V}}\left( \dfrac{\partial P}{\partial x}+\dfrac{\partial Q}{\partial y}+\dfrac{\partial R}{\partial z}\right) dxdydz=\iint _{\Phi }(P\cos X+Q\cos Y+R\cos Z)d\sigma$ -это формула Остроградского-Гаусса в ОНБ. Так как $\cos Zd\sigma=$ проекция элемента площади $d\sigma$ на $Oxy=dxdy$, тогда: $\iint _{\Phi }(P\cos X+Q\cos Y+R\cos Z)d\sigma=\iint _{\Phi }(Pdydz+Qdxdz+Rdxdy)$. Покажем: $I\equiv \iiint _{\overline{V}}\left( \dfrac{\partial R}{\partial z}\right)dxdydz=\iint _{\Phi }Rdxdy$. Пусть $D$ проекция $\overline{V}$ на $Oxy$.
+\par $\forall$ прямая, параллельная $Oz$, проходящая через $\left( x,y,0\right)\in D$, пересекает $\Phi$ не более, чем в двух точках $z_{1}\left( x,y\right)$, $z_{2}\left( x,y\right)$, $z_{1}\leq z_{2}$. Обозначим через $\Phi _{1}$ часть поверхности $\Phi$: $z=z_{1}\left( x,y\right)$, $\left( x,y\right) \in D$, $\widehat{\left( \overrightarrow{n},Oz\right)}\geq\dfrac{\pi }{2}$, 
+поэтому $\cos Z \leq 0 $ и $\cos Z d\sigma=-\dfrac{1}{\sqrt{ED-F^{2}}}dxdy$. Через $\Phi _{2}$ часть поверхности $\Phi$: $z=z_{2}\left( x,y\right)$, $\left( x,y\right) \in D$, $\widehat{\left( \overrightarrow{n},Oz\right)}\leq\dfrac{\pi }{2}$, поэтому $\cos Z \geq 0 $ и $\cos Z d\sigma=\dfrac{1}{\sqrt{ED-F^{2}}}dxdy$, перейдем от тройного интеграла к двойному и используем соотношения для поверхностей $\Phi _{1}$ и $\Phi _{2}$: $I=\iint _{D}\left( \int ^{z_{2}\left( x,y\right)}_{z_{1}\left( x,y\right)}\dfrac{\partial R\left( x,y,z\right)}{\partial z}dz\right)dxdy=\iint _{D}R\left( x,y,z_{2}\left( x,y\right) \right)dxdy-\iint _{D}R\left( x,y,z_{1}\left( x,y\right) \right)dxdy=\iint _{\Phi _{2}}R\left( x,y,z \right)\cos Z d\sigma-(-\iint _{\Phi _{1}}R\left( x,y,z \right)\cos Z d\sigma)=\iint _{\Phi _{2}}R\left( x,y,z \right)dxdy+\iint _{\Phi _{1}}R\left( x,y,z \right)dxdy=\iint _{\Phi}R\left( x,y,z \right)dxdy$
+
+%\begin{equation*} I=\iint _{D}\left( \int ^{z_{2}\left( x,y\right)}_{z_{1}\left( x,y\right)}\dfrac{\partial R\left( x,y,z\right)}{\partial z}dz\right)dxdy= \end{equation*} \begin{equation*} =\iint _{D}R\left( x,y,z_{2}\left( x,y\right) \right)dxdy-\iint _{D}R\left( x,y,z_{1}\left( x,y\right) \right)dxdy=\end{equation*} \begin{equation*}=\iint _{\Phi _{2}}R\left( x,y,z \right)\cos Z d\sigma-(-\iint _{\Phi _{1}}R\left( x,y,z \right)\cos Z d\sigma)=\end{equation*}\begin{equation*}=\iint _{\Phi _{2}}R\left( x,y,z \right)dxdy+\iint _{\Phi _{1}}R\left( x,y,z \right)dxdy=\iint _{\Phi}R\left( x,y,z \right)dxdy\end{equation*} 
+\textbf{Теорема доказана.}
+
+\par \textbf{Формула Стокса.} \textbf{Теорема 2}: Пусть $\Phi$ – односвязная поверхность, опирающаяся на замкнутый гладкий контур $C=\partial \Phi$ без особых точек, $\Phi$ удовлетворяет пяти условиям:кусочно-гладкая,без особых точек,двусторонняя,ограниченная, ограниченная замкнутая часть полной
+поверхности; Пусть $\overrightarrow{n}$– единичный вектор нормали к $\Phi$, $\overrightarrow{t}$–
+единичный вектор касательной к $C$, согласованный с $\overrightarrow{n}$. Пусть
+$\overrightarrow{p}$ определена и непрерывно дифференцир.
+в некоторой окрестности $\Phi$. Тогда:
+$\iint _{\Phi }\left( \overrightarrow{n},rot\overrightarrow{p}\right) d\sigma=\oint _{C}\left( \overrightarrow{p},\overrightarrow{t}\right) dl$
+-формула Стокса в инвариантной форме.
+Физика: поток вихря векторного поля через поверхность $\Phi$ равен циркуляции поля по $\partial \Phi$ (работе).
+
+\par \textbf{Доказательство:}
+\textbf{Часть первая:}
+\par Величины, входящие в формулу инвариантны относительно выбора базиса в пространстве, поэтому достаточно доказать ее в каком-то одном базисе, выбираем ОНБ. Пусть $Oxyz$ в $E^{3}$ можно выбрать так, что $\Phi$ однозначно проецируется на все три координатные плоскости. Выберем эту систему так, что $\overrightarrow{n}$ образует острые углы с $Ox$, $Oy$, $Oz$. 
+\par Координаты векторов: $\overrightarrow{p}=(P,Q,R)$,
+$\overrightarrow{n}=( \cos X,\cos Y,\cos Z)$,
+$\overrightarrow{t}=( \cos \alpha,\cos \beta,\cos \gamma)$. Формула Стокса в ОНБ: $\iint _{\Phi }( \left( R_{y}-Q_{z}\right) \cos X+\left( P_{z}-R_{z}\right) \cos Y+\left( Q_{x}-P_{y}\right) \cos Z )d\sigma=\oint _{C}\left( P\cos \alpha+ Q\cos \beta+ R\cos \gamma\right) dl =\oint _{C}\left( P dx+ Q dy + R dz\right)$  
+Достаточно доказать для $P$, $Q$, $R$. Докажем для $P$. Другие аналогично.
+\par Докажем:
+$I\equiv \iint _{\Phi }\left( \dfrac{\partial P}{\partial z}\cos Y-\dfrac{\partial P}{\partial y}\cos Z\right)d\sigma=\oint _{C}Pdx$
+ \par Так как $\Phi$ однозначно проецируется на $Oxy$, то она является графиком дифференцируемой функции $z = z\left( x,y\right)$ и ее параметризация:$\overrightarrow{r }=\left\{ x,y,z\left( x,y\right) \right\}$. Обозначим через $D$ проекцию $\Phi$ на $Oxy$, $\partial D=\Gamma$ – проекция контура $C$.
+Найдем выражения для косинусов. Учтем: $\widehat{\left( \overrightarrow{n},Oz\right)}<\dfrac{\pi }{2}$.
+Имеем, $x = u$, $y = v$, $ \cos Y=+\dfrac{\begin{vmatrix} z_{u} & x_{u} \\ z_{v} & x_{v} \end{vmatrix}}{\left| \left[ \overrightarrow{r}_{u},\overrightarrow{r}_{v}\right] \right| }=
+   \dfrac{\begin{vmatrix} z_{x}^{\prime} & 1 \\ z_{y}^{\prime} & 0 \end{vmatrix}}{\sqrt{1+{z^{\prime}}_x^2+{z^{\prime}}_y^2}}=
+    \dfrac{-z_{y}^{\prime}}{\sqrt{1+{z^{\prime}}_x^2+{z^{\prime}}_y^2}}$, $\cos Z=+\dfrac{\begin{vmatrix} x_{u} & y_{u} \\ x_{v} & y_{v} \end{vmatrix}}{\left| \left[ \overrightarrow{r}_{u},\overrightarrow{r}_{v}\right] \right| }=
+   \dfrac{\begin{vmatrix} 1 & 0 \\ 0 & 1 \end{vmatrix}}{\sqrt{1+{z^{\prime}}_x^2+{z^{\prime}}_y^2}}=
+    \dfrac{1}{\sqrt{1+{z^{\prime}}_x^2+{z^{\prime}}_y^2}}$. Таким образом: $\cos Y={-z_{y}^{\prime}}\cos Z$, $I=-\iint _{\Phi }\left( \dfrac{\partial P }{\partial z}\cdot \dfrac{\partial z}{\partial y}+\dfrac{\partial P }{\partial y}\right)\cos Z d\sigma$. Так как $\widehat{\left( \overrightarrow{n},Oz\right)}<\dfrac{\pi }{2}$, то $I=-\iint _{D}\dfrac{\partial }{\partial y}P\left( x,y,z\left( x,y\right) \right) )dxdy$. Применим формулу Грина $\iint _{D }(\left( Q_{x}-P_{y}\right))dxdy=\oint _{\Gamma}\left( Pdx+ Qdy\right)$. При $Q = 0$: $I=-\iint _{D}\dfrac{\partial }{\partial y}P\left( x,y,z\left( x,y\right) \right) )dxdy=\oint _{\Gamma}P\left( x,y,z\left( x,y\right) \right)dx=\oint _{C}P\left( x,y,z \right)dx$ так как, если $\left( x,y\right)$ пробегает кривую $\Gamma$, то $\left( x,y,z\left( x,y\right) \right)$ пробегает кривую $C$(опр криволинейных интегралов).
+\par Таким образом,  $I\equiv \iint _{\Phi }\left( \dfrac{\partial P}{\partial z}\cos Y-\dfrac{\partial P}{\partial y}\cos Z\right)d\sigma=\oint _{C}Pdx$. Первая часть доказана.
+\par
+\textbf{Часть вторая:}
+\par Пусть $\Phi$ ни в одной СК $Oxyz$ однозначно не проецируется сразу на все три коорд. пл. Рассмотрим этот случай. Докажем \textbf{Лемму:}Пусть $\Phi$ удовлетворяет условиям теоремы 2. Тогда $\exists\delta>0$: $\forall$ части $\Phi_{i}$ $\Phi$ размера $d\Phi_{i}<\delta$, можно так выбрать $O_{i}xyz$, что эта часть $\Phi_{i}$ однозначно проецируется на все три коорд. пл. в этой СК.
+\par
+\textbf{Доказательство:} 1) Зафиксируем $\forall M_{0}$ на $\Phi$, проведем касательную пл. через $M_{0}$ к этой поверхности. Пусть $\overrightarrow{n}_{M_{0}}$– единичный вектор нормали к $\Phi$ в т. $M_{0}$. Декартову систему $Oxyz$ выбираем: эта касательная пл. отсекала равные участки от осей. Тогда $\overrightarrow{n}_{M_{0}}$ образует острые углы с базисными векторами $i$, $j$, $k$ – с осями координат. Так как векторное поле нормалей $\overrightarrow{n}_{M}$ непрерывно на $\Phi$, то $\exists$
+окрестность $\widetilde{M}$ точки $M_{0}$ на $\Phi$: все векторы
+нормалей из $\widetilde{M}$ образуют острые углы с базисными векторами. Тогда у $M_{0}$ имеется окрестность, которая однозначно проецируется на все три коорд. пл. в выбранной СК. Но нельзя гарантировать размер этой окрестности: $\delta=\delta (M_{0})$.
+\par 2) Выбор единого числа $\delta$ для $\Phi$. Пусть не найдется требуемого $\delta>0$. Тогда для $\forall \delta_{n}=\dfrac{1}{n}$ , $n = 1$,$2$,..., $\exists$ часть $\Phi_{n}$ поверхности $\Phi$ размера $d(\Phi_{n})<\delta_{n}$, которая не проецируется однозначно хотя бы на одну коорд. пл. во всевозможных $Oxyz$. Выберем $\forall$ по одной точке $M_{n}$ в каждой части $\Phi_{n}$, получим $M_{n}$-огранич. (пов-ть огр), то $\exists M_{n_{k}}$, $M_{n_{k}}\rightarrow M_{0}$. Так как $\Phi$- замкнутое множество, то $M_{0}\in \Phi$. Но тогда из части 1)  $\exists Oxyz$: некоторая окрестность $\widetilde{M} \subset \Phi$ точки $M_{0}$ однозначно проецируется на все три коорд. пл. в этой СК. Так как $M_{n_{k}}\rightarrow M_{0}$, а $d \Phi_{n_{k}}\rightarrow 0$ при $n_{k}\rightarrow\infty$,то $\exists N$: $\forall n_{k}\geq N$ : 
+$\Phi_{n_{k}} \subset \widetilde{M}$ и все эти части $\Phi_{n_{k}}$ однозначно проецируются в выбранной СК на все три коорд. пл. Противоречие выбору частей $\Phi_{n}$. Тогда $\exists\delta >0$, единое для всей поверхности $\Phi$. 
+\textbf{Лемма доказана.}
+
+\par Так как для $\forall \Phi_{i}$ поверхности $\Phi$,
+размера $d(\Phi_{i})<\delta$ справедлива формула Стокса. Разбиваем $\Phi$ гладкими кривыми на конечное число частей $\Phi_{i}$ без общих внутренних точек, $\Phi=\bigcup_{i=1}^n\Phi_{i}$. Тогда $\sum_i\iint_{\Phi_{i}}=\iint_{\Phi}$ и $\sum_i\oint_{C_{i}}=\oint_{C}$, так как мы суммируем криволинейные интегралы второго рода, а интегралы по внутренним границам взаимно уничтожатся (противоположные направления).
+\textbf{Теорема доказана.}
+%Лекции Ломова 3-4 семестр 
