@@ -18,14 +18,18 @@
 \usepackage{graphicx}
 \usepackage{wrapfig}
 
-\setpapersize{A2}  % чтоб буквы были меньше
-\setmarginsrb{1cm}{1cm}{1cm}{1cm}{0pt}{0mm}{0pt}{0mm}
 \usepackage{indentfirst}
 \sloppy
 \usepackage{multicol}
 \setlength{\columnseprule}{1pt}
 
+\usepackage[dvipsnames]{xcolor}
+\usepackage[many]{tcolorbox}
+\usepackage[shortlabels]{enumitem}
 \usepackage{MathNotesTex}
+
+\setpapersize{A2}  % чтоб буквы были меньше
+\setmarginsrb{1cm}{1cm}{1cm}{1cm}{0pt}{0mm}{0pt}{0mm}
 
 \DeclareGraphicsExtensions{.pdf,.png,.jpg}
 
@@ -57,6 +61,10 @@
 {\begin{itemize2}}
 {\end{itemize2}}
 
+\renewenvironment{proof}  % док-во теорем
+    {$\blacktriangle$}  % without '$'a does not work
+    {$\blacksquare$}
+
 \begin{document}
 
 % ------------------------- ПРЕЛЮДИЯ -----------------------------
@@ -84,7 +92,7 @@
 %---------------------
 \end{multicols}
 \end{tcolorbox}
---- END OF PAGE ----
+% --- END OF PAGE ----
 
 
 
@@ -112,7 +120,7 @@
 %---------------------
 \end{multicols}
 \end{tcolorbox}
---- END OF PAGE ----
+% --- END OF PAGE ----
 
 
 
@@ -139,7 +147,7 @@
 %---------------------
 \end{multicols}
 \end{tcolorbox}
---- END OF PAGE ----
+% --- END OF PAGE ----
 
 
 
@@ -359,29 +367,31 @@
 
 
 
- % --- BEGIN OF PAGE ----
-% \newpage
-% \begin{tcolorbox}[colback=white, left=0mm, right=0mm]
-% \begin{multicols}{4}
-% %---------------------0--------------------
+% --- BEGIN OF PAGE ----
+\newpage
+\begin{tcolorbox}[colback=white, left=0mm, right=0mm]
+\begin{multicols}{4}
+%---------------------0--------------------
 % \input{tickets/t_dop08}
-% \vfill\null
-% \columnbreak
-% %---------------------1--------------------
-% \input{tickets/t_dop06}
-% \vfill\null
-% \columnbreak
-% %---------------------2--------------------
+\vfill\null
+\columnbreak
+%---------------------1--------------------
+% WARNING: в small версии вырезано огромное доказательство теоремы Лагранжа
+% про приведение к каноническому виду
+\input{tickets/t_dop06_small}
+\vfill\null
+\columnbreak
+%---------------------2--------------------
 % \input{tickets/t_dop04}
-% \vfill\null
-% \columnbreak
-% %---------------------3--------------------
+\vfill\null
+\columnbreak
+% ---------------------3--------------------
 % \input{tickets/t_dop02}
-% \vfill\null
-% \columnbreak
+\vfill\null
+\columnbreak
 %---------------------
-% \end{multicols}
-% \end{tcolorbox}
+\end{multicols}
+\end{tcolorbox}
 % --- END OF PAGE ----
 
 
