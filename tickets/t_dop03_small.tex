@@ -1,0 +1,150 @@
+\textbf{\LARGE dop 3. Почленное интегрирование и дифференцирование функциональных рядов.}
+
+\textbf{Равномерная сходимость на множестве}
+
+\mathLet \ ф.п. $f_n(x) \xrightarrow[\{x\}]{}  f(x)$, где $\{x\} \in E^m$ \\
+Ф.п. $\{f_n(x)\}$ сходится к функции $f(x)$ \textbf{равномерно на множестве} $\{x\}$ \ $f_n(x)\underset{\{x\}}{\rightrightarrows}f(x)$, если для $\forall \varepsilon > 0 \ \exists$ номер $N(\varepsilon)$: для $\forall n: n \ge N(\varepsilon)$ и для $\forall x \in \{x\}$ выполняется
+
+\begin{equation}
+    |f_n(x) - f(x)| < \varepsilon
+\end{equation}
+
+\bigbreak
+Функциональный ряд называется \textbf{равномерно сходящимся} на множестве $\{x\}$ к сумме $S(x)$, если п-ть $\{S_n(x)\}$ его частичных сумм сходится равномерно на $\{x\}$ к предельной функции $S(x)$.
+
+\bigbreak
+\textbf{Критерий Коши равномерной сх-ти.} \\
+Ф.п. $\{f_n(x)\}\underset{\{x\}}{\rightrightarrows}f(x) \Leftrightarrow $ для $\forall \varepsilon > 0 \ \exists N(\varepsilon): |f_{n+p}(x) - f_n(x)| < \varepsilon \text{ при } \forall n: n \ge N(\varepsilon), \forall p \in \mathbb{N}, \forall x \in \{x\}$.
+
+\bigbreak
+\textbf{Почленный переход к пределу (теорема)}. \\
+Если ф.п. $\{f_n(x)\} \underset{\{x\}}{\rightrightarrows}f(x)$ и для $\forall n \ \exists \lim_{x \rightarrow x_0}{f_n(x)} $, то и предельная функция $f(x)$ имеет предел в точке $x_0$, причем
+\begin{equation}
+    \lim_{x \rightarrow x_0}{f(x)} = \lim_{x \rightarrow x_0}{(\lim_{n \rightarrow \infty}{f_n(x)})} = \lim_{n \rightarrow \infty}{(\lim_{x \rightarrow x_0}{f_n(x)})}
+\end{equation}
+
+\bigbreak
+\textbf{Почленное интегрирование (теорема).} \\
+Если ф.п. $\{f_n(x)\} \underset{[\,a,b]\, }{\rightrightarrows}f(x)$ и если $\forall f_n(x)$ интегрируема на $[\,a,b]\,$, то и предельная функция $f(x)$ интегрируема на $[\,a,b]\,$.
+
+\begin{equation}
+    \lim_{n \rightarrow \infty}{\int_{a}^{b} f_n(x) \,dx} =  \int_{a}^{b} \lim_{n \rightarrow \infty}{f_n(x)} \,dx = \int_{a}^{b} f(x) \,dx.
+\end{equation}
+
+\begin{proof}
+Докажем, что предельная функция $\boldsymbol{f(x)}$ \textbf{интегрируема} на $[\,a,b]\,$ \\
+
+Фиксируем $\forall \varepsilon > 0$. Достаточно доказать, что для $f(x)$ найдется хотя бы одно разбиение сегмента $[\,a,b]\,$: $S-s<\varepsilon$, где $S$ и $s$ - верхняя и нижняя суммы разбиения для функции $f(x)$. \\ 
+
+Для этого достаточно доказать, что для выбранного $\varepsilon$ $\exists$ номер $n$: для $\forall$ разбиения сегмента $[\,a,b]\,$ выполняется
+\begin{equation}\label{S-s<e}
+    S-s \le (S_n - s_n) + \frac{\varepsilon}{2},
+\end{equation}
+где $S,s-$ суммы для $f(x)$, $S_n,s_n -$ суммы для $f_n(x)$. \\
+
+Так как $f_n(x)$ интегрируемы на $[\,a,b]\,$, то можно выбрать разбиение: $S_n-s_n < \frac{\varepsilon}{2}$. Если для некоторого разбиения для некоторого $n$ будет д-но (\ref{S-s<e}), то будет верно $S -s < \varepsilon$, а это и будет означать интегрируемость предельной функции $f(x)$ на $[\,a,b]\,$. \\
+
+Рассмотрим произвольное разбиение $\{x_k\} (k=1,2, ..., m)$ сегмента $[\,a,b]\,$ и обозначим символом $\omega_k(f_n) $ колебание на $k$-м частичном сегменте $[\,x_{k-1}, x_k]\,$ функции $f_n(x)$ (колебание функции $f(x)$ на сегменте $X$ есть разность $\sup_{x \in X}{f(x)} - \inf_{x \in X}{f(x)}$). \\
+
+Неравенство (\ref{S-s<e}) будет доказано, если для достаточно большого $n$ будет выполнено:
+\begin{equation}\label{wk<wkn}
+    \omega_k(f) \le \omega_k(f_n) + \frac{\varepsilon}{2(b-a)}.
+\end{equation}
+Так как, умножив (\ref{wk<wkn}) на $\Delta x_k = x_k - x_{k-1}$ и суммируя получающееся неравенство по всем $k=1,2, ..., m,$ получим (\ref{S-s<e}) \\
+Для $\forall n$ и $\forall$ 2-ух точек $x', x'' \in [\,x_{k-1}, x_k]\,$ справедливо $f(x') - f(x'') \equiv [\, f(x') - f_n(x')]\, +  [\, f_n(x') - f_n(x'')]\, +  [\, f_n(x'') - f(x'')]\,,$ из которого следует 
+
+\begin{equation}\label{modules}
+    |f(x') - f(x'')| \le |f(x') - f_n(x')| +  |f_n(x') - f_n(x'')| +  |f_n(x'') - f(x'')|,
+\end{equation}
+
+В силу  $\{f_n(x)\} \underset{[\,a,b]\, }{\rightrightarrows}f(x)$ для выбранного нами $\varepsilon$ $\exists n: \forall x \in [\,a,b]\,$ выполняется
+
+\begin{equation}\label{|f_n(x)-f(x)|}
+    |f_n(x) - f(x)| < \frac{\varepsilon}{4(b-a)}.
+\end{equation}
+
+Используя в правой части (\ref{modules}) неравенство (\ref{|f_n(x)-f(x)|}) получим
+
+\begin{equation}\label{|f(x')-f(x'')|}
+    |f(x') - f(x'')| \le |f_n(x') - f_n(x'')| + \frac{\varepsilon}{2(b-a)}
+\end{equation}
+
+Так как для $\forall x',x'' \in [\,x_{k-1}, x_k]\,$ справедливо $|f_n(x')-f_n(x'')| \le \omega_k(f_n)$, то из (\ref{|f(x')-f(x'')|}) получим
+
+\begin{equation}\label{|f(x') - f(x'')|<=omega+e}
+    |f(x') - f(x'')| \le \omega_k(f_n) + \frac{\varepsilon}{2(b-a)}
+\end{equation}
+
+Обозначим верхнюю и нижнюю точные грани $f(x)$ на $[\,x_{k-1}, x_k]\,$ как $M_k$ и $m_k$. В силу определения точной грани $\exists$ 2 п-ти точек $\{x_p'\}$ и $\{x_p''\}$ сегмента $[\,x_{k-1}, x_k]\,: \ \lim_{p \rightarrow \infty}{x_p'} = M_k, \lim_{p \rightarrow \infty}{x_p''} = m_k$.
+
+В силу (\ref{|f(x') - f(x'')|<=omega+e}) для $\forall p$ справедливо
+\begin{equation}\label{|f(x_p')-f(x_p'')|}
+    |f(x_p')-f(x_p'')| \le \omega_k(f_n) + \frac{\varepsilon}{2(b-q)}
+\end{equation}
+
+Переходя в (\ref{|f(x_p')-f(x_p'')|}) к пределу слева получим $M_k - m_k = \omega_k(f)$. Итого в пределе получаем (\ref{wk<wkn}). Интегрируемость $f(x)$ доказана. \\
+
+Теперь докажем почленную интегрируемость. Достаточно д-ть, что для $\forall \varepsilon > 0 \ \exists N(\varepsilon):$ для $\forall n \ge N(\varepsilon):$ $\bigg|\int_{a}^{b} f_n(x) \,dx - \int_{a}^{b} f(x) \,dx\bigg| < \varepsilon$. \\
+
+В силу $\{f_n(x)\} \underset{[\,a,b]\, }{\rightrightarrows}f(x)$ следует, что $\exists N(\varepsilon):$ для $\forall x \in [\,a,b]\,$ и для $\forall n \ge N(\varepsilon)$ выполняется $|f_n(x)-f(x)| < \frac{\varepsilon}{2(b-a)}$. Учитывая последнее неравенство получаем:
+
+$\bigg|\int_{a}^{b} f_n(x) \,dx - \int_{a}^{b} f(x) \,dx\bigg| = \bigg|\int_{a}^{b} [\, f_n(x) - f(x)]\,\,dx\bigg| \le \int_{a}^{b} |f_n(x) - f(x)|\,dx \le \frac{\varepsilon}{2(b-a)}\int_{a}^{b}\,dx = \frac{\varepsilon}{2} \le \varepsilon$.
+\end{proof}
+
+\bigbreak
+\textbf{Почленное дифференцирование (теорема).} \\
+Если каждая функция $f_n(x)$ имеет производную на $[\,a,b]\,$, причем п-ть $\{f_n'(x)\}$ cх-ся равномерно на $[\,a,b]\,$, а сама п-ть $\{f_n(x)\}$ сх-ся хотя бы в одной точке $x_0 \in [\,a,b]\,$, то $\{f_n(x)\} \underset{[\,a,b]\, }{\rightrightarrows}f(x)$, причем $\lim_{n \rightarrow \infty}{\{f_n'(x)\}} = f'(x)$ для $\forall x \in [\,a,b]\,$.
+
+\begin{proof}
+    Сначала докажем, что $\{f_n(x)\} \underset{[\,a,b]\, }{\rightrightarrows}f(x)$. \\
+    Из сх-ти $\{f_n(x_0)\}$ и из равномерной сх-ти $\{f_n'(x)\}$ на $[\,a,b]\,$ следует, что для $\forall \varepsilon > 0 \ \exists N(\varepsilon):$
+
+    \begin{equation}\label{koshi_for_fn_f'n}
+        |f_{n+p}(x_0) - f_n(x_0)| < \frac{\varepsilon}{2},\ |f_{n+p}'(x) - f_n'(x)| < \frac{\varepsilon}{2(b-a)}
+    \end{equation}
+
+    для всех $n \ge N(\varepsilon), \forall p \in \mathbb{N}, \forall x \in [\,a,b]\,$.
+
+    Возьмем $\forall x \in [\,a,b]\,$. Т.к. для функции $[\,f_{n+p}(t) - f_n(t)]\,$ при любых фиксированных $n$ и $p$ на сегменте, ограниченном точками $x$ и $x_0$, все условия теоремы Лагранжа, то между $x$ и $x_0 \ \exists \xi: [\,f_{n+p}(x) - f_n(x)]\, - [\,f_{n+p}(x_0) - f_n(x_0)]\, = [\,f_{n+p}'(\xi) - f_n'(\xi)]\,(x-x_0)$. \\
+
+    Из (\ref{koshi_for_fn_f'n}) и последнего равенства $|f_{n+p}(x) - f_n(x)| < \varepsilon$ (для $\forall x \in [\,a,b]\,, \forall n \ge N(\varepsilon), \forall p \in \mathbb{N}$).
+    
+    В силу критерия Коши $\{f_n(x)\} \underset{[\,a,b]\, }{\rightrightarrows}f(x)$, где $f(x)-$некоторая предельная функция.
+
+    Теперь докажем, что $f'(x) = \lim_{n \rightarrow \infty}{\{f_n'(x)\}}, \forall x \in [\,a,b]\,$.
+
+    Фиксируем $x \in [\,a,b]\,$ и для него $\delta > 0: \delta-$окрестность точки $x$ содержалась целиком в $[\,a,b]\,$. Если $x-$граничная, то берется полуокрестность. \\
+
+    Обозначим символом $\{\Delta x\}$ множество всех чисел $\Delta x$: $0 < |\Delta x| < \delta, \ x \in (a, b);\ 0 < \Delta x < \delta, \ x = a;\ -\delta < \Delta x < 0, \ x = b;\ $.
+    Докажем, что п-ть
+    \begin{equation}\label{phi_functions}
+        \phi_n(\Delta x) = \frac{f_n(x + \Delta x) - f_n(x)}{\Delta x}
+    \end{equation}
+    сходится равномерно на $\{\Delta x\}$.
+    В силу критерия Коши равномерной сх-ти $\{f_n'(x)\}$, $\exists N(\varepsilon):$ для $\forall x \in [\,a,b]\,, \forall n \ge N(\varepsilon), \forall p \in \mathbb{N}$ выполняется
+
+    \begin{equation}\label{koshi_for_fn'}
+        |f_{n+p}'(x) - f_n'(x)| < \varepsilon
+    \end{equation}
+    Фиксируем любое $\Delta x \in \{\Delta x\}$ и при любых фиксированных $n$ и $p$ применим к функции  $[\,f_{n+p}(t)-f_n(t)]\,$ на $[\,x, x+\Delta x]\,$ теорему Лагранжа. 
+    Согласно этой теореме $\exists \theta: \ 0 < \theta < 1$  
+    \begin{align*}
+        \frac{[\,f_{n+p}(x + \Delta x) - f_n(x + \Delta x)]\, - [\,f_{n+p}(x) - f_n(x)]\,}{\Delta x} = \\ = f_{n+p}'(x + \theta \Delta x) - f_n'(x + \theta \Delta x)
+    \end{align*}
+
+    Последнее равенство можно переписать в виде
+    \begin{equation*}
+        \phi_{n+p}(\Delta x) - \phi_n(\Delta x) = f_{n+p}'(x + \theta \Delta x) - f_n'(x + \theta \Delta x)
+    \end{equation*}
+
+    Из этого равенства и из (\ref{koshi_for_fn'}) следует $|\phi_{n+p}(\Delta x) - \phi_n(\Delta x)| < \varepsilon$, $\forall \Delta x \in \{\Delta x\}, \forall n \ge N(\varepsilon), \forall p \in \mathbb{N}$
+
+
+    В силу критерия Коши п-ть $\{\phi_n(\Delta x)\}$ равномерно сходится на $\{\Delta x\}$. Тогда к $\{\phi_n(\Delta x)\}$ можно применить теорему о почленном предельном переходе в точке  $\Delta x = 0$. \\
+    $\frac{f(x + \Delta x) - f(x)}{\Delta x}$ - предельная функция для $\{\phi_n(\Delta x)\}$. Согласно теореме:
+  
+    \begin{align*}
+        \lim_{\Delta x \rightarrow 0}{\frac{f(x + \Delta x) - f(x)}{\Delta x}} = \lim_{\Delta x \rightarrow 0}{[\,\lim_{n \rightarrow \infty}{\phi_n(\Delta x)}]\,} = \lim_{n \rightarrow \infty}{[\,\lim_{\Delta x \rightarrow 0}{\phi_n(\Delta x)}]\,} = \\ = \lim_{n \rightarrow \infty}{f_n'(x)}.
+    \end{align*}
+    Это и означает $f'(x) = \lim_{n \rightarrow \infty}{\{f_n'(x)\}}, \forall x \in [\,a,b]\,$.
+\end{proof}
