@@ -1,32 +1,5 @@
 \textbf{\LARGE dop 3. Почленное интегрирование и дифференцирование функциональных рядов.}
 
-% \bigbreak
-% \mathLet \ $E^m - m-$мерное евклидово пространство и в нем задано множество $\{x\}$ с элементами  $x = (x_1, x_2, ..., x_m)$. \mathLet \ каждому числу $n \in \mathbb{N}$ ставится в соответствие функция $f_n(x)$, определенная на множестве $\{x\}$. Множество занумерованных функций $f_1(x), f_2(x), ...,f_n(x), ...$ называется \textbf{функциональной последовательностью} $\{f_n(x)\}$.
-% \bigbreak
-
-% Далее будем обозначать функциональную последовательность как \textbf{ф.п.}.
-
-% Сумма для функциональной последовательности $\{u_n(x)\}$ с областью определения $\{x\}$
-% \begin{equation}
-%     \sum_{n=1}^{\infty}u_n(x) = u_1(x) + u_2(x) + ... + u_n(x)
-% \end{equation}
-% называется \textbf{функциональным рядом} с областью определения $\{x\}$. 
-
-% Доказательства теорем для \textbf{ф.п.} легко переформулируются на случай рядов, учитывая, что сходимость ряда равносильна сходимости ф.п. его частичных сумм.
-% \bigbreak
-
-% \bigbreak
-% \textbf{Сходимость функциональной последовательности (ряда) в точке.}
-
-% \mathLet \ $\{x\} \in E^m$ - область определения данной ф.п..  Фиксируем $\forall x_0 = (x_1^0, x_2^0, ..., x_m^0) \in \{x\}$ и рассмотрим все члены ф.п. в точке $x_0$. Если указанная числовая п-ть (числовой ряд) сходится, то ф.п (ф. ряд) сходится в точке $x_0$.
-% \bigbreak
-
-% Множество всех $x_0$, в которых сходится ф.п (ф. ряд) называется \textbf{областью сходимости} ф.п. (ф. ряда).
-% \bigbreak
-
-% \textbf{Предельная функция}. Совокупность пределов, взятых для всех точек $x \in \{x\}$, порождает множество значений функции $f(x)$, определенной на $\{x\}$. $f(x)$ \textbf{называется предельной функцией} ф. п-ти $\{f_n(x)\}$
-% \bigbreak
-
 \textbf{Равномерная сходимость на множестве}
 
 \mathLet \ ф.п. $f_n(x) \xrightarrow[\{x\}]{}  f(x)$, где $\{x\} \in E^m$ \\
@@ -41,7 +14,10 @@
 
 \bigbreak
 \textbf{Критерий Коши равномерной сх-ти.} \\
-Ф.п. $\{f_n(x)\}\underset{\{x\}}{\rightrightarrows}f(x) \Leftrightarrow $ для $\forall \varepsilon > 0 \exists N(\varepsilon): |f_{n+p}(x) - f_n(x)| < \varepsilon$ при $\forall n: n \ge N(\varepsilon), \forall p \in \mathbb{N}, \forall x \in \{x\}$.
+Ф.п. $\{f_n(x)\}\underset{\{x\}}{\rightrightarrows}f(x) \Leftrightarrow $ для $\forall \varepsilon > 0 \ \exists N(\varepsilon): $
+$$
+    |f_{n+p}(x) - f_n(x)| < \varepsilon \text{ для } \forall n: n \ge N(\varepsilon), \forall p \in \mathbb{N}, \forall x \in \{x\}
+$$.
 
 \bigbreak
 \textbf{Почленный переход к пределу (теорема)}. \\
@@ -50,11 +26,6 @@
     \lim_{x \rightarrow x_0}{f(x)} = \lim_{x \rightarrow x_0}{(\lim_{n \rightarrow \infty}{f_n(x)})} = \lim_{n \rightarrow \infty}{(\lim_{x \rightarrow x_0}{f_n(x)})}
 \end{equation}
 
-% Если ф. ряд $\sum_{k=1}^{\infty}u_k(x) \underset{\{x\}}{\rightrightarrows}S(x)$ и для $\forall u_k(x) \ \exists \lim_{x \rightarrow x_0}{u_k(x)} = b_k$, то
-% \begin{equation}
-%     \lim_{x \rightarrow x_0}{S(x)} = \sum_{k=1}^{\infty}\lim_{x \rightarrow x_0}{u_k(x)} = \sum_{k=1}^{\infty}b_k
-% \end{equation}
-% (т.е. Символ $\lim$ и символ $\sum$ можно переставлять местами)
 
 \bigbreak
 \textbf{Почленное интегрирование (теорема).} \\
@@ -121,7 +92,11 @@
 
 В силу $\{f_n(x)\} \underset{[\,a,b]\, }{\rightrightarrows}f(x)$ следует, что $\exists N(\varepsilon):$ для $\forall x \in [\,a,b]\,$ и для $\forall n \ge N(\varepsilon)$ выполняется $|f_n(x)-f(x)| < \frac{\varepsilon}{2(b-a)}$. Учитывая последнее неравенство получаем:
 
-$\bigg|\int_{a}^{b} f_n(x) \,dx - \int_{a}^{b} f(x) \,dx\bigg| = \bigg|\int_{a}^{b} [\, f_n(x) - f(x)]\,\,dx\bigg| \le \int_{a}^{b} |f_n(x) - f(x)|\,dx \le \frac{\varepsilon}{2(b-a)}\int_{a}^{b}\,dx = \frac{\varepsilon}{2} \le \varepsilon$.
+\begin{align}
+    \bigg|\int_{a}^{b} f_n(x) \,dx - \int_{a}^{b} f(x) \,dx\bigg| = \bigg|\int_{a}^{b} [\, f_n(x) - f(x)]\,\,dx\bigg| \le \int_{a}^{b} |f_n(x) - f(x)|\,dx \le \notag \\ 
+    \le \frac{\varepsilon}{2(b-a)}\int_{a}^{b}\,dx = \frac{\varepsilon}{2} \le \varepsilon.
+\end{align}
+
 \end{proof}
 
 \bigbreak
@@ -183,6 +158,4 @@ $\bigg|\int_{a}^{b} f_n(x) \,dx - \int_{a}^{b} f(x) \,dx\bigg| = \bigg|\int_{a}^
 \end{proof}
 
 
-
-    
-
+[\cite{ilin_matan}]
