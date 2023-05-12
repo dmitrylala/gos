@@ -1,0 +1,114 @@
+% БОЛЬШАЯ КНИЖНАЯ ВЕРСИЯ
+
+\documentclass[oneside,final,8pt,]{extreport}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+\usepackage{vmargin}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{makecell}  % для переноса строк в таблицах
+\usepackage[backend=biber, style=authortitle, natbib=false]{biblatex}  % для ссылок на литературу
+\addbibresource{references.bib}
+
+\usepackage{graphicx}
+\usepackage{wrapfig}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage[many]{tcolorbox}
+\usepackage[shortlabels]{enumitem}
+\usepackage{MathNotesTex}
+
+\setpapersize{A5}  % for big versiom -- A5, for small -- A2
+\setmarginsrb{1cm}{1.5cm}{1cm}{1.5cm}{0pt}{0mm}{0pt}{13mm}
+\usepackage{indentfirst}
+\sloppy
+\usepackage{multicol}
+\setlength{\columnseprule}{1pt}
+
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+
+\newcommand{\todo}[1]{\colorbox{red}{#1}}
+
+\newcommand{\mathLet}{\scalebox{1.}[1.5]{$\sqsupset$}}  % math symbol 'let'
+
+\usepackage{fontawesome}  % to import '\faEye' -- math symbol 'eye'
+
+\usepackage{pst-optic}
+\usepackage{graphicx}
+\newcommand*\latseye{%
+       \scalebox{0.25}{\begin{pspicture}(-1,-1)(1,1)
+\rput(1,-.5){\eye}
+\end{pspicture}\kern1em}}
+
+\newcommand*\latdeye{%
+       \reflectbox{\scalebox{0.25}{\begin{pspicture}(-1,-1)(1,1)
+\rput(1,-.5){\eye}
+\end{pspicture}\kern.2em}}}
+
+\everymath{\displaystyle}
+\setlength\parindent{0pt}
+
+\newlist{itemize2}{enumerate}{1}
+\setlist[itemize2,1]{label = $\bullet$, leftmargin=0em, itemindent = 1.2em}
+
+\renewenvironment{itemize}
+{\begin{itemize2}}
+{\end{itemize2}}
+
+\begin{document}
+
+
+\include{tickets/title}
+
+% -------------------------------------------- OSN -
+
+\include{tickets/t_osn01}
+\include{tickets/t_osn02}
+\include{tickets/t_osn03}
+\include{tickets/t_osn04}
+\include{tickets/t_osn05}
+\include{tickets/t_osn06}
+\include{tickets/t_osn07}
+\include{tickets/t_osn08}
+\include{tickets/t_osn09}
+\include{tickets/t_osn10}
+\include{tickets/t_osn11}
+\include{tickets/t_osn12}
+\include{tickets/t_osn13}
+\include{tickets/t_osn14}
+\include{tickets/t_osn15}
+\include{tickets/t_osn16}
+\include{tickets/t_osn17}
+\include{tickets/t_osn18}
+\include{tickets/t_osn19}
+\include{tickets/t_osn20}
+\include{tickets/t_osn21}
+\include{tickets/t_osn22}
+
+\include{tickets/t_osn25}
+\include{tickets/t_osn26}
+\include{tickets/t_osn27}
+\include{tickets/t_osn28}
+\include{tickets/t_osn29}
+\include{tickets/t_osn30}
+\include{tickets/t_osn31}
+\include{tickets/t_osn32}
+\include{tickets/t_osn33}
+\include{tickets/t_osn34}
+
+% -------------------------------------------- DOP -
+
+\include{tickets/t_dop12}
+\include{tickets/t_dop23}
+
+
+% --- BEGIN OF REFERENCES PAGE ----
+\newpage
+\printbibliography
+% --- END OF REFERENCES PAGE ---
+
+\end{document}
