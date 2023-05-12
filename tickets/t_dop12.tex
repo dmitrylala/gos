@@ -1,6 +1,6 @@
 \textbf{\LARGE dop 12. Теорема Гильберта-Шмидта.}
 
-\rule{275pt}{0.5pt} 
+\rule{275pt}{0.5pt}
 
 \textbf{Базовая теория:}
 
@@ -16,9 +16,9 @@
 
 6. \textbf{Слабая сходимость} $ x_{n}\xrightarrow{w} x$ означает, что $\forall$ $h \in H \; (x_n, h) \to (x, h)$.
 
-\rule{275pt}{0.5pt} 
+\rule{275pt}{0.5pt}
 
-$\mathLet H$ -- гильбертово пространство. \faEye\; оператор $A:\;H\to H$ -- линейный вполне непрерывный самосопряженный оператор. Введем обозначения: 
+$\mathLet H$ -- гильбертово пространство. \faEye\; оператор $A:\;H\to H$ -- линейный вполне непрерывный самосопряженный оператор. Введем обозначения:
 $$
 M = \sup_{\|x\|= 1}\big(Ax,\,x\big), \quad -m = \inf_{\|x\|= 1}\big(Ax,\,x\big).
 $$
@@ -38,18 +38,18 @@ $$
 
 \textbf{Теорема Гильберта-Шмидта:\;} В замыкании образа $\overline{R(A)}$ оператора $A$ существует полная ортонормированная система собственных векторов оператора $A$, отвечающих $\lambda \ne 0$.
 
-$\blacktriangleright\;$ 
-\textbf{1.} В силу доказанной теоремы $\exists \,\lambda_1 \in \mathbb{R}, \;\exists\,x_1\in H: \; |\lambda_1| = \|A\|, \; A x_1 = \lambda_1 x_1, \; \|x_1\| = 1$. 
-Обозначим $H_1 = \mathcal{L} (x_1)$ -- линейная оболочка вектора $x_1$. Легко видеть, что $H_1^\bot$ инвариантно относительно $A$: если $x \in H_1^\bot$, т.е. $x\bot x_1$, то $\displaystyle \big(A x,\,x_1\big) = \{\textit{самосопряженность}\}=\big(x,\, A x_1\big) = \lambda_1 \big(x,\,x_1\big) = \{ x\bot x_1\} = 0 \;\implies\; A x \in H_1^\bot$. 
+$\blacktriangleright\;$
+\textbf{1.} В силу доказанной теоремы $\exists \,\lambda_1 \in \mathbb{R}, \;\exists\,x_1\in H: \; |\lambda_1| = \|A\|, \; A x_1 = \lambda_1 x_1, \; \|x_1\| = 1$.
+Обозначим $H_1 = \mathcal{L} (x_1)$ -- линейная оболочка вектора $x_1$. Легко видеть, что $H_1^\bot$ инвариантно относительно $A$: если $x \in H_1^\bot$, т.е. $x\bot x_1$, то $\displaystyle \big(A x,\,x_1\big) = \{\textit{самосопряженность}\}=\big(x,\, A x_1\big) = \lambda_1 \big(x,\,x_1\big) = \{ x\bot x_1\} = 0 \;\implies\; A x \in H_1^\bot$.
 Сужение оператора $A$ на подпространство $H_1^\bot$ обладает теми же свойствами (линейность, ограниченность, компактность, самосопряженность) $\implies \; \exists \, \lambda_2 \in \mathbb{R}, \; \exists\,x_2 \in H_1^{\bot} \,: \; |\lambda_2| = \big\|A\big|_{H_1^\bot}\big\| \leq |\lambda_1|, \; Ax_2 = \lambda_2 x_2, \; \|x_2\| = 1$ (если $\lambda_2 = 0,$ то $R(A) = H_1$, и все доказано). Аналогично строим $H_2 = \mathcal{L}(x_1, x_2), $  и т.д.
 
 \textbf{2.} Если на каком-то этапе $\lambda_n = 0$, то все доказано, так как образ $R(A)$ конечномерный, следовательно, существует ОНМ система векторов.
 
-Предположим, что $|\lambda_1| \geq |\lambda_2| \geq\ldots> 0$, покажем, что построенная система $\{x_n\}$ полна в $\overline{R(A)}$. Пусть $y \in R(A)$, тогда $\exists x \in H: \; A x = y$. Приблизим элемент конечной суммой его ряда Фурье: 
+Предположим, что $|\lambda_1| \geq |\lambda_2| \geq\ldots> 0$, покажем, что построенная система $\{x_n\}$ полна в $\overline{R(A)}$. Пусть $y \in R(A)$, тогда $\exists x \in H: \; A x = y$. Приблизим элемент конечной суммой его ряда Фурье:
 $$
 y - \sum\limits_{k=1}^n (y, x_k) \, x_k \;=\; A x - \sum\limits_{k=1}^n \big(x, A x_k\big) x_k\; =\; A \,\left(x - \sum\limits_{k=1}^n \big(x, x_k\big) x_k \right)
 $$
-Так как $\displaystyle\;\sum\limits_{k=1}^n \big(x, x_k\big) x_k$ -- проекция $x$ на $H_n$, то $\;\displaystyle x - \sum\limits_{k=1}^n \big(x, x_k\big) x_k \;\in\; H_n^\bot $. Тогда имеем 
+Так как $\displaystyle\;\sum\limits_{k=1}^n \big(x, x_k\big) x_k$ -- проекция $x$ на $H_n$, то $\;\displaystyle x - \sum\limits_{k=1}^n \big(x, x_k\big) x_k \;\in\; H_n^\bot $. Тогда имеем
 $$
 \bigg\| y - \sum\limits_{k=1}^n \big(y, x_k\big) x_k  \bigg\| \leq \bigg\| A \,\left(x - \sum\limits_{k=1}^n \big(x, x_k\big) x_k \right) \bigg\| \leq \big\|A\big|_{H_n^\bot}\big\| \;=$$
 $$ =\; |\lambda_{n+1}| \xrightarrow[n\to\infty]{} 0.
@@ -58,27 +58,27 @@ $$
 
 \textbf{Следствие:\;} Так как $H = \overline{R(A)} \oplus \ker(A)$, то, дополнив базис подпространства $\overline{R(A)}$ базисом подпространства $\ker(A)$ (если последнее ненулевое), получим ОНБ в $H$.
 
-\rule{275pt}{0.5pt} 
+\rule{275pt}{0.5pt}
 
 \textbf{Теорема Гильберта-Шмидта для интегрального оператора}
 
-Рассмотрим интегральный оператор $\; (A x) (t) = \int\limits_D K(t, \tau)\, x(\tau)\,d\, \tau, \;\; t \in D$, где 
+Рассмотрим интегральный оператор $\; (A x) (t) = \int\limits_D K(t, \tau)\, x(\tau)\,d\, \tau, \;\; t \in D$, где
 
 1. $K(t, \tau) = \overline{K(\tau, t)}$ (комплексное сопряжение);\\
 2. Область $D$ ограничена;\\
-3. $\int\limits_D |K(t, \tau)|^2 \,d\,\tau\; \leq \; C \;\; \forall t \in D$.
+3. $\int\limits_D |K(t, \tau)|^2 \,dt\,d\,\tau\; \leq \; C \;\; \forall t \in D$.
 
 Далее полагаем $H = L_2 (D)$ -- линейное пространство функций, для которых существует интеграл $\int\limits_D |f|^2 \,d\tau$, с нормой $\|f\|_2 = \left(\int\limits_D |f|^2 \,d\tau\right)^{1/2}$.
 
 \textbf{Теорема:\;} Если функция $y(t)$ истокообразно представима, т.е. представима в виде $y(t) = (A x) (t)$, то ряд Фурье по собственным функциям интегрального оператора сходится абсолютно и равномерно к функции $y(t)$ в области $D$.
 
-$\blacktriangleright\;$ Оператор $A$ линейный, ограниченный, вполне непрерывный в силу оценки 
+$\blacktriangleright\;$ Оператор $A$ линейный, ограниченный, вполне непрерывный в силу оценки
 $$
-\int\limits_D \int\limits_D |K(t, \tau)|^2 \,dt\,d\tau \;\leq\; \int\limits_D C\,dt\;=\; C \mu(D) \;=\; const, 
+\int\limits_D \int\limits_D |K(t, \tau)|^2 \,dt\,d\tau \;\leq\; \int\limits_D C\,dt\;=\; C \mu(D) \;=\; const,
 $$
 вытекающей из условия 3, и самосопряженный. Поэтому к оператору $A$ применима теорема Гильберта-Шмидта. В силу этой теоремы ряд Фурье по собственным функциям для функции $y = A x$ сходится в $L_2(D)$, т.е. среднеквадратично. Докажем, что ряд сходится абсолютно и равномерно.
 
-Воспользуемся критерием Коши: 
+Воспользуемся критерием Коши:
 $$
 \sum\limits_{k = n}^{n + m} |(y, \,e_k)| \cdot |e_k(t)| \;=\; \sum\limits_{k = n}^{n + m} |(A x, \,e_k)| \cdot |e_k(t)| \;=\; \{A \textit{\;самосопряженный}\} =$$
 $$=\; \sum\limits_{k = n}^{n + m} |(x, \,A e_k)| \cdot |e_k(t)| \;=\; \{A e_k = \lambda_k e_k \textit{\; по теореме Г.-Ш.}\} =$$
@@ -87,13 +87,15 @@ $$
 
 В силу неравенства Бесселя и условия 3:
 $$
-\sum\limits_{k = 1}^{\infty} |A e_k(t)|^2\;=\; \sum\limits_{k = 1}^{\infty} \bigg|\int\limits_D K(t, \tau)\,e_k(\tau)\,d\tau\bigg|^2 \;\leq\;\int\limits_D |K(t, \tau)|^2 \,d\,\tau\; \leq \; C
+\sum\limits_{k = 1}^{\infty} |A e_k(t)|^2\;=\; \sum\limits_{k = 1}^{\infty} \bigg|\int\limits_D K(t, \tau)\,e_k(\tau)\,dt\,d\tau\bigg|^2 \;\leq\;\int\limits_D |K(t, \tau)|^2 \,dt\,d\,\tau\; \leq \; C
 $$
 Используя полученную оценку, а также то, что коэффициенты ряда Фурье для $x$ малы при $n \to \infty$, следовательно, $\sqrt{ \sum\limits_{k = n}^{n + m} |(x, \,e_k)|^2} < \varepsilon$, имеем:
 $$
 \sum\limits_{k = n}^{n + m} |(y, \,e_k)| \cdot |e_k(t)| \leq \varepsilon \sqrt{C}.
 $$
 Таким образом, ряд по собственным функциям сходится абсолютно и равномерно.\; $\blacksquare$
+
+
 % -------- source --------
 \bigbreak
 [\cite[page 24-26]{funcan_spring}]
