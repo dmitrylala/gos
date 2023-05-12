@@ -1,0 +1,84 @@
+\textbf{\LARGE dop 8. Гильбеpтовы пpостpанства. Теоpема Леви об оpтогональной пpоекции.}
+
+\begin{definition}
+Полное евклидово (унитарное) пространство называется \emph{гильбертовым}. Гильбертово пространство --- это банахово пространство, в котором введено скалярное произведение, согласованное с нормой: $\|x\| = \sqrt{(x, x)}$.
+\end{definition}
+
+\begin{Commentwhite}
+Примеры: пространство $l_2, L_2$. В гильбертовом пространстве справедливо неравенство КБШ: $|(x, y)|\le\|x\|\cdot\|y\|$.
+\end{Commentwhite}
+
+\begin{theorem}
+(Тождество параллелограмма)\\
+Норма в линейном нормированном пространстве порождается некоторым скалярным произведением $\Leftrightarrow$ выполняется \emph{тождество параллелограмма}:
+\begin{equation}
+    \label{тождество параллелограмма}
+    \sqnorm{x + y} + \sqnorm{x - y} = 2\sqnorm{x} + 2\sqnorm{y}.
+\end{equation}
+\end{theorem}
+
+\begin{definition}
+Множество называется \emph{выпуклым}, если вместе с любой парой своих элементов оно содержит и соединяющий их отрезок.
+\end{definition}
+
+\begin{theorem}
+\label{теорема об элементе с наименьшей нормой}
+(Об элементе с наименьшей нормой)
+~\\
+Пусть $M$ --- \emph{замкнутое выпуклое} подмножество гильбертова пространства $H$. Тогда в $M~\exists~!$ элемент с наименьшей нормой. 
+\end{theorem}
+\begin{proofocre}
+~\\
+\boxed{\exists} Обозначим $d = \inf_{x\in M}\norm{x}$ --- требуется показать, что $\exists~!\widetilde{x}\in M\colon\norm{\widetilde{x}}=d$. Рассмотрим последовательность $x_n\in M,~\norm{x_n}\ge d\colon\norm{x_n} \to d$ (такая $\exists$ в силу определения инфимума). Тогда в силу выпуклости $M\colon\frac{x_n + x_m}{2}\in M$ и по определению инфимума $\norm{\frac{x_n + x_m}{2}}\ge d$.
+
+С другой стороны, $\norm{\frac{x_n + x_m}{2}}\le\frac{\norm{x_n}}{2} + \frac{\norm{x_m}}{2}$. Тогда, переходя к пределу при $n,m\to\infty$ в двойном неравенстве:
+$$d\le\norm{\frac{x_n + x_m}{2}}\le\frac{\norm{x_n}}{2} + \frac{\norm{x_m}}{2}$$
+получаем, что $\norm{\frac{x_n + x_m}{2}}\to d$ (по т. о двух милиционерах). Далее, в силу~\ref{тождество параллелограмма}:
+$$ \sqnorm{x_n - x_m} = 2\sqnorm{x_n} + 2\sqnorm{x_m} - 4\sqnorm{\frac{x_n + x_m}{2}} $$
+$\Rightarrow \sqnorm{x_n - x_m} \to 0$, т.е. $x_n$ --- фундаментальна. Тогда, в силу гильбертовости $H$ (следовательно, полноты):
+$\exists\widetilde{x}\in H\colon x_n\to \widetilde{x}$. В силу непрерывности нормы:
+$\norm{\widetilde{x}}=\norm{\lim_{n\to\infty}x_n}=\lim_{n\to\infty}\norm{x_n}=d$, т.е. $\widetilde{x}$ --- искомый элемент, на котором достигается инфимум.
+~\\
+\boxed{!} Пусть $\exists x'\in H\colon \norm{x'} = d$. Тогда:
+$$d\le\norm{\frac{x' + \widetilde{x}}{2}}\le\frac{\norm{x'}}{2} + \frac{\norm{\widetilde{x}}}{2} = d \Rightarrow \norm{\frac{x' + \widetilde{x}}{2}} = d$$
+Тогда, в силу~\ref{тождество параллелограмма}:
+$$\sqnorm{\widetilde{x} - x'} = 2\sqnorm{\widetilde{x}} + 2\sqnorm{x'}-4\sqnorm{\frac{x' + \widetilde{x}}{2}}=0 \Rightarrow \widetilde{x} = x'$$
+\end{proofocre}
+
+\begin{definition}
+Множество всех элементов, ортогональных данному множеству $L$, называется \emph{ортогональным дополнением} к $L$.\\
+\emph{Обозн:} $L^{\perp}$.
+\end{definition}
+
+\begin{theorem}
+(Теорема Леви об ортогональной проекции)
+~\\
+Пусть $E$ --- \emph{замкнутое} линейное подмножество $H$. Тогда
+$$H = E \oplus E^\perp,$$
+т.е. $\forall v\in H~\exists~!~u\in E,~w\in E^\perp\colon v = u + w$, $u$ называется \emph{проекцией} $v$ на $E$, $w$ --- перпендикуляром.
+\end{theorem}
+\begin{proofocre}
+(док-во по лекциям Сергеева, см. ссылки)~\\
+\boxed{\exists}
+По теореме об элементе с наименьшей нормой~(\ref{теорема об элементе с наименьшей нормой}) $\exists!u\in E$, ближайший к $v$, пусть $w \coloneqq v - u,~\norm{w}=d$. Покажем, что $w\in E^\perp$. Для $\forall z\in E,~\forall t\in\bbR$ имеем
+\begin{multline*}
+    d^2 \le \sqnorm{v - (u + tz)} = \sqnorm{w - tz} = d^2 - 2t\text{Re}(w, z) + t^2\sqnorm{z} \Rightarrow\\
+    \Rightarrow 2t\text{Re}(w, z) \le t^2\sqnorm{z}~\forall t\in\bbR \Rightarrow \text{Re}(w, z) = 0
+\end{multline*}
+Аналогично, используя $it$ вместо $t$, показывается, что $\text{Im}(w, z) = 0$, то есть\\ $(w, z) = 0~\forall z\in E$ и $w\in E^\perp$.
+
+\boxed{!} Пусть $v = u_1 + w_1$ --- другое представление, тогда имеем
+$$u - u_1 = w_1 - w \coloneqq z \in E\cap E^\perp \Rightarrow (z, z) = 0,$$
+т.е. $z = 0$ и разложения совпадают.
+\end{proofocre}
+
+\begin{corollary}
+Если $\text{dim}E = 1$, т.е. $E = \big\{ v \big| v = \lambda e,~e\in E,~\norm{e} = 1  \big\}$, то в вышеуказанном разложении $u = (v,e)e$.
+\end{corollary}
+
+
+
+% -------- source --------
+\bigbreak
+[\cite{funcan_spring}]
+[\cite{funcan_sergeev_lections}]
