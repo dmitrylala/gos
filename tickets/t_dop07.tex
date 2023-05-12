@@ -1,0 +1,130 @@
+\textbf{\LARGE dop 7. Пpинцип сжимающих отобpажений в полных метpических пpостpанствах. Пpимеpы пpименения.}  \\
+\textbf{\large Основные понятия} \\
+\textbf{Определение. Метрическим пространством M}
+называется множество элементов $x, y, ...,$ в котором любой паре элементов $x, y$ поставлено в соответствие некоторое число $d(x, y)$, называемое метрикой или расстоянием, удовлетворяющее следующим аксиомам:
+\begin{enumerate}
+    \item $d(x, y) \geq 0$, причем $d(x, y)=0 \iff x=y$.
+    \item $d(x, y) = d(y, x)$.
+    \item $d(x, y) \leq d(x, z) + d(z, y)$ $\forall x,y,z \in M$ (неравенство треугольника)
+\end{enumerate}
+
+Примеры.
+\begin{enumerate}
+    \item $\mathbb{R}$, $d(x,y)=|x-y|$.
+    \item $\mathbb{R}^n$, $d(x, y) = \sqrt{(x_1-y_1)^2+...+(x_n-y_n)^2}$.
+    \item $\mathbb{C}$, $d(z_1, z_2) = |z_1-z_2|$.
+    \item $C[a,b]$, $d(f, g) = \max_{x \in [a,b]}|f(x)-g(x)|$.
+\end{enumerate}
+
+\textbf{Определение}. Последовательность $\{x_n\}_{n=1}^{\infty}$, где все $x_n \in M$, называется \textbf{сходящейся} к $x \in M$, если $\lim\limits_{n \to \infty} d(x_n, x) = 0$.
+
+\textbf{Определение}. Последовательность $\{x_n\}_{n=1}^{\infty}$, где все $x_n \in M$, называется \textbf{фундаментальной}, если $\lim\limits_{n \to \infty} d(x_n, x_m) = 0$ (т.е. $\forall \varepsilon > 0$ $\exists N = N(\varepsilon) \in N: \forall$ $n,m > N$ $d(x_n, x_m) < \varepsilon)$.
+
+\textbf{Определение}. Метрическое пространство $M$ называется \textbf{полным}, если любая фундаментальная последовательность его элементов сходится (к пределу, принадлежащему $M$).
+
+\textbf{Определение}. Пусть $X, Y$ - метрические пространства. Отображение $f : X \xrightarrow{} Y$ называется
+\textbf{непрерывным} в т. $x \in X$, если $\forall$ $ \{x_n\}:x_n \rightarrow x \Rightarrow f(x_n) \xrightarrow{} f(x)$.
+
+\textbf{Определение}. Отображение $f : M \xrightarrow{} M$ называется
+\textbf{сжимающим}, если $\exists \alpha \in (0,1): d(f(x), f(y)) \leq \alpha d(x,y)$ $\forall x,y \in M$.
+
+\textbf{Определение}. Пусть $f : M \rightarrow M$. Точка $x \in M$, для которой $f(x) = x$, называется \textbf{неподвижной} точкой отображения $f(x)$.
+
+\begin{theorem}[Принцип сжимающих отображений]
+    У любого сжимающего отображения, действующего в полном метрическом
+пространстве, существует и притом единственная неподвижная точка.
+\end{theorem}
+\begin{proof}
+    (Существование)
+Пусть $M$ - полное метрическое пространство, $f : M \rightarrow M$ - сжимающее отображение. Возьмём произв. $x_0 \in M$ и построим последовательность $x_1 = f(x_0), x_2 = f(x_1), ..., x_{n+1} = f(x_n)$. Пусть для определённости $n > m$, тогда
+\begin{equation*}
+    d(x_{n+1}, x_n) \leq \alpha d(x_n, x_{n-1}) \leq ... \leq \alpha^nd(x_1, x_0),
+\end{equation*}
+\begin{gather*}
+    d(x_n, x_m) \leq d(x_n, x_{n-1}) + ... + d(x_{m+1}, x_m) \leq \\
+    \leq (\alpha^{n-1}+...+\alpha^m)d(x_1, x_0) \leq \frac{\alpha^m}{1-\alpha}d(x_1,x_0),
+\end{gather*}
+$0 < \alpha < 1$, правая часть стремится к нулю при $m \rightarrow \infty$, следовательно, $\{x_n\}$ - фундаментальна.
+$M$ - полное, $\{x_n\}$ - фундаментальная $\Rightarrow$ $\exists x \in M$ - предел последовательности  $\{x_n\}$. \\
+Сжимающее отображение - непрерывно, тогда
+\begin{equation*}
+    f(x) = f(\lim\limits_{n \to \infty} x_n) = \lim\limits_{n \to \infty} f(x_n) = \lim\limits_{n \to \infty} x_{n+1} = x,
+\end{equation*}
+то есть x - неподвижная точка. \\
+(Единственность)
+Пусть есть две неподвижные точки: $f(x) = x, f(\tilde{x}) = \tilde{x}.$ Допустим, что $x \neq \Tilde{x}.$
+\begin{equation*}
+    d(x, \Tilde{x}) = d(f(x), f(\Tilde{x})) \leq \alpha d(x, \Tilde{x}) < \{\alpha < 1\} < d(x, \tilde{x}).
+\end{equation*}
+Противоречие! Следовательно, $x=\tilde{x}$.
+\end{proof}
+\textbf{Замечание} \\
+Для сжимающего отображение метод последовательных приближений,
+$x_{n+1} = f(x_n)$, сходится к неподвижной точке $x$ при любом начальном приближении $x_0$.
+\begin{theorem}
+    Пусть $M$ - полное метрическое пространство, $f : M \rightarrow M$, $f^m$ - сжимающее при некотором $m \in N$. Тогда $\exists!$ $x \in M$: $f(x) = x$.
+\end{theorem}
+\begin{proof}
+    (Существование) \\
+    В силу принципа сжимающих отображений $\exists!$ $x\in M:f^m(x)=x$. Тогда
+    \begin{equation*}
+        d(f(x),x)=d(f(f^m(x)), f^m(x))=d(f^m(f(x)), f^m(x)) \leq \alpha d(f(x), x).
+    \end{equation*}
+    Так как $\alpha \in (0,1)$, $d(f(x), x) = 0,$ то есть $f(x)=x$ \\
+    (Единственность) Пусть есть две неподвижные для $f$ точки: $f(x) = x, f(\tilde{x}) = \tilde{x}$. Но тогда они неподвижные и для $f^m$: $f^m(x) = x, f^m(\tilde{x}) = \tilde{x}$. Это противоречит принципу
+сжимающих отображений. Следовательно, $x = \tilde{x}$.
+\end{proof}
+\textbf{Определение.} \textbf{Открытым шаром} с центром в точке $x \in R $ радиуса $R > 0$ называется множество $B(x, R) = \{y \in M | d(x,y) < R\}$. \\
+$\overline{B(x, R)}$ - замыкание шара (то есть с предельными точками).
+
+\begin{theorem}[Локальная форма принципа сжимающих отображений]
+    Пусть $M$ - полное метрическое пространство, $f:\overline{B(x_0, r)} \rightarrow M$, $f$ - сжимающее на $\overline{B(x_0, r)}$ и $d(f(x_0), x_0) \leq (1-\alpha)r$. Тогда $\exists! x \in \overline{B(x_0, r)}: $ $f(x)=x$.
+\end{theorem}
+\begin{proof}
+    \begin{gather*}
+        d(f(x), x_0) \leq d(f(x), f(x_0)) + d(f(x_0), x_0) \leq \alpha d(x, x_0) +(1-\alpha)r \leq \\
+        \leq \alpha r +r - \alpha r = r,
+    \end{gather*}
+    то есть $f(x) \in \overline{B(x_0, r)}$ и
+    \begin{equation*}
+        f:\overline{B(x_0, r)} \rightarrow \overline{B(x_0, r)}.
+    \end{equation*}
+    $\overline{B(x_0, r)}$ -  полное метрическое пространство, $f$ - сжимающее отображение $\Rightarrow$ по принципу сжимающих отображений $\exists! x \in \overline{B(x_0, r)}: f(x) = x.$
+\end{proof}
+
+\textbf{Определение.} Метрическое пространство называется \textbf{компактным}, если из любой последовательности его элементов можно выделить сходящуюся подпоследовательность.
+
+\begin{theorem}
+Пусть $M$ - полное компактное метрическое пространство, $f:M \rightarrow M$, $d(f(x), f(y)) < d(x, y)$ $\forall x, y \in M,$ $x \neq y.$ Тогда $\exists!x \in M$ $f(x)=x$.
+\end{theorem}
+\begin{proof}
+    (Существование) Обозначим $d_0=\inf_{x \in M}{d(f(x), x)} \geq 0.$ \\
+    Если $d_0 = 0$, то $\exists x_n \in M:$ $d(f(x_n), x_n) \rightarrow 0.$ В силу компактности $\exists x_{n_k} \rightarrow x \in M$. Тогда видно, что $f(x)=x$.
+    Если $d_0 > 0$, то, рассуждая аналогично, находим $x_0$: $d(f(x_0), x_0)=d_0,$ но тогда
+    \begin{equation*}
+        d_0 = d(f(f(x_0)), f(x_0)) < d(f(x_0), x_0) = d_0
+    \end{equation*}
+    - противоречие! \\
+    (Единственность) От противного: $d(x, \tilde{x})=d(f(x),f(\tilde{x})) < d(x, \tilde{x}).$
+\end{proof}
+
+{\large \underline{Пример применения}} \\
+Рассмотрим линейное интегральное уравнение
+\begin{equation*}
+    x(t) = \lambda \int\limits_a^b K(t, \tau)x(\tau)d\tau + b(t), t \in [a,b],
+\end{equation*}
+где $K(t, \tau) \in C([a,b] \times [a,b]).$ \\
+Пусть $M=C[a,b], d(x,y) = \max_{t \in [a,b]}|x(t)-y(t)|,$ $ K_0 = \max_{t \in [a,b]} \int\limits_a^b|K(t,\tau)d\tau|.$ \\
+Пусть
+\begin{equation*}
+    f(x(t)) = \lambda \int\limits_a^b K(t, \tau)x(\tau)d\tau + b(t), t \in [a,b],
+\end{equation*}
+тогда
+\begin{equation*}
+    d(f(x), f(y)) \leq |\lambda|K_0d(x,y) < d(x,y),
+\end{equation*}
+если $|\lambda|K_0 < 1$ - тогда $f$ - сжимающий и $\exists!$ решение интегрального уравнения.
+
+% -------- source --------
+\bigbreak
+[\cite[page 49-52]{moiseev}]

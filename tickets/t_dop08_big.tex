@@ -1,0 +1,128 @@
+\textbf{\LARGE dop 8. Гильбеpтовы пpостpанства. Теоpема Леви об оpтогональной пpоекции.}
+
+\begin{definition}
+Полное евклидово (унитарное) пространство называется \emph{гильбертовым}. Гильбертово пространство --- это банахово пространство, в котором введено скалярное произведение, согласованное с нормой: $\|x\| = \sqrt{(x, x)}$.
+\end{definition}
+
+\begin{Commentwhite}
+Примеры: пространство $l_2, L_2$. В гильбертовом пространстве справедливо неравенство КБШ: $|(x, y)|\le\|x\|\cdot\|y\|$.
+\end{Commentwhite}
+
+\begin{theorem}
+(Тождество параллелограмма)\\
+Норма в линейном нормированном пространстве порождается некоторым скалярным произведением $\Leftrightarrow$ выполняется \emph{тождество параллелограмма}:
+\begin{equation}
+    \label{тождество параллелограмма}
+    \sqnorm{x + y} + \sqnorm{x - y} = 2\sqnorm{x} + 2\sqnorm{y}.
+\end{equation}
+\end{theorem}
+\begin{proofocre}
+~\\
+\boxed{\Rightarrow} Необходимость очевидна.
+
+\boxed{\Leftarrow} Рассмотрим случай пространства над $\bbR$. Положим
+$$(x, y) = \frac{\sqnorm{x + y} - \sqnorm{x} - \sqnorm{y}}{2}.$$
+Проверим выполняемость аксиом:
+\begin{enumerate}
+    \item $(x, y) = (y, x)$ --- очевидно
+    \item $(x + y, z) = (x, z) + (y, z)$. Обозначим $\Delta = 2\big( (x + y, z) - (x, z) - (y, z) \big)$ и покажем, что $\Delta = 0$:
+    \begin{multline*}
+        \Delta = \sqnorm{x + y + z} - \sqnorm{x + y} - \sqnorm{z} - \sqnorm{x + z} + \sqnorm{x} + \sqnorm{z} - \\ - \sqnorm{y + z} + \sqnorm{y} + \sqnorm{z} = \\ = \sqnorm{x + y + z} - \sqnorm{x + y} - \sqnorm{x + z} - \sqnorm{y + z} + \sqnorm{z} + \sqnorm{y} + \sqnorm{x}.
+    \end{multline*}
+    Теперь применим~\ref{тождество параллелограмма} к вектору $x + y + 2z$, рассмотрев его как $(x + y + z) + (z)$ и как $(x + z) + (y + z)$:
+    \begin{gather*}
+        \sqnorm{x + y + 2z} + \sqnorm{x + y} = 2\sqnorm{x + y + z} + 2\sqnorm{z}\\
+        \sqnorm{x + y + 2z} + \sqnorm{x - y} = 2\sqnorm{x + z} + 2\sqnorm{y + z}
+    \end{gather*}
+    Вычитая:
+    $$\sqnorm{x + y} - \sqnorm{x - y} = 2\big(\sqnorm{x + y +z} -\sqnorm{x + z} - \sqnorm{y + z} + \sqnorm{z}\big)$$
+    И подставляя в $\Delta$:
+    $$\Delta = \frac{1}{2}\big(\sqnorm{x + y} - \sqnorm{x - y}\big) - \sqnorm{x + y} + \sqnorm{x} + \sqnorm{y} = 0,$$
+    в силу~\ref{тождество параллелограмма}.
+    \item $(\alpha x, y) = \alpha(x, y)$. В силу 2 аксиомы:
+    \begin{enumerate}
+        \item $(2x, y) = (x + x, y) = (x, y) + (x, y) = 2(x, y)$, т.е. аксиома верна для $\forall \alpha\in\bbN$
+        \item $(0, y) = \frac{\sqnorm{0 + y} - \sqnorm{0} - \sqnorm{y}}{2} = 0$,\\
+        $0 = (0, y) = (x + (-x), y) = (x, y) + ((-x), y)$, т.е. $((-x), y) = -(x,y)$ и аксиома верна для $\forall\alpha\in\bbZ$
+        \item $(x, y) = (n\frac{x}{n}, y) = n(\frac{x}{n}, y) \Rightarrow (\frac{1}{n}x, y) = \frac{1}{n}(x, y)$ и $(\frac{m}{n}x, y) = \frac{m}{n}(x, y)$ и аксиома верна для $\forall\alpha\in\bbQ$
+        \item Из непрерывности нормы вытекает непрерывность скалярного произведения $\Rightarrow$ выполняя предельный переход получаем $\forall\alpha\in\bbR$
+    \end{enumerate}
+    \item $(x,x)\ge 0~\forall x,~=0 \Leftrightarrow x = 0$ --- очевидно
+\end{enumerate}
+Теперь рассмотрим случай пространства над $\bbC$.
+Для нормы, порожденной скалярным произведением:
+\begin{gather*}
+    \sqnorm{x + y} = \sqnorm{x} + \sqnorm{y} + 2Re(x, y)\\
+    \sqnorm{x + iy} = \sqnorm{x} + \sqnorm{iy} + 2Im(x,y)
+\end{gather*}
+Строим скалярное произведение:
+$$(x, y) = \frac{\sqnorm{x + y} - \sqnorm{x - y}}{4} - i\frac{\sqnorm{x + iy} - \sqnorm{x - iy}}{4}$$
+Справедливость аксиом следует из вещественного случая.
+\end{proofocre}
+
+
+\begin{definition}
+Множество называется \emph{выпуклым}, если вместе с любой парой своих элементов оно содержит и соединяющий их отрезок.
+\end{definition}
+
+\begin{theorem}
+\label{теорема об элементе с наименьшей нормой}
+(Об элементе с наименьшей нормой)
+~\\
+Пусть $M$ --- \emph{замкнутое выпуклое} подмножество гильбертова пространства $H$. Тогда в $M~\exists~!$ элемент с наименьшей нормой. 
+\end{theorem}
+\begin{proofocre}
+~\\
+\boxed{\exists} Обозначим $d = \inf_{x\in M}\norm{x}$ --- требуется показать, что $\exists~!\widetilde{x}\in M\colon\norm{\widetilde{x}}=d$. Рассмотрим последовательность $x_n\in M,~\norm{x_n}\ge d\colon\norm{x_n} \to d$ (такая $\exists$ в силу определения инфимума). Тогда в силу выпуклости $M\colon\frac{x_n + x_m}{2}\in M$ и по определению инфимума $\norm{\frac{x_n + x_m}{2}}\ge d$.
+
+С другой стороны, $\norm{\frac{x_n + x_m}{2}}\le\frac{\norm{x_n}}{2} + \frac{\norm{x_m}}{2}$. Тогда, переходя к пределу при $n,m\to\infty$ в двойном неравенстве:
+$$d\le\norm{\frac{x_n + x_m}{2}}\le\frac{\norm{x_n}}{2} + \frac{\norm{x_m}}{2}$$
+получаем, что $\norm{\frac{x_n + x_m}{2}}\to d$ (по т. о двух милиционерах). Далее, в силу~\ref{тождество параллелограмма}:
+$$ \sqnorm{x_n - x_m} = 2\sqnorm{x_n} + 2\sqnorm{x_m} - 4\sqnorm{\frac{x_n + x_m}{2}} $$
+$\Rightarrow \sqnorm{x_n - x_m} \to 0$, т.е. $x_n$ --- фундаментальна. Тогда, в силу гильбертовости $H$ (следовательно, полноты):
+$\exists\widetilde{x}\in H\colon x_n\to \widetilde{x}$. В силу непрерывности нормы:
+$\norm{\widetilde{x}}=\norm{\lim_{n\to\infty}x_n}=\lim_{n\to\infty}\norm{x_n}=d$, т.е. $\widetilde{x}$ --- искомый элемент, на котором достигается инфимум.
+~\\
+\boxed{!} Пусть $\exists x'\in H\colon \norm{x'} = d$. Тогда:
+$$d\le\norm{\frac{x' + \widetilde{x}}{2}}\le\frac{\norm{x'}}{2} + \frac{\norm{\widetilde{x}}}{2} = d \Rightarrow \norm{\frac{x' + \widetilde{x}}{2}} = d$$
+Тогда, в силу~\ref{тождество параллелограмма}:
+$$\sqnorm{\widetilde{x} - x'} = 2\sqnorm{\widetilde{x}} + 2\sqnorm{x'}-4\sqnorm{\frac{x' + \widetilde{x}}{2}}=0 \Rightarrow \widetilde{x} = x'$$
+\end{proofocre}
+
+\begin{definition}
+Множество всех элементов, ортогональных данному множеству $L$, называется \emph{ортогональным дополнением} к $L$.\\
+\emph{Обозн:} $L^{\perp}$.
+\end{definition}
+
+\begin{theorem}
+(Теорема Леви об ортогональной проекции)
+~\\
+Пусть $E$ --- \emph{замкнутое} линейное подмножество $H$. Тогда
+$$H = E \oplus E^\perp,$$
+т.е. $\forall v\in H~\exists~!~u\in E,~w\in E^\perp\colon v = u + w$, $u$ называется \emph{проекцией} $v$ на $E$, $w$ --- перпендикуляром.
+\end{theorem}
+\begin{proofocre}
+(док-во по лекциям Сергеева, см. ссылки)~\\
+\boxed{\exists}
+По теореме об элементе с наименьшей нормой~(\ref{теорема об элементе с наименьшей нормой}) $\exists!u\in E$, ближайший к $v$, пусть $w \coloneqq v - u,~\norm{w}=d$. Покажем, что $w\in E^\perp$. Для $\forall z\in E,~\forall t\in\bbR$ имеем
+\begin{multline*}
+    d^2 \le \sqnorm{v - (u + tz)} = \sqnorm{w - tz} = d^2 - 2t\text{Re}(w, z) + t^2\sqnorm{z} \Rightarrow\\
+    \Rightarrow 2t\text{Re}(w, z) \le t^2\sqnorm{z}~\forall t\in\bbR \Rightarrow \text{Re}(w, z) = 0
+\end{multline*}
+Аналогично, используя $it$ вместо $t$, показывается, что $\text{Im}(w, z) = 0$, то есть\\ $(w, z) = 0~\forall z\in E$ и $w\in E^\perp$.
+
+\boxed{!} Пусть $v = u_1 + w_1$ --- другое представление, тогда имеем
+$$u - u_1 = w_1 - w \coloneqq z \in E\cap E^\perp \Rightarrow (z, z) = 0,$$
+т.е. $z = 0$ и разложения совпадают.
+\end{proofocre}
+
+\begin{corollary}
+Если $\text{dim}E = 1$, т.е. $E = \big\{ v \big| v = \lambda e,~e\in E,~\norm{e} = 1  \big\}$, то в вышеуказанном разложении $u = (v,e)e$.
+\end{corollary}
+
+
+
+% -------- source --------
+\bigbreak
+[\cite{funcan_spring}]
+[\cite{funcan_sergeev_lections}]
