@@ -1,0 +1,45 @@
+\textbf{\LARGE dop 20. Внутренняя задача Неймана для уравнения Лапласа. Теорема единственности. Условия разрешимости.}
+
+Пусть $\Omega$ -- ограниченная область в $\mathbb{R}^n$ с гладкой границей $\partial \Omega$.
+
+\textbf{Внутренняя задача Неймана:}
+\begin{equation*}
+    \begin{cases}
+    \Delta u = 0 \text{ в } \Omega, \\
+    \frac{\partial u}{\partial \nu_y} \bigg |_{\partial \Omega} = \psi.
+    \end{cases}
+\end{equation*}
+
+$u = u(x) = u(x_1, \ldots, x_n)$ -- неизвестная функция, $\psi \in C(\partial \Omega)$ -- заданная функция, $\nu_y$ -- внешняя нормаль к $\partial \Omega$.
+
+Физическая интерпретация в стационарной теплопроводности: требуется найти стационарное распределение температуры в $\Omega$ по заданным значениям теплового потока на границе.
+
+Стандартный класс задач Неймана: $u \in C^2(\Omega) \cap C(\overline{\Omega})$. Усиленный класс: $u \in C^2(\overline{\Omega})$.
+
+\textbf{Теорема (необходимое условие разрешимости).} Для того, чтобы внутренняя задача Неймана имела решение в классе $C^2(\overline{\Omega})$ необходимо, чтобы выполнялось условие: $\int\limits_{\partial \Omega} \psi(y) dS_y = 0$.
+
+\textbf{Доказательство.} $\int\limits_{\partial \Omega} \psi(y) dS_y = \int\limits_{\partial \Omega} \frac{\partial u(y)}{\partial \nu_y} \bigg |_{\partial \Omega} dS_y = \{\text{теорема Гаусса}\} = \int\limits_\Omega \Delta u(x) dx = 0.\quad \blacksquare$
+\newline \newline
+\underline{Физический смысл.} Для того, чтобы в области $\Omega$ существовало стационарное распределение температуры необходимо, чтобы суммарный поток через границу области был равен 0 (сколько тепла втекает через границу, столько и вытекает).
+
+\textbf{Теорема единственности.} Пусть $u_1, \; u_2 \in C^2(\overline{\Omega})$ -- два решения внутренней задачи Неймана с одинаковой функцией $\psi \in C(\partial \Omega)$. Тогда $u_2(x) = u_1(x) + C$ всюду в $\overline{\Omega}$ с некоторой константой $C$.
+
+\textbf{Доказательство.} Рассмотрим $u(x) = u_2(x) - u_1(x), \; u \in C^2(\Omega)$, тогда
+\begin{equation*}
+    \begin{cases}
+    \Delta u = 0 \text{ в } \Omega, \\
+    \frac{\partial u}{\partial \nu_y} \bigg |_{\partial \Omega} = 0.
+    \end{cases}
+\end{equation*}
+
+Запишем для $u(x)$ первую формулу Грина:
+$\int\limits_{\partial \Omega} u \frac{\partial u}{\partial \nu_y} dS_y = \int\limits_{\Omega} u \Delta u dx + \int\limits_\Omega \sum_{k=1}^n \left ( \frac{\partial u}{\partial x_k} \right )^2 dx$$
+$$\implies \int\limits_\Omega \sum_{k=1}^n \left ( \frac{\partial u}{\partial x_k} \right )^2 dx = 0 \implies \sum_{k=1}^n \left ( \frac{\partial u}{\partial x_k} \right )^2 = 0 \text{ в } \overline{\Omega} \implies \frac{\partial u}{\partial x_k} \equiv 0 \text{ в } \overline{\Omega}, \; k = \overline{1, n}.$
+
+$\implies u(x) \equiv C$ в $\overline{\Omega} \implies u_2(x) = u_1(x) + C$ всюду в $\overline{\Omega}. \quad \blacksquare$
+\newline \newline
+\textbf{p.s.} Обычно спрашивают по билету: 1) решение внешней задачи Неймана в пространстве размерности $n > 2$ единственно, если выполняются условие разрешимости (1-ая теорема этого билета) и условие на бесконечности: функция $u$ равномерно сходится к нулю при $x \rightarrow \infty$; 2) в двумерном случае решение может быть найдено с точностью до константы, если выполняется условие разрешимости (1-ая теорема этого билета) и условие $|u| \leq C$ на бесконечности.
+
+% -------- source --------
+\bigbreak
+[\cite{umf_tix}, файл 10.1]
