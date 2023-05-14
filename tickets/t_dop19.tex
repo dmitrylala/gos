@@ -1,0 +1,68 @@
+\textbf{\LARGE dop 19. Постановка внешней и внутренней задач Дирихле для уравнения Лапласа. Единственность решения внутренней задачи Дирихле.}
+
+Оператор Лапласа в $\mathbb{R}^n$: $\Delta u \equiv \frac{\partial^2 u}{\partial x_1^2} + \frac{\partial^2 u}{\partial x_2^2} + \ldots + \frac{\partial^2 u}{\partial x_n^2}$.
+
+Уравнение Лапласа: $\Delta u = 0$.
+
+\underline{Физическая модель}. Если $\Delta u = 0$ в $\Omega$, то $u(x)$ выражает стационарное распределение
+температуры в области $\Omega$.
+
+Пусть $\Omega \subset \mathbb{R}^n$ -- произвольная ограниченная область.
+
+\textbf{Внутренняя задача Дирихле:}
+\begin{equation*}
+    \begin{cases}
+    \Delta u = 0 \text{ в } \Omega, \\
+    u |_{\partial \Omega} = \varphi.
+    \end{cases}
+\end{equation*}
+
+Здесь $u = u(x) \in C^2(\Omega) \cap C(\overline{\Omega})$ -- неизвестная функция, $\varphi \in C(\partial \Omega)$ -- заданная функция, $\partial \Omega$ -- граница области $\Omega$.
+
+\newline\newline
+\textbf{Теорема единственности.} Для 
+$\forall \varphi \in C(\partial \Omega)$ внутренняя задача Дирихле имеет не более одного решения в классе $C^2(\Omega) \cap C(\overline{\Omega})$.
+
+\textbf{Доказательство.} Теорему доказывается двумя способами.
+
+1) Через 1-ую формулу Грина, но с требованием большей гладкости: $u(x) \in C^2(\overline{\Omega})$. 
+
+От противного. Пусть $u_1(x), \; u_2(x)$ -- два решения внутренней задачи Дирихле и $u(x) = u_2(x) - u_1(x)$.
+
+Запишем 1-ую формулу Грина:
+
+$$\int\limits_{\partial \Omega} u \frac{\partial u}{\partial \nu_y} ds_y = \int\limits_\Omega u \Delta u dx + \int\limits_\Omega \sum_{j=1}^n \left (\frac{\partial u}{\partial x_j} \right )^2 dx.$$
+
+$u|_{\partial \Omega} = 0, \; \Delta u = 0$ в $\Omega$, т.е. слагаемое в левой части и первое слагаемое во второй части равны нулю. Тогда второе слагаемое в правой части тоже должно быть равно нулю.
+
+$\int\limits_\Omega \sum_{j=1}^n \left (\frac{\partial u}{\partial x_j} \right )^2 dx = 0 \implies \sum_{j=1}^n \left (\frac{\partial u}{\partial x_j} \right )^2 = 0 \implies \frac{\partial u}{\partial x_j} \equiv 0 \text{ всюду в } \Omega \quad \forall j = \overline{1,n}.$
+
+$\implies u(x) \equiv C$ в $\overline{\Omega}.\quad u|_{\partial \Omega} = 0 \implies C = 0 \implies u(x) \equiv 0$.
+
+2) Используя принцип максимума.
+
+\textbf{Принцип максимума.} $\Omega$ -- ограниченная область, $u \in C^2(\Omega) \cap C(\overline{\Omega}), \; \Delta u = 0$ в $\Omega$. Тогда $\min\limits_{\partial \Omega} u(x) \leq u(x) \leq \max\limits_{\partial \Omega} u(x)$ для $\forall x \in \Omega$. 
+
+От противного. Пусть $u_1(x), \; u_2(x)$ -- два решения внутренней задачи Дирихле с общей функцией $\varphi \in C(\partial \Omega)$. $u(x) = u_2(x) - u_1(x) \implies$
+\begin{equation*}
+    \begin{cases}
+    \Delta u = 0, \\
+    u |_{\partial \Omega} = 0.
+    \end{cases}
+\end{equation*}
+Из принципа максимума следует, что $0 \leq u(x) \leq 0$ для $\forall x \in \Omega \implies u(x) \equiv 0. \quad \blacksquare$
+\newline \newline
+При неограниченной области вводятся дополнительные условия, связанные с поведением функции на $\infty$.
+
+Пусть $\Omega_0$ -- ограниченная область в $\mathbb{R}^n$. Рассмотрим $\Omega = \mathbb{R}^n \setminus \overline{\Omega}_0$.
+
+В $\Omega_0$ распространена некая физическая субстанция. Требуется изучить ее влияние на внешнее пространство.
+
+Требование регулярности на $\infty$: $u(x) \rightarrow 0$ при $|x| \rightarrow \infty$.
+
+В этом случае единственность переносится и на внешнюю задачу.
+
+% -------- source --------
+\bigbreak
+[\cite{umf_tix}, файлы 9 и 10.1]
+
