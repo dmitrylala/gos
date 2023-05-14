@@ -12,7 +12,7 @@
 
 Введем в $\overline{G}$ равномерную разностную сетку $\Omega_h = \omega_h \cup \gamma_h$:
 $$
-x_{ij} = (x_{1,i},\, x_{2,j});\;\; x_{1,i} = i h_1, \; x_{2,j} = j h_2; \;\; h_1 N_1 = l_1, \; h_2 N_2 = l_2; 
+x_{ij} = (x_{1,i},\, x_{2,j});\;\; x_{1,i} = i h_1, \; x_{2,j} = j h_2; \;\; h_1 N_1 = l_1, \; h_2 N_2 = l_2;
 $$
 $$
 \omega_h = \{x_{ij}; \;\; i = 1, 2, \ldots, N_1 -1; \;\; j = 1, 2, \ldots, N_2-1\};
@@ -22,13 +22,13 @@ $$
 $$
 Здесь $\omega_h$ -- множество внутренних, а $\gamma_h$ -- множество граничных узлов сетки. Будем пользоваться обозначениями
 $$
-y_{\overline{x}_1x_1, \, ij} = \frac{y_{i-1 j} - 2 y_{ij} + y_{i+1 j}}{h_1^2}, \quad 
+y_{\overline{x}_1x_1, \, ij} = \frac{y_{i-1 j} - 2 y_{ij} + y_{i+1 j}}{h_1^2}, \quad
 y_{\overline{x}_2x_2, \, ij} = \frac{y_{i j-1} - 2 y_{ij} + y_{i j+1}}{h_2^2},
 $$
 $$
 \Delta_h y_{ij} = (y_{\overline{x}_1x_1} + y_{\overline{x}_2x_2})_{ij} \; \textit{-- пятиточ. разностный оп-р Лапласа},
 $$
-где $y_{ij} = y(x_{ij})$ -- сеточная функция, определенная на $\Omega_h$. Сопоставим задаче \eqref{27.1} разностную схему: 
+где $y_{ij} = y(x_{ij})$ -- сеточная функция, определенная на $\Omega_h$. Сопоставим задаче \eqref{27.1} разностную схему:
 \begin{equation}\label{27.2}
     \begin{cases}
         \Delta_h y_{ij} = - f(x_{ij}), \quad x_{ij} \in \omega_h,\\
@@ -57,7 +57,7 @@ $$
 $$
 A(x) > 0, \;\; B(x, \xi) > 0, \;\; D(x) = A(x) - \sum_{\xi \in \Sh'(x)} B(x, \xi) \geq 0,\;\; x\in \Omega_h.
 $$
-\rule{275pt}{0.5pt} 
+\rule{275pt}{0.5pt}
 
 \textbf{Принцип максимума для разностных схем}
 
@@ -67,14 +67,14 @@ A(x) y(x) =  \sum_{\xi \in \Sh'(x)} B(x, \xi) y(\xi) + F(x), \quad x\in \Omega_h
 $$
 если каждому узлу $x \in \Omega_h$ сопоставлен один и только один шаблон и одно и только одно уравнение.
 
-\fbox{\textbf{Опр. 2}}\; Сетка $\Omega_h$ называется \textbf{связной}, если 
+\fbox{\textbf{Опр. 2}}\; Сетка $\Omega_h$ называется \textbf{связной}, если
 $$
 \forall \, x', x'' \in \Omega_h:\; \Sh'(x') \ne \varnothing\;\; \exists x_i \in \Omega_h, i = 1, 2, \ldots, m:
 $$
 $$
 x_1 \in \Sh'(x'),\; x_2 \in \Sh'(x_1), \ldots, x_m \in \Sh'(x_{m-1}), \; x'' \in \Sh'(x_m).
 $$
-\fbox{\textbf{Опр. 3}}\; В узле $x\in\Omega_h$ выполнены \textbf{условия положительности коэффициентов}, если 
+\fbox{\textbf{Опр. 3}}\; В узле $x\in\Omega_h$ выполнены \textbf{условия положительности коэффициентов}, если
 \begin{equation}\label{27.3}
     A(x) > 0, \; B(x, \xi) > 0, \;\forall \xi \in \Sh'(x), \; D(x) = A(x) - \sum_{\xi \in \Sh'(x)} B(x, \xi) \geq 0.
 \end{equation}
@@ -95,7 +95,7 @@ $\blacktriangleright\;$ От противного. Пусть $\,\exists  \, x'\
 $$
 L y(x') = D(x') y(x') +  \sum_{\xi \in \Sh'(x')} B(x', \xi) (y(x') - y(\xi)) \geq 0.
 $$
-В то же время по условию $Ly(x') \leq 0$, т.к. $x' \in \omega_h$. Отсюда вытекает, что 
+В то же время по условию $Ly(x') \leq 0$, т.к. $x' \in \omega_h$. Отсюда вытекает, что
 $$
 L y(x') = 0, \; y(\xi) = y(x'), \;\forall \xi \in \Sh'(x') \implies y(x_1) = y(x') = \max_{x\in\Omega_h} y(x) > 0.
 $$
@@ -111,15 +111,15 @@ $$
 
 \textbf{Следствие 2 \textit{(теорема сравнения)}:}\; Пусть выполнены условия \eqref{27.3} при всех $x \in \Omega_h$ и \eqref{27.4}. Тогда если $|F(x)| \leq \overline{F}(x)$ для любых $x \in \Omega_h$, то $|y(x)| \leq \overline{y}(x)$ для любых $x \in \Omega_h$, где $y(x)$ -- решение задачи $L y(x) = F(x), \; x\in \Omega_h$, $\overline{y}(x)$ -- решение задачи $L\overline{y}(x) = \overline{F}(x),\; x\in\Omega_h$.
 
-\rule{275pt}{0.5pt} 
+\rule{275pt}{0.5pt}
 
 \textbf{Устойчивость и сходимость разностной задачи \eqref{27.2}}
 
-По следствию 1 имеем существование и единственность решения задачи \eqref{27.2}. Представим это решение в виде $y(x) = y_\mu(x) + y_F(x)$, где 
-\\$y_\mu(x)$ -- решение задачи $L y_\mu(x) = 0, \;x \in \omega_h; \;\; y_\mu(x) = \mu(x),\;x\in\gamma_h$, 
+По следствию 1 имеем существование и единственность решения задачи \eqref{27.2}. Представим это решение в виде $y(x) = y_\mu(x) + y_F(x)$, где
+\\$y_\mu(x)$ -- решение задачи $L y_\mu(x) = 0, \;x \in \omega_h; \;\; y_\mu(x) = \mu(x),\;x\in\gamma_h$,
 \\$y_F(x)$ -- решение задачи $L y_F(x) = F(x), \; x\in \omega_h;\;\;y_F(x) = 0, \; x\in\gamma_h$.
 
-\textbf{Теорема 2 \textit{(устойчивость по граничным условиям)}:} 
+\textbf{Теорема 2 \textit{(устойчивость по граничным условиям)}:}
 $$\|y_\mu (x)\|_{C(\Omega_h)} \leq \|\mu(x)\|_{C(\gamma_h)}.$$
 
 $\blacktriangleright\;$ Из принципа максимума следует $ \max_{x\in\omega_h} y(x) \leq \max_{x\in\gamma_h} \mu(x)$. Так как $y_\mu(x) = \mu(x),\;x\in\gamma_h$, то $ \max_{x\in\Omega_h} y(x) \leq \max_{x\in\gamma_h} \mu(x)$.\; $\blacksquare$
@@ -128,11 +128,11 @@ $\blacktriangleright\;$ Из принципа максимума следует 
 $$\|y_F(x)\|_{C(\Omega_h)} \leq \frac{l_1^2 + l_2^2}{4} \|F(x)\|_{C(\omega_h)}.$$
 
 $\blacktriangleright\;$ Рассмотрим функцию $\overline{y}(x) = K(l_1^2 + l_2^2 - x_1^2 - x_2^2),\; K= const, \; x = (x_1, x_2) \in \Omega_h$. Учтем, что на многочленах второй степени вторая разностная производная имеет те же значения, что и дифференциальная производная.
-Поэтому $L \overline{y}(x) = - \Delta_h \overline{y}(x) = -(y_{\overline{x}_1x_1} + y_{\overline{x}_2x_2})_{ij} = 4K$. Положим $K = \frac{1}{2}\|F(x)\|_{C(\omega_h)}$, тогда $\overline{y}(x)$ является решением задачи 
+Поэтому $L \overline{y}(x) = - \Delta_h \overline{y}(x) = -(y_{\overline{x}_1x_1} + y_{\overline{x}_2x_2})_{ij} = 4K$. Положим $K = \frac{1}{2}\|F(x)\|_{C(\omega_h)}$, тогда $\overline{y}(x)$ является решением задачи
 $$
 L\overline{y}(x) = \overline{F}(x), \; x\in \omega_h, \quad \overline{y}(x) = \overline{\mu}(x),\; x\in \gamma_h,
 $$
-где $\overline{F}(x) = \|F(x)\|_{C(\omega_h)}, \; \overline{\mu}(x) > 0$. По следствию 2 имеем $|y_F(x)| \leq \overline{y}(x), \;\forall x \in \Omega_h$, то есть 
+где $\overline{F}(x) = \|F(x)\|_{C(\omega_h)}, \; \overline{\mu}(x) > 0$. По следствию 2 имеем $|y_F(x)| \leq \overline{y}(x), \;\forall x \in \Omega_h$, то есть
 $$
 \|y_F(x)\|_{C(\Omega_h)} = \max_{x\in\Omega_h} |y_F(x)| \leq \max_{x\in\Omega_h} |\overline{y}(x)| \leq   \frac{l_1^2 + l_2^2}{4} \|F(x)\|_{C(\omega_h)}. \;\;\blacksquare
 $$
@@ -143,22 +143,24 @@ $$
 
 \textbf{Теорема 5 \textit{(сходимость разностной задачи Дирихле)}:}\; Пусть $u$ -- решение дифференциальной задачи \eqref{27.1}, а $y$ -- решение разностной задачи \eqref{27.2}. Тогда $\|y - u\|_{C(\Omega_h)} \leq M(h_1^2 + h_2^2)$, где $M$ -- постоянная, не зависящая от $h_1, \; h_2$.
 
-$\blacktriangleright\;$ Погрешность разностной задачи \eqref{27.2} $z_{ij} = y_{ij} - u_{ij}, \; x_{ij} \in \Omega_h$ удовлетворяет уравнениям 
+$\blacktriangleright\;$ Погрешность разностной задачи \eqref{27.2} $z_{ij} = y_{ij} - u_{ij}, \; x_{ij} \in \Omega_h$ удовлетворяет уравнениям
 $$
 \begin{cases}
     \Delta_h z_{ij} = - \psi_{ij}, \quad x_{ij} \in \omega_h,\\
     z_{ij} = 0, \qquad\quad x_{ij} \in \gamma_h,
 \end{cases}
 $$
-где $\psi_{ij} = (u_{\overline{x}_1x_1} + u_{\overline{x}_2x_2} + f)_{ij}$ -- погрешность аппроксимации разностной задачи \eqref{27.2} на решении $u(x)$ дифференциальной задачи \eqref{27.1}. Поскольку вторая разностная производная аппроксимирует вторую разностную производную достаточно гладкой функции со вторым порядком, справедливо неравенство 
+где $\psi_{ij} = (u_{\overline{x}_1x_1} + u_{\overline{x}_2x_2} + f)_{ij}$ -- погрешность аппроксимации разностной задачи \eqref{27.2} на решении $u(x)$ дифференциальной задачи \eqref{27.1}. Поскольку вторая разностная производная аппроксимирует вторую разностную производную достаточно гладкой функции со вторым порядком, справедливо неравенство
 $
 \|\psi\|_{C(\omega_h)} \leq \widetilde{M}(h_1^2 + h_2^2),
-$ 
-где постоянная $\widetilde{M}$ не зависит от $h_1, \;h_2$. В силу устойчивости имеем 
+$
+где постоянная $\widetilde{M}$ не зависит от $h_1, \;h_2$. В силу устойчивости имеем
 $$
-\|z(x)\|_{C(\Omega_h)} \leq \frac{l_1^2 + l_2^2}{4} \|\psi\|_{C(\omega_h)} \;\implies \; 
+\|z(x)\|_{C(\Omega_h)} \leq \frac{l_1^2 + l_2^2}{4} \|\psi\|_{C(\omega_h)} \;\implies \;
 \|z(x)\|_{C(\Omega_h)} \leq M(h_1^2 + h_2^2). \; \blacksquare
 $$
+
+
 % -------- source --------
 \bigbreak
-[\cite[pages 32-41]{abakumov}]
+[\cite[pages 32-41]{chmmf}]
