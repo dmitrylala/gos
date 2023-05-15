@@ -11,7 +11,7 @@
 \begin{equation}
     \label{задача теплопроводности}
     \begin{cases}
-        \del{\varphi}{t} = \deltwo{\varphi}{x} + f(x, t),~0 < x < 1,~0 < t \le T,
+        \del{u}{t} = \deltwo{u}{x} + f(x, t),~0 < x < 1,~0 < t \le T,
         \\
         u(x, 0) = u_0(x),~0 \le x \le 1,
         \\
@@ -22,7 +22,7 @@
 \begin{gather*}
     \omega_h = \{ x_i = ih,~i=\overline{0,N},~Nh = 1 \},
     \\
-    \omega_\tau = \{ t_n = n\tau,~n=\overline{0,K},~K\tau = 1 \}
+    \omega_\tau = \{ t_n = n\tau,~n=\overline{0,K},~K\tau = T \}
 \end{gather*}
 
 \begin{definition}
@@ -36,13 +36,14 @@ $$y_i^n = y(x_i, t_n),~y_{t,i}^n = \frac{y_i^{n+1} - y_i^n}{\tau},~\ddev{y}^n = 
 \begin{equation}
     \label{двуслойная схема с весами}
     \begin{cases}
-        y_{t,i}^n = \sigma \ddev{y}^{n+1} + (1 - \sigma)\ddev{y}^n,~i=\overline{1,N-1},~n=\overline{0,K-1},
+        y_{t,i}^n = \sigma \ddev{y}^{n+1} + (1 - \sigma)\ddev{y}^n + \varphi_i^n,~i=\overline{1,N-1},~n=\overline{0,K-1},
         \\
         y_i^0 = u_0(x_i),~i=\overline{0,N},
         \\
-        y_0^{n+1} = \mu_1(t_{n+1}),~y_N^{n+1} = \mu_2(t_{n+1}),~n=\overline{0,K-1}
+        y_0^{n+1} = \mu_1(t_{n+1}),~y_N^{n+1} = \mu_2(t_{n+1}),~n=\overline{0,K-1},
     \end{cases}
 \end{equation}
+где $\varphi_i^n$ --- сеточная аппроксимация правой части $f(x,t)$.
 
 Схема~(\ref{двуслойная схема с весами}) содержит значения искомой функции $y$ на двух слоях и поэтому называется \textbf{двуслойной схемой}.
 
@@ -81,7 +82,7 @@ $$y_i^n = y(x_i, t_n),~y_{t,i}^n = \frac{y_i^{n+1} - y_i^n}{\tau},~\ddev{y}^n = 
     + O(\tau^2 + h^4)
 \end{gather*}
 
-\newcommand*{\point}{\ensuremath{(x_i,t_{n+\frac{1}{2}}})}
+\newcommand*{\point}{\ensuremath{(x_i,t_{n+\frac{1}{2}})}}
 Проведем разложение в точке $a=\point$:
 \begin{gather*}
     \psi_i^n = \sigma\left( \deltwo{u}{x} + \frac{\tau}{2}\frac{\partial^3 u}{\partial x^2 \partial t} + \frac{h^2}{12}\deln{u}{x}{4} \right)\Big|_{(x,t)=a} + 
