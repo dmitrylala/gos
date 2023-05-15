@@ -1,8 +1,120 @@
 \textbf{\LARGE dop 28. Двуслойные pазностные схемы для уpавнения теплопpоводности: постpоение, исследование погpешности аппpоксимации.}
 
+\renewcommand{\theequation}{\arabic{equation}} 
+\setcounter{equation}{0}
 
+\newcommand{\ddev}[1]{#1_{\overline{x}x,i}}
+\newcommand{\deln}[3]{\frac{\partial^{#3} #1}{\partial #2^{#3}}}
+
+\begin{Commentwhite}
+Пусть дана \textbf{первая краевая задача для уравнения теплопроводности} с постоянными коэффициентами:
+\begin{equation}
+    \label{задача теплопроводности}
+    \begin{cases}
+        \del{\varphi}{t} = \deltwo{\varphi}{x} + f(x, t),~0 < x < 1,~0 < t \le T,
+        \\
+        u(x, 0) = u_0(x),~0 \le x \le 1,
+        \\
+        u(0, t) = \mu_1(t),~u(1, t) = \mu_2(t),~0 \le t \le T,
+    \end{cases}
+\end{equation}
+где $f,~u_0,~\mu_1,~\mu_2$ --- заданные функции. В дальнейшем будем предполагать достаточную гладкость решения $u(x,t)$ по $x$ и $t$. Введем пространственно-временную сетку $\omega_{h,\tau} = \omega_h \cross \omega_{\tau}$:
+\begin{gather*}
+    \omega_h = \{ x_i = ih,~i=\overline{0,N},~Nh = 1 \},
+    \\
+    \omega_\tau = \{ t_n = n\tau,~n=\overline{0,K},~K\tau = 1 \}
+\end{gather*}
+
+\begin{definition}
+\textbf{Слоем} будем называть множество всех узлов сетки, имеющих одну и ту же временную координату.
+\end{definition}
+
+Для функции $y(x, t)$, определенной на сетке $\omega_{h,\tau}$, обозначим
+$$y_i^n = y(x_i, t_n),~y_{t,i}^n = \frac{y_i^{n+1} - y_i^n}{\tau},~\ddev{y}^n = \frac{y_{i+1}^n - 2y_i^n + y_{i-1}^n}{h^2}$$
+
+Зададим параметр $\sigma\in\bbR$ и сопоставим задаче~(\ref{задача теплопроводности}) \textbf{разностную схему с весами}:
+\begin{equation}
+    \label{двуслойная схема с весами}
+    \begin{cases}
+        y_{t,i}^n = \sigma \ddev{y}^{n+1} + (1 - \sigma)\ddev{y}^n,~i=\overline{1,N-1},~n=\overline{0,K-1},
+        \\
+        y_i^0 = u_0(x_i),~i=\overline{0,N},
+        \\
+        y_0^{n+1} = \mu_1(t_{n+1}),~y_N^{n+1} = \mu_2(t_{n+1}),~n=\overline{0,K-1}
+    \end{cases}
+\end{equation}
+
+Схема~(\ref{двуслойная схема с весами}) содержит значения искомой функции $y$ на двух слоях и поэтому называется \textbf{двуслойной схемой}.
+
+При $\sigma=0$ получим из~(\ref{двуслойная схема с весами}) \emph{явную схему}. При $\sigma=1$ получим чисто \emph{неявную схему}. Как и в случае явной схемы, решение находится по слоям, начиная с $n=1$. Однако теперь для нахождения $y_i^{n+1}$ по известным $y_i^n$ требуется решить систему уравнений:
+\begin{equation*}
+    \begin{cases}
+        \gamma y_{i+1}^{n+1} - (1 + 2\gamma)y_i^{n+1} + \gamma y_{i-1}^{n+1} = -F_i^n,~i=\overline{1,N-1},
+        \\
+        y_0^{n+1} = \mu_1(t_{n+1}),~y_N^{n+1} = \mu_2(t_{n+1}),~n=\overline{0,K-1},
+    \end{cases}
+\end{equation*}
+где $\gamma = \frac{\tau}{h^2},~F_i^n = y_i^n + \tau\varphi_i^n,~\varphi_i^n = f(x_i, t_n) + O(\tau + h^2)$. Эту систему можно решать методом прогонки, т. к. условия устойчивости прогонки выполнены ($1 + 2\gamma > \gamma + \gamma$,~$k_1 = k_2 = 1$).
+
+Исследуем погрешность аппроксимации схемы~(\ref{двуслойная схема с весами}) на решении $u(x_i,t_n)$ исходной задачи~(\ref{задача теплопроводности}). Подставим $y_i^n = z_i^n + u(x_i, t_n)$ в~(\ref{двуслойная схема с весами}):
+\begin{equation*}
+    \begin{cases}
+        z_{t,i}^n = \sigma\ddev{z}^{n+1} + (1 - \sigma)\ddev{z}^n + \psi_i^n,~i=\overline{1,N-1},~n=\overline{0,K-1},
+        \\
+        z_i^0 = 0,~i=\overline{0,N},
+        \\
+        z_0^{n+1} = z_N^{n+1} = 0,~n=\overline{0,K-1},
+    \end{cases}
+\end{equation*}
+где $\psi_i^n = \sigma \ddev{u}^{n+1} + (1 - \sigma)\ddev{u}^n - u_{t,i} + \varphi_i^n$ --- погрешность аппроксимации схемы~(\ref{двуслойная схема с весами}) на решении задачи~(\ref{задача теплопроводности}).
+
+Так как
+\begin{equation*}
+    u_{t,i}^n = \del{u}{t}(x_i,t_{n+\frac{1}{2}}) + O(\tau^2),~\ddev{u} = u^{''}(x_i) + \frac{h^2}{12}u^{(4)}(x_i) + O(h^4),
+\end{equation*}
+то
+\begin{gather*}
+    \psi_i^n = \sigma\left( \deltwo{u}{x}(x_i,t_{n+1}) + \frac{h^2}{12}\deln{u}{x}{4}(x_i,t_{n+1})\right) +
+    \\
+    + (1 - \sigma)\left( \deltwo{u}{x}(x_i,t_n) + \frac{h^2}{12}\deln{u}{x}{4}(x_i,t_n)\right) - \del{u}{t}(x_i,t_{n+\frac{1}{2}}) + \varphi_i^n + 
+    \\
+    + O(\tau^2 + h^4)
+\end{gather*}
+
+\newcommand*{\point}{\ensuremath{(x_i,t_{n+\frac{1}{2}}})}
+Проведем разложение в точке $a=\point$:
+\begin{gather*}
+    \psi_i^n = \sigma\left( \deltwo{u}{x} + \frac{\tau}{2}\frac{\partial^3 u}{\partial x^2 \partial t} + \frac{h^2}{12}\deln{u}{x}{4} \right)\Big|_{(x,t)=a} + 
+    \\
+    + (1 - \sigma)\left( \deltwo{u}{x} - \frac{\tau}{2}\frac{\partial^3 u}{\partial x^2 \partial t} + \frac{h^2}{12}\deln{u}{x}{4} \right)\Big|_{(x,t)=a} -
+    \\
+    - \del{u}{t}\point + \varphi_i^n + O(\tau^2 + h^4) = 
+    \\
+    = \left(\deltwo{u}{x} - \del{u}{t} + \varphi_i^n + (\sigma - \frac{1}{2})\tau\frac{\partial^3 u}{\partial x^2 \partial t} + \frac{h^2}{12}\deln{u}{x}{4}\right)\Big|_{(x,t)=a} + 
+    \\
+    + O(\tau^2 + h^4)
+\end{gather*}
+
+Дифференцируя уравнение в~(\ref{задача теплопроводности}) дважды по $x$, получаем:
+$$\deln{u}{x}{4} = \frac{\partial^3 u}{\partial x^2 \partial t} - \deltwo{f}{x}(x,t)$$
+И подставляя в разложение:
+\begin{gather*}
+    \psi_i^n = \left( \left((\sigma - \frac{1}{2})\tau + \frac{h^2}{12}\right)\frac{\partial^3 u}{\partial x^2 \partial t} - f -\frac{h^2}{12}\deltwo{f}{x} \right)\Big|_{(x,t)=a} + \varphi_i^n +
+    \\
+    + O(\tau^2 + h^4)
+\end{gather*}
+
+В итоге:
+\begin{enumerate}
+    \item При $\sigma = \frac{1}{2} - \frac{h^2}{12\tau}$ и $\varphi_i^n = \left(f + \frac{h^2}{12}\deltwo{f}{x}\right)\Big|_{(x,t)=a} + O(\tau^2 + h^4)$ схема~(\ref{двуслойная схема с весами}) имеет 2-ой порядок аппрокс. по $\tau$ и 4-ый по $h$,
+    \item При $\sigma = \frac{1}{2}$ и $\varphi_i^n = f\point + O(\tau^2 + h^4)$ схема имеет 2-ой порядок аппрокс. по $\tau$ и $h$.
+\end{enumerate}
+
+При остальных значениях $\sigma$ и при $\varphi_i^n = f(x_i, t_{n+1}) + O(\tau + h^2)$ схема~(\ref{двуслойная схема с весами}) имеет первый порядок аппрокс. по $\tau$ и второй по $h$. В частности, явная схема и чисто неявная имеют порядок $O(\tau + h^2)$.
+\end{Commentwhite}
 
 
 % -------- source --------
 \bigbreak
 [\cite{chmmf}]
+[\cite[259-261]{tickets2022}]
