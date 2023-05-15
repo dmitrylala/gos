@@ -1,0 +1,102 @@
+\textbf{\LARGE dop 13. Функция Грина первой краевой задачи для обыкновенного дифференциального уравнения  второго порядка. Условия существования решения краевой задачи.}
+\renewcommand{\theequation}{\arabic{equation}}
+
+Рассмотрим краевую задачу:
+\begin{equation} \label{eq13.1}
+\begin{cases}
+Ly \equiv \frac{d}{dx} \left ( p(x) \frac{dy}{dx} \right ) - q(x) y = f(x), \quad 0 \leq x \leq l, \\
+\alpha_1 y'(0) + \beta_1 y(0) = 0, \\
+\alpha_2 y'(l) + \beta_2 y(l) = 0,
+\end{cases}
+\end{equation}
+
+где $p(x) \in C^1[0,l], \; p(x) > 0; \;\; q(x), f(x) \in C[0,l];\; \; \alpha_i^2 + \beta_i^2 > 0, i = 1, 2$.
+
+В случае $f(x) \equiv 0$ задача называется однородной.
+
+\underline{Определение}. Функция $y(x)$ наз. решением краевой задачи \eqref{eq13.1}, если $y(x) \in C^2[0,l]$ и удовлетворяет \eqref{eq13.1}.
+
+\underline{Определение}. \textbf{Функцией Грина} задачи \eqref{eq13.1} наз. определенная в квадрате $[0,l] \times [0,l]$ функция $G(x, \xi)$, которая удовлетворяет следующим условиям:
+
+\begin{enumerate}
+    \item для $\forall \xi \in (0,l)$ функция $G(x, \xi)$ дважды непрерывно дифференцируема по $x$ на $[0, \xi) \cup (\xi, l]$ и удовлетворяет однородному уравнению: $$\frac{d}{dx} \left ( p(x) \frac{d G(x, \xi)}{dx} \right ) - q(x) G(x, \xi) = 0, \; 0 \leq x \leq l, \; x \ne \xi;$$
+    \item функция $G(x, \xi)$ удовлетворяет однородным краевым условиям по $x$: $$\alpha_1 G_x(0, \xi) + \beta_1 G(0, \xi) = 0, \; \alpha_2 G_x(l, \xi) + \beta_2 G(l, \xi) = 0, \quad \forall \xi \in (0, l);$$
+    \item функция $G(x, \xi)$ непрерывна в квадрате $[0, l] \times [0, l]$, а частная производная $G_x(x, \xi)$ имеет в точке $x = \xi$ разрыв первого рода с величиной скачка $$\frac{d}{dx} G(x, \xi) \big |_{x = \xi + 0} - \frac{d}{dx} G(x, \xi) \big |_{x = \xi - 0} = \frac{1}{p(\xi)}.$$
+\end{enumerate}
+
+\textbf{Теорема.} Если однородная краевая задача $L u = 0, \; \alpha_1 u'(0) + \beta_1 u(0) = 0, \; \alpha_2 u'(l) + \beta_2 u(l) = 0$ имеет только тривиальное решение, то функция Грина задачи \eqref{eq13.1} существует и единственна.
+
+\textbf{Доказательство.} Построим два линейно независимых решения $u_1, \; u_2$ однородного уравнения, каждое из которых удовлетворяет только одному из граничных условий:
+\begin{equation*}
+    \begin{cases}
+        L u_1 = 0, \quad 0 \leq x \leq l,\\
+        u_1(0) = -\alpha_1,\\
+        u_1'(0) = \beta_1.
+    \end{cases}
+    \begin{cases}
+        L u_2 = 0, \quad 0 \leq x \leq l,\\
+        u_2(l) = -\alpha_2,\\
+        u_2'(l) = \beta_2.
+    \end{cases}
+\end{equation*}
+
+Они линейно независимы, т.к. в противном случае однородная краевая задача имела бы ненулевое решение.
+
+Функцию Грина будем искать в виде: $$G(x, \xi) = 
+\begin{cases} 
+c_1(\xi) u_1(x), \quad 0 \leq x \leq \xi, \\
+c_2(\xi) u_2(x), \quad \xi \leq x \leq l.
+\end{cases}$$
+
+$c_1, c_2$ определяются из условия непрерывности $G(x, \xi)$ и разрыва $G_x(x, \xi)$ в точке $x = \xi$:
+
+\begin{equation*}
+    \begin{cases}
+        c_1(\xi) u_1(\xi) = c_2(\xi) u_2(\xi), \\
+        c_2(\xi) u_2'(\xi) - c_1(\xi) u_1'(\xi) = \frac{1}{p(\xi)}.
+    \end{cases}
+\end{equation*}
+
+Получили систему уравнений относительно двух неизвестных функций $c_1(\xi), \; c_2(\xi)$, решая которую получим:
+$$c_1(\xi) = \frac{u_2(\xi)}{W(\xi) p(\xi)}, \quad c_2(\xi) = \frac{u_1(\xi)}{W(\xi) p(\xi)},$$
+
+где $W(\xi) = u_1(\xi) u_2'(\xi) - u_2(\xi) u_1'(\xi)$ -- определитель Вронского.\\
+
+Получили окончательную формулу для функции Грина: 
+\begin{equation} \label{eq13.2}
+    G(x, \xi) = \frac{1}{W(\xi) p(\xi)} \cdot  
+\begin{cases}
+    u_2(\xi) u_1(x), \;\; 0 \leq x \leq \xi, \\
+    u_1(\xi) u_2(x), \;\; \xi \leq x \leq l.
+\end{cases}
+\end{equation}
+
+Докажем единственность. Пусть $\exists$ две функции Грина $G(x, \xi),\; \widehat{G}(x, \xi)$. Пусть $\xi$ -- произвольная точка интервала $(0,l) \implies z(x) = G(x, \xi) - \widehat{G}(x, \xi)$ -- непрерывна на $[0,l]$ и имеет непрерывную производную $z'(x)$ на $[0,l]$, т.к. у $G_x(x, \xi)$ и $\widehat{G}_x(x, \xi)$ разрыв в точке $x = \xi$ одинаков.\\
+
+$Lz = 0, \; x \ne \xi \implies z'' = \frac{q(x) z(x) - p'(x) z'(x)}{p(x)}$ -- непрерывна при $x = \xi \implies Lz = 0, \; 0 \leq x \leq l$.\\
+
+Очевидно, что $z(x)$ удовлетворяет граничным условиям. По условию теоремы однородная краевая задача имеет только тривиальное решение на отрезке $[0, l]$ $\implies z(x) \equiv 0 \implies G(x, \xi) = \widehat{G}(x, \xi). \quad \blacksquare$\\
+
+\textbf{Теорема.} Если однородная краевая задача имеет только тривиальное решение, то решение краевой задачи \eqref{eq13.1} существует, единственно и выражается через функцию Грина $$u(x) = \int\limits_0^l G(x, \xi) f(\xi) d\xi, \quad 0 \leq x \leq l.$$
+
+\textbf{Доказательство.} Покажем, что функция $u(x)$, определяемая формулой выше, является решением задачи \eqref{eq13.1}.
+
+$u(x) = \int\limits_0^x G(x, \xi) f(\xi) d\xi + \int\limits_x^l G(x, \xi) f(\xi) d\xi = \left \{ g_0 = \frac{1}{W(\xi) p(\xi)} \right \} = \frac{u_2(x)}{g_0} \int\limits_0^x u_1(\xi) f(\xi) d\xi + \frac{u_1(x)}{g_0} \int\limits_x^l u_2(\xi) f(\xi) d\xi \quad$ (использовали \eqref{eq13.2}).
+
+Дифференцируем: $u'(x) = \frac{u_2'(x)}{g_0} \int\limits_0^x u_1(\xi) f(\xi) d\xi + \frac{u_1'(x)}{g_0} \int\limits_x^l u_2(\xi) f(\xi) d\xi$.\\[2mm]
+
+Вычислим: $\frac{d}{dx} \left ( p(x) \frac{du}{dx} \right ) = \frac{(u_1(x) u_2'(x) - u_2(x) u_1'(x)) p(x)}{g_0} f(x) +$ \\$+ \frac{1}{g_0} \frac{d}{dx} \left ( p(x) \frac{du_2}{dx} \right ) \cdot \int\limits_0^x u_1(\xi) f(\xi) d\xi + \frac{1}{g_0} \frac{d}{dx} \left ( p(x) \frac{du_1}{dx} \right ) \cdot \int\limits_x^l u_2(\xi) f(\xi) d\xi$.
+
+Т.к. $Lu_1 = Lu_2 = 0$, а $(u_1 u_2' - u_2 u_1') p(x) = g_0$, то $Lu = \frac{d}{dx} \left ( p(x) \frac{du}{dx} \right ) - q(x) u(x) = f(x) + \frac{Lu_2}{g_0} \int\limits_0^x u_1(\xi) f(\xi) d\xi + \frac{Lu_1}{g_0} \int\limits_x^l u_2(\xi) f(\xi) d\xi = f(x).$\\
+
+Убедимся в выполнении граничных условий:\\ 
+
+$\alpha_1 u'(0) + \beta_1 u(0) = \{ \text{формулы для $u(x), u'(x)$ в начале док-ва} \} =$\\$= \frac{\alpha_1 u_1'(0)}{g_0} \int\limits_0^l u_2(\xi) f(\xi) d\xi + \frac{\beta_1 u_1(0)}{g_0} \int\limits_0^l u_2(\xi) f(\xi) d\xi =$\\$= \frac{\alpha_1 u_1'(0) + \beta_1 u_1(0)}{g_0} \int\limits_0^l u_2(\xi) f(\xi) d\xi =$\\$= \{ \alpha_1 u_1'(0) + \beta_1 u_1(0) =  0 \text{ по определению} \} = 0.$ \\
+
+Аналогично второе условие.
+
+Докажем единственность. Пусть $u(x),\; \widehat{u}(x)$ -- два решения задачи \eqref{eq13.1}. Тогда $z(x) = u(x) - \widehat{u}(x)$ -- решение однородной задачи, т.е. тривиальное (по условию теоремы) $\implies z(x) \equiv 0 \implies u(x) \equiv \widehat{u}(x). \quad \blacksquare$
+
+% -------- source --------
+\bigbreak
+[\cite{razgulin2}, пункт 3.2]
