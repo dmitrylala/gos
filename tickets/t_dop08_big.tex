@@ -1,3 +1,6 @@
+\setcounter{section}{4}
+\setcounter{subsection}{8}
+\setcounter{equation}{0}
 \textbf{\LARGE dop 8. Гильбеpтовы пpостpанства. Теоpема Леви об оpтогональной пpоекции.}
 
 \begin{definition}
@@ -29,7 +32,7 @@ $$(x, y) = \frac{\sqnorm{x + y} - \sqnorm{x} - \sqnorm{y}}{2}.$$
     \begin{multline*}
         \Delta = \sqnorm{x + y + z} - \sqnorm{x + y} - \sqnorm{z} - \sqnorm{x + z} + \sqnorm{x} + \sqnorm{z} - \\ - \sqnorm{y + z} + \sqnorm{y} + \sqnorm{z} = \\ = \sqnorm{x + y + z} - \sqnorm{x + y} - \sqnorm{x + z} - \sqnorm{y + z} + \sqnorm{z} + \sqnorm{y} + \sqnorm{x}.
     \end{multline*}
-    Теперь применим~\ref{тождество параллелограмма} к вектору $x + y + 2z$, рассмотрев его как $(x + y + z) + (z)$ и как $(x + z) + (y + z)$:
+    Теперь применим~\eqref{тождество параллелограмма} к вектору $x + y + 2z$, рассмотрев его как $(x + y + z) + (z)$ и как $(x + z) + (y + z)$:
     \begin{gather*}
         \sqnorm{x + y + 2z} + \sqnorm{x + y} = 2\sqnorm{x + y + z} + 2\sqnorm{z}\\
         \sqnorm{x + y + 2z} + \sqnorm{x - y} = 2\sqnorm{x + z} + 2\sqnorm{y + z}
@@ -38,7 +41,7 @@ $$(x, y) = \frac{\sqnorm{x + y} - \sqnorm{x} - \sqnorm{y}}{2}.$$
     $$\sqnorm{x + y} - \sqnorm{x - y} = 2\big(\sqnorm{x + y +z} -\sqnorm{x + z} - \sqnorm{y + z} + \sqnorm{z}\big)$$
     И подставляя в $\Delta$:
     $$\Delta = \frac{1}{2}\big(\sqnorm{x + y} - \sqnorm{x - y}\big) - \sqnorm{x + y} + \sqnorm{x} + \sqnorm{y} = 0,$$
-    в силу~\ref{тождество параллелограмма}.
+    в силу~\eqref{тождество параллелограмма}.
     \item $(\alpha x, y) = \alpha(x, y)$. В силу 2 аксиомы:
     \begin{enumerate}
         \item $(2x, y) = (x + x, y) = (x, y) + (x, y) = 2(x, y)$, т.е. аксиома верна для $\forall \alpha\in\bbN$
@@ -77,7 +80,7 @@ $$(x, y) = \frac{\sqnorm{x + y} - \sqnorm{x - y}}{4} - i\frac{\sqnorm{x + iy} - 
 
 С другой стороны, $\norm{\frac{x_n + x_m}{2}}\le\frac{\norm{x_n}}{2} + \frac{\norm{x_m}}{2}$. Тогда, переходя к пределу при $n,m\to\infty$ в двойном неравенстве:
 $$d\le\norm{\frac{x_n + x_m}{2}}\le\frac{\norm{x_n}}{2} + \frac{\norm{x_m}}{2}$$
-получаем, что $\norm{\frac{x_n + x_m}{2}}\to d$ (по т. о двух милиционерах). Далее, в силу~\ref{тождество параллелограмма}:
+получаем, что $\norm{\frac{x_n + x_m}{2}}\to d$ (по т. о двух милиционерах). Далее, в силу~\eqref{тождество параллелограмма}:
 $$ \sqnorm{x_n - x_m} = 2\sqnorm{x_n} + 2\sqnorm{x_m} - 4\sqnorm{\frac{x_n + x_m}{2}} $$
 $\Rightarrow \sqnorm{x_n - x_m} \to 0$, т.е. $x_n$ --- фундаментальна. Тогда, в силу гильбертовости $H$ (следовательно, полноты):
 $\exists\widetilde{x}\in H\colon x_n\to \widetilde{x}$. В силу непрерывности нормы:
@@ -85,7 +88,7 @@ $\norm{\widetilde{x}}=\norm{\lim_{n\to\infty}x_n}=\lim_{n\to\infty}\norm{x_n}=d$
 ~\\
 \boxed{!} Пусть $\exists x'\in H\colon \norm{x'} = d$. Тогда:
 $$d\le\norm{\frac{x' + \widetilde{x}}{2}}\le\frac{\norm{x'}}{2} + \frac{\norm{\widetilde{x}}}{2} = d \Rightarrow \norm{\frac{x' + \widetilde{x}}{2}} = d$$
-Тогда, в силу~\ref{тождество параллелограмма}:
+Тогда, в силу~\eqref{тождество параллелограмма}:
 $$\sqnorm{\widetilde{x} - x'} = 2\sqnorm{\widetilde{x}} + 2\sqnorm{x'}-4\sqnorm{\frac{x' + \widetilde{x}}{2}}=0 \Rightarrow \widetilde{x} = x'$$
 \end{proofocre}
 
@@ -104,7 +107,7 @@ $$H = E \oplus E^\perp,$$
 \begin{proofocre}
 (док-во по лекциям Сергеева, см. ссылки)~\\
 \boxed{\exists}
-По теореме об элементе с наименьшей нормой~(\ref{теорема об элементе с наименьшей нормой}) $\exists!u\in E$, ближайший к $v$, пусть $w \coloneqq v - u,~\norm{w}=d$. Покажем, что $w\in E^\perp$. Для $\forall z\in E,~\forall t\in\bbR$ имеем
+По теореме об элементе с наименьшей нормой~(\eqref{теорема об элементе с наименьшей нормой}) $\exists!u\in E$, ближайший к $v$, пусть $w \coloneqq v - u,~\norm{w}=d$. Покажем, что $w\in E^\perp$. Для $\forall z\in E,~\forall t\in\bbR$ имеем
 \begin{multline*}
     d^2 \le \sqnorm{v - (u + tz)} = \sqnorm{w - tz} = d^2 - 2t\text{Re}(w, z) + t^2\sqnorm{z} \Rightarrow\\
     \Rightarrow 2t\text{Re}(w, z) \le t^2\sqnorm{z}~\forall t\in\bbR \Rightarrow \text{Re}(w, z) = 0

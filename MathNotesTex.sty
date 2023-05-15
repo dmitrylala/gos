@@ -1256,15 +1256,16 @@
 % no header or footer in the title page
 \newcommand\ps@titlepage{\renewcommand\@oddfoot{}\renewcommand\@oddhead{}}
 
+%number equations after the sections
+\makeatletter
+\@addtoreset{equation}{section}
+\makeatother
+\numberwithin{equation}{subsection}
+\renewcommand{\theequation}{\arabic{equation}}
 
 % square of norm
 \renewcommand{\norm}[1]{\|#1\|}
 \newcommand\sqnorm[1]{\norm{#1}^2}
-
-
-%number equations after the sections
-\renewcommand{\theequation}{\thesection.\arabic{equation}}
-\numberwithin{equation}{section}
 
 
 %headings style
