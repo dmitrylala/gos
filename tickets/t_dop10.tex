@@ -63,10 +63,10 @@ $$0 = (x, (\mcA^* - \widetilde{\mcA^*}) y),~\forall x\in H \Rightarrow \mathLet~
 \end{proofocre}
 
 \begin{lemma}
-Если $x_n\xlongrightarrow{w}x$, то $\mcA x_n \xlongrightarrow{w} \mcA x$.
+Если $x_n\xrightarrow{w}x$, то $\mcA x_n \xrightarrow{w} \mcA x$.
 \end{lemma}
 \begin{proofocre}
-$(\mcA x_n, y) = (x_n, \mcA^* y)\longrightarrow(x, \mcA^* y)=(\mcA x, y),~\forall y\in H$, и по определению имеем $\mcA x_n\xlongrightarrow{w}\mcA x$.
+$(\mcA x_n, y) = (x_n, \mcA^* y)\longrightarrow(x, \mcA^* y)=(\mcA x, y),~\forall y\in H$, и по определению имеем $\mcA x_n\xrightarrow{w}\mcA x$.
 \end{proofocre}
 
 \begin{example}
@@ -76,7 +76,7 @@ $(\mcA x_n, y) = (x_n, \mcA^* y)\longrightarrow(x, \mcA^* y)=(\mcA x, y),~\foral
 \begin{definition}
 Оператор $\mcA\colon H\to H$ называется \emph{вполне непрерывным}, если он любую слабо
 сходящуюся последовательность переводит в последовательность, сходящуюся по норме, то есть 
-$$\forall\{x_n\}\colon x_n\xlongrightarrow{w}x \;\Rightarrow\; \norm{\mcA x_n - \mcA x}\xrightarrow{n\to\infty}0.$$
+$$\forall\{x_n\}\colon x_n\xrightarrow{w}x \;\Rightarrow\; \norm{\mcA x_n - \mcA x}\xrightarrow{n\to\infty}0.$$
 \end{definition}
 
 \begin{Commentwhite}
@@ -88,7 +88,7 @@ $$\forall\{x_n\}\colon x_n\xlongrightarrow{w}x \;\Rightarrow\; \norm{\mcA x_n - 
 \end{theorem}
 \begin{proofocre}
 ~\\
-Пусть $x_n\xlongrightarrow{w}x$. Рассмотрим $\sqnorm{\mcA^*(x_n - x)}$:
+Пусть $x_n\xrightarrow{w}x$. Рассмотрим $\sqnorm{\mcA^*(x_n - x)}$:
 \begin{multline*}
     \sqnorm{\mcA^* x_n - \mcA^* x} = \big(\mcA^* (x_n - x), \mcA^* (x_n - x)\big) = (\mcA\mcA^*(x_n - x), x_n - x)\le\\
     \le\norm{\mcA(\mcA^*(x_n - x))}\cdot\norm{x_n - x}\longrightarrow0,
