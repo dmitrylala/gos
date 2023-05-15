@@ -28,6 +28,13 @@ $$.
 \begin{equation}
     \lim_{x \rightarrow x_0}{f(x)} = \lim_{x \rightarrow x_0}{(\lim_{n \rightarrow \infty}{f_n(x)})} = \lim_{n \rightarrow \infty}{(\lim_{x \rightarrow x_0}{f_n(x)})}
 \end{equation}
+\bigbreak
+
+Формулировка для рядов: \\
+Если ф. ряд $\sum_{k=1}^{\infty}u_k(x)  \underset{\{x\}}{\rightrightarrows}S(x)$ и для $\forall k \ \exists \lim_{x \rightarrow x_0}{u_k(x)} = b_k$, то и сумма ряда $S(x)$ имеет в точке $x_0$ предел
+$$
+    \lim_{x \rightarrow x_0}{S(x)} = \sum_{k=1}^{\infty}[\,\lim_{x \rightarrow x_0}{u_k(x)}]\, = \sum_{k=1}^{\infty} b_k,
+$$
 
 
 \bigbreak
@@ -37,8 +44,16 @@ $$.
 \begin{equation}
     \lim_{n \rightarrow \infty}{\int_{a}^{b} f_n(x) \,dx} =  \int_{a}^{b} \lim_{n \rightarrow \infty}{f_n(x)} \,dx = \int_{a}^{b} f(x) \,dx.
 \end{equation}
+\bigbreak
 
-\begin{proof}
+Формулировка для рядов: \\
+Если ф. ряд $\sum_{k=1}^{\infty}u_k(x) \underset{[\,a,b]\,}{\rightrightarrows}S(x)$ и для $\forall k \ u_k(x)$ - интегрируемая на $[\,a,b]\,$ функция, то и $S(x)$ - интегрируемая на $[\,a,b]\,$ функция, причем
+$$
+    \sum_{k=1}^{\infty} \int_a^b u_k(x) \, dx
+$$
+сходится и имеет своей суммой $\int_a^b S(x) \, dx$
+
+\begin{proof} (Для функциональных последовательностей. В случае рядов достаточно заменить $f_n(x)$ на $S_n(x)$ - п-ть частичных сумм ряда) \\
 Докажем, что предельная функция $\boldsymbol{f(x)}$ \textbf{интегрируема} на $[\,a,b]\,$ \\
 
 Фиксируем $\forall \varepsilon > 0$. Достаточно доказать, что для $f(x)$ найдется хотя бы одно разбиение сегмента $[\,a,b]\,$: $S-s<\varepsilon$, где $S$ и $s$ - верхняя и нижняя суммы разбиения для функции $f(x)$. \\ 
@@ -101,12 +116,17 @@ $$.
 \end{align}
 
 \end{proof}
-
 \bigbreak
+
+
 \textbf{Почленное дифференцирование (теорема).} \\
 Если каждая функция $f_n(x)$ имеет производную на $[\,a,b]\,$, причем п-ть $\{f_n'(x)\}$ cх-ся равномерно на $[\,a,b]\,$, а сама п-ть $\{f_n(x)\}$ сх-ся хотя бы в одной точке $x_0 \in [\,a,b]\,$, то $\{f_n(x)\} \underset{[\,a,b]\, }{\rightrightarrows}f(x)$, причем $\lim_{n \rightarrow \infty}{\{f_n'(x)\}} = f'(x)$ для $\forall x \in [\,a,b]\,$.
+\bigbreak
 
-\begin{proof}
+Формулировка для рядов: \\
+Если для $\forall k \ \exists u_k'(x)$ на $[\,a,b]\,$ и если $\sum_{k=1}^{\infty} u_k'(x) \underset{[\,a,b]\, }{\rightrightarrows}$, а сам ряд $\sum_{k=1}^\infty u_k(x)$ сходится хотя бы в одной точке $x_0 \in [\,a,b]\,$, то $\sum_{k=1}^{\infty} u_k(x) \underset{[\,a,b]\, }{\rightrightarrows} S(x)$, причем $S'(x) = \sum_{k=1}^\infty u_k'(x)$.
+
+\begin{proof} (Для функциональных последовательностей. В случае рядов также заменить $f_n(x)$ на $S_n(x)$- п-ть частичных сумм ряда) \\
     Сначала докажем, что $\{f_n(x)\} \underset{[\,a,b]\, }{\rightrightarrows}f(x)$. \\
     Из сх-ти $\{f_n(x_0)\}$ и из равномерной сх-ти $\{f_n'(x)\}$ на $[\,a,b]\,$ следует, что для $\forall \varepsilon > 0 \ \exists N(\varepsilon):$
 
