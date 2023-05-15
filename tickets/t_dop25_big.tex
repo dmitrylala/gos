@@ -1,5 +1,7 @@
+\setcounter{section}{4}
+\setcounter{subsection}{25}
+\setcounter{equation}{0}
 \textbf{\LARGE dop 25. Метод пpогонки pешения pазностных уpавнений.}
-\renewcommand{\theequation}{\arabic{equation}}
 
 Рассмотрим систему линейных алгебраических уравнений $A y = f$ с трехдиагональной матрицей $A = [a_{ij}]\,:\; a_{ij} = 0 \;\textit{при}\; j > i+1\;\textit{и}\;j < i-1$. В общем случае СЛАУ с трехдиагональной матрицей имеют вид 
 \begin{align}
@@ -97,7 +99,6 @@ $$
 \rule{275pt}{0.5pt} 
 
 \textbf{Матричная прогонка} относится к \textit{прямым методам} решения разностных уравнений. Она применяется к уравнениям, которые можно записать в виде системы векторных уравнений 
-\setcounter{equation}{0}
 \begin{align}
     -C_0 y_0 + B_0 y_1 &= - F_0,\notag \\
     A_i y_{i-1} - C_i y_i + B_i y_{i+1} &= - F_i, \quad i = 1, 2, \ldots, N-1, \label{25.1}\\
