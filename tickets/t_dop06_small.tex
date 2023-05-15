@@ -1,3 +1,6 @@
+\setcounter{section}{4}
+\setcounter{subsection}{6}
+\setcounter{equation}{0}
 \textbf{\LARGE dop 6. Билинейные и квадpатичные фоpмы. Пpиведение их к каноническому виду. Закон инеpции.}
 
 
@@ -26,7 +29,7 @@ $\forall x=\sum_{i=1}^nx_ie_i,~y=\sum_{i=1}^ny_ie_i$, где $a_{ij}~(i,j=\overl
 \end{example}
 
 \begin{definition}
-Представление билинейной формы в виде (\ref{eq общий вид билин. формы}) называется \emph{общим видом билинейной формы в базисе $e$}.\\
+Представление билинейной формы в виде (\eqref{eq общий вид билин. формы}) называется \emph{общим видом билинейной формы в базисе $e$}.\\
 Матрица $A_e=(a_{ij})\in\bbR^{n\times n}:a_{ij}=\mcA(e_i,e_j),~i,j=\overline{1,n}$ называется \emph{матрицей билинейной формы $\mcA(x,y)$ в базисе $e$}.\\
 Общий вид билинейной формы может быть записан в компактном виде: если $x_e,~y_e$~--- координатные столбцы векторов $x$ и $y$ в базисе $e$, то
 \begin{equation}
@@ -80,7 +83,7 @@ $\forall x=\sum_{i=1}^nx_ie_i,~y=\sum_{i=1}^ny_ie_i$, где $a_{ij}~(i,j=\overl
 \end{theorem}
 
 \begin{definition}
-Пусть квадратичная форма $\mcA(x,x)$ приведена к каноническому виду (\ref{eq канон. вид квадр. формы}). Число $\pi$ положительных квадратов в (\ref{eq канон. вид квадр. формы}) и число $\nu=r-\pi$ называются \emph{положительным и отрицательным индексами инерции} квадратичной формы $\mcA$, а их разность $\sigma=\pi-\nu$ называется \emph{сигнатурой} $\mcA(x,x)$.
+Пусть квадратичная форма $\mcA(x,x)$ приведена к каноническому виду (\eqref{eq канон. вид квадр. формы}). Число $\pi$ положительных квадратов в (\eqref{eq канон. вид квадр. формы}) и число $\nu=r-\pi$ называются \emph{положительным и отрицательным индексами инерции} квадратичной формы $\mcA$, а их разность $\sigma=\pi-\nu$ называется \emph{сигнатурой} $\mcA(x,x)$.
 \end{definition}
 
 \begin{theorem}
@@ -101,7 +104,7 @@ $\forall x=\sum_{i=1}^nx_ie_i,~y=\sum_{i=1}^ny_ie_i$, где $a_{ij}~(i,j=\overl
 где $a_i>0,~b_i>0,~i=\overline{1,r}$.\\
 Докажем, что $p\le q$. От противного: пусть $p>q$.\\
 Рассмотрим подпространства $L_1=\mcL(e_1,\ldots,e_p)$ и $L_2=\mcL(f_{q+1},\ldots,f_n)$. Согласно $\dim (L_1+L_2) = \dim L_1 + \dim L_2 - \dim(L_1 \cap L_2)$, $dim(L_1\cap L_2)=p+(n-q)-dim(L_1+L_2);~dim(L_1+L_2)\le n,\\p>q \Rightarrow dim(L_1+L_2)>0 \Rightarrow\exists~x_0\neq\theta,~x_0\in L_1\cap L_2$.\\
-Пусть $x_0=\alpha_1e_1+\ldots+\alpha_pe_p=\beta_{q+1}f_{q+1}+\ldots+\beta_nf_n$. Тогда, согласно (\ref{eq 43.1})
+Пусть $x_0=\alpha_1e_1+\ldots+\alpha_pe_p=\beta_{q+1}f_{q+1}+\ldots+\beta_nf_n$. Тогда, согласно (\eqref{eq 43.1})
 \begin{equation}
     \mcA(x_0,x_0)=a_1\alpha_1^2+\ldots+a_p\alpha_p^2=-b_{q+1}\beta_{q+1}^2-\ldots-b_r\beta_r^2.
 \end{equation}

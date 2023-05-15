@@ -1,6 +1,7 @@
-\textbf{\LARGE dop 21. Фоpмулы Гpина.}
-\renewcommand{\theequation}{\arabic{equation}}
+\setcounter{section}{4}
+\setcounter{subsection}{21}
 \setcounter{equation}{0}
+\textbf{\LARGE dop 21. Фоpмулы Гpина.}
 
 \noindentРассмотрим пространство $\mathbb{R}^n$,  \quad $n \geq 2$\,, \quad $x = (x_1,\,\ldots,\, x_n) \in \mathbb{R}^n$, \quad $x$ -- точка в $\mathbb{R}^n$. 
 $\Omega\subset\mathbb{R}^n\:$ -- область в $\mathbb{R}^n\:$ (открытое связное множество). 
@@ -19,16 +20,12 @@ $\overrightarrow{\nu_y} = \nu_y$ -- единичная верхняя норма
 
 \noindent Пусть $\overrightarrow{A}(x) = (A_1(x),\, \ldots,\, A_n(x))$ -- векторное поле (в.\,п.) в $\overline{\Omega}$, причем $\overrightarrow{A}\in C^1(\overline{\Omega})$.\;\; Тогда
 
-\renewcommand{\theequation}{\Alph{footnote}\Alph{equation}}
-\setcounter{footnote}{7}
-\setcounter{equation}{14}
 \begin{equation}
 \centering
     \int\limits_{\partial\:\Omega} (\overrightarrow{A}(y),\; \overrightarrow{\nu_y})\,ds_y = \int\limits_{\Omega}\operatorname{div}\overrightarrow{A}(x)\,dx, 
     \label{eq:GO}
 \end{equation}
-\renewcommand{\theequation}{\arabic{equation}}
-\setcounter{equation}{0}
+
 где \quad $\displaystyle \operatorname{div}\overrightarrow{A}(x) \equiv \frac{\partial A_1}{\partial x_1}(x)  + \frac{\partial A_2}{\partial x_2}(x) + \ldots + \frac{\partial A_n}{\partial x_n}(x) $. 
 \newline\newline
 \noindent\fbox{$\mathrm{N}\!\!\mathrm{B}$} При $n = 3$ формула \eqref{eq:GO} принимает вид
@@ -133,7 +130,7 @@ $$
     u(x) = \int\limits_{\partial \, \Omega} \left ( \frac{\partial E(y-x)}{\partial \nu_y} \, u(y) - E(y-x) \, \frac{\partial u(y)}{\partial \nu_y} \right ) d s_y, \quad \forall x \in \Omega.
 \end{equation*}
 \noindent Это \textbf{фундаментальная формула Грина для гармонических функций}. 
-\setcounter{equation}{0}
+
 % -------- source --------
 
 [\cite{umf_tix}, файлы 2.1, 10, 11.1]
