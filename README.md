@@ -18,17 +18,16 @@ sudo apt-get install -y texlive-bibtex-extra
 либо скачать [MacTex](https://tug.org/mactex/) (весит много)
 
 либо через brew, но все пакеты надо ставить вручную
-```
+```console
 brew install basictex
 brew install --cask tex-live-utility
 #обновить терминал
 #через tex-live-utility ставить пакеты
 ```
 
-
-
-# Доступные команды в Makefile (warning: make clean не удаляет pdf-ки)
-```
+## Доступные команды в Makefile
+warning: make clean не удаляет pdf-ки
+```console
 make help
 ```
 
@@ -36,5 +35,3 @@ make help
 ```console
 make compile target=main_big
 ```
-
-
