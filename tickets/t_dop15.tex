@@ -1,0 +1,186 @@
+\setcounter{section}{4}
+\setcounter{subsection}{15}
+\setcounter{equation}{0}
+\textbf{\LARGE dop 15. Зависимость pешений диффеpенциальных уpавнений от исходных данных.}
+
+Рассмотрим задачу Коши для дифференциального уравнения первого порядка, разрешенного относительно производной
+\begin{equation*}
+\begin{split}
+y'(t)=f(t,y(t)), \; t\in [t_0-T,t_0+T],\\
+y(t_0)=y_0.
+\end{split}
+\end{equation*}
+Пусть функция $f(t,y)$ определена и непрерывна в прямоугольнике
+\begin{equation*}
+Q=\{(t,y):\: |t-t_0|\leq T,\; A\leq y\leq B\}.
+\end{equation*}
+
+\textbf{Теорема 1}\\
+Пусть функции $f_1 (t,y)$ и $f_2 (t,y)$ непрерывны в прямоугольнике $Q$ и $f_1 (t,y)$ удовлетворяет условию Липшица по $y$, то есть существует константа  $L > 0$ такая, что
+\begin{equation*}
+|f_1(t,y)-f_1(t,\widetilde{y})|\leq L|y-\widetilde{y}|,\; \forall(t,y), (t,\widetilde{y})\in Q
+\end{equation*}
+Тогда, если функции $y_1(t)$ и $y_2(t)$ на отрезке $[t_0-T,t_0+T]$ являются решениями задач Коши 
+\begin{equation*}
+\begin{split}
+\begin{cases}
+y'_1(t)=f_1(t,y_1(t)),\\
+y_1(t_0)=y_{01},
+\end{cases}
+\:
+\begin{cases}
+y'_2(t)=f_2(t,y_2(t)),\\
+y_2(t_0)=y_{02},
+\end{cases}
+\end{split}
+\end{equation*}
+то имеет место неравенство 
+\begin{equation*}\tag{1}
+\begin{split}
+\underset{t\in[t_0-T,t_0+T]}{max} |y_1(t)-y_2(t)|\leq \\
+\leq \big( |y_{01}-y_{02}|+T \underset{(t,y)\in Q}{max} |f_1(t,y)-f_2(t,y)|\big) exp\{LT\}.
+\end{split}
+\end{equation*}
+
+\textbf{Доказательство.} Из леммы об эквивалентности задачи Коши интегральному уравнению следует, что функции $y_1(t)$ и $y_2(t)$ являются решениями интегральных уравнений
+\begin{equation*}
+\begin{split}
+y_1(t)=y_{01}+\int_{t_0}^t f_1(\tau , y_1(\tau))d\tau , \;t\in [t_0-T, t_0+T],\\
+y_2(t)=y_{02}+\int_{t_0}^t f_2(\tau , y_2(\tau))d\tau , \;t\in [t_0-T, t_0+T].
+\end{split}
+\end{equation*}
+Вычитая второе уравнение из первого и оценивая по модулю, имеем
+\begin{equation*}
+|y_1(t)-y_2(t)|\leq |y_{01}-y_{02}|+\big| \int_{t_0}^t (f_1(\tau , y_1(\tau))- f_2(\tau , y_2(\tau)))d\tau \big|.
+\end{equation*}
+Вычитая и прибавляя под знаком интеграла $f_1(\tau,y_2(\tau))$, получим
+\begin{equation*}\tag{2}
+\begin{split}
+|y_1(t)-y_2(t)|\leq |y_{01}-y_{02}|+\big| \int_{t_0}^t |f_1(\tau , y_1(\tau))- f_1(\tau , y_2(\tau))|d\tau \big| +\\
++\big| \int_{t_0}^t |f_1(\tau , y_2(\tau))- f_2(\tau , y_2(\tau))|d\tau \big|,\; t\in [t_0-T, t_0+T].    
+\end{split}
+\end{equation*}
+Учитывая то, что функция $f_1(t,y)$ удовлетворяет условию Липшица, а также оценку
+\begin{equation*}
+\big| \int_{t_0}^t |f_1(\tau , y_2(\tau))- f_2(\tau , y_2(\tau))|d\tau \big|\leq T \underset{(t,y)\in Q}{max} |f_1(t,y)-f_2(t,y)|,
+\end{equation*}
+справедливую для всех $t\in [t_0-T,t_0+T]$, неравенство (2) можно переписать так:
+\begin{equation*}
+\begin{split}
+|y_1(t)-y_2(t)|\leq \big( |y_{01}-y_{02}|+  T \underset{(t,y)\in Q}{max} |f_1(t,y)-f_2(t,y)|\big)+\\
++L \big| \int_{t_0}^t |y_1(\tau)- y_2(\tau)|d\tau \big|, \;t\in [t_0-T,t_0+T].
+\end{split}
+\end{equation*}
+Применив к функции $|y_1(t)-y_2(t)|$ лемму Гронуолла-Беллмана, при $t\in [t_0-T,t_0+T]$ получим неравенство
+\begin{equation*}
+|y_1(t)-y_2(t)|\leq (|y_{01}-y_{02}|+  T \underset{(t,y)\in Q}{max} |f_1(t,y)-f_2(t,y)|) exp\{L|t-t_0|\},
+\end{equation*}
+из которого следует оценка (1). Теорема доказана. \\$\blacksquare$
+
+Рассмотрим прямоугольник
+\begin{equation*}
+Q_+=\{(t,y):\; t_0\leq t\leq t_0+T,\: A\leq y\leq B\}.
+\end{equation*}
+
+Далее мы используем следующее простое утверждение из математического анализа, представляющее собой формулу конечных приращений в интегральном виде.
+
+\textbf{Лемма 1}\\
+Пусть функция $f(t,y)$ непрерывна в $Q_+$ и имеет в $Q_+$ непрерывную частную производную $f_y(t,y)$. Тогда для любых $(t,y_1), (t,y_2)\in Q_+$ справедливо равенство
+\begin{equation*}\tag{3}
+f(t,y_1)-f(t,y_2)=\int_0^1 f_y(t,y_2+\theta(y_1-y_2))d\theta(y_1-y_2).
+\end{equation*}
+Докажем теперь теорему о сравнении решений двух задач Коши, которую также часто называют  неравенством Чаплыгина.
+
+\textbf{Теорема 2. (Теорема сравнения)}\\
+Пусть функции $f_1(t,y)$, $f_2(t,y)$ непрерывны в $Q_+$ и $f_1(t,y)$ имеет в $Q_+$ непрерывную частную производную $\frac{\partial f_1}{\partial y}(t,y)$. Тогда, если функции $y_1(t), y_2(t)$ на отрезке $[t_0,t_0+T]$ являются решениями задач Коши
+\begin{equation*}
+\begin{split}
+\begin{cases}
+y'_1(t)=f_1(t,y_1(t)),\\
+y_1(t_0)=y_{01},
+\end{cases}
+\:
+\begin{cases}
+y'_2(t)=f_2(t,y_2(t)),\\
+y_2(t_0)=y_{02},
+\end{cases}
+\end{split}
+\end{equation*}
+причем
+\begin{equation*}
+f_1(t,y)\geq f_2(t,y), \;(t,y)\in Q_+, \;y_{01}\geq y_{02},
+\end{equation*}
+то справедливо неравенство
+\begin{equation*}
+y_1(t)\geq y_2(t),\; t\in [t_0,t_0+T].
+\end{equation*}
+\textbf{Доказательство.} Так как функции $y_1(t)$ и $y_2(t)$ на отрезке $[t_0,t_0+T]$ являются решениями соответствующих уравнений, то они непрерывно дифференцируемы на отрезке $[t_0,t_0+T], A \leq y_i(t) \leq B, i=1,2,$ и справедливо равенство
+\begin{equation*}\tag{4}
+y'_1(t)-y'_2(t)=f_1(t,y_1(t))-f_2(t,y_2(t)), \;t\in[t_0,t_0+T].
+\end{equation*}
+Преобразуем правую часть этого равенства, используя формулу конечных приращений (3),
+\begin{equation*}
+\begin{split}
+f_1(t,y_1(t))-f_2(t,y_2(t))= \\
+=f_1(t,y_1(t))-f_1(t,y_2(t))+f_1(t,y_2(t))-f_2(t,y_2(t))=\\
+=\int_0^1 \frac{\partial f_1}{\partial y}(t,y_2(t)+\theta(y_1(t)-y_2(t)))d\theta(y_1(t)-y_2(t))+\\
++f_1(t,y_2(t))-f_2(t,y_2(t)).
+\end{split}
+\end{equation*}
+Введем обозначения
+\begin{equation*}
+\begin{split}
+v(t)=y_1(t)-y_2(t),\\
+p(t)= \int_0^1 \frac{\partial f_1}{\partial y}(t,y_2(t)+\theta(y_1(t)-y_2(t)))d\theta,\\
+h(t)=f_1(t,y_2(t))-f_2(t,y_2(t)).
+\end{split}
+\end{equation*}
+Тогда $f_1(t,y_1(t))-f_2(t,y_2(t))=p(t)v(t)+h(t)$, и равенство (4) можно переписать так:
+\begin{equation*}
+v'(t)=p(t)v(t)+h(t),\; t\in[t_0,t_0+T].
+\end{equation*}
+Решение этого линейного дифференциального уравнения первого порядка с начальным условием $v(t_0)=y_{01}-y_{02}$ имеет вид
+\begin{equation*}
+v(t)=(y_{01}-y_{02})exp\big\{ \int_{t_0}^t p(\xi)d\xi \big\}+ \int_{t_0}^t exp\big\{\int_{\tau}^t p(\xi)d\xi \big\}h(\tau)d\tau , t\in[t_0,t_0+T].
+\end{equation*}
+Так как из условий теоремы следует, что 
+\begin{equation*}
+y_{01}-y_{02}\geq 0,\; h(t)\geq 0,\; t\in[t_0,t_0+T],
+\end{equation*}
+то
+\begin{equation*}
+v(t)=y_1(t)-y_2(t)\geq 0,\; t\in[t_0,t_0+T].
+\end{equation*}
+и теорема доказана.\\
+$\blacksquare$\\
+
+Обозначим
+\begin{equation*}
+Q_\mu=\{(t,y,\mu): \;|t-t_0|\leq T,\; A\leq y\leq B, \;\mu_1\leq \mu\leq \mu_2\}.
+\end{equation*}
+Пусть функция $f(t,y,\mu)$ определена на множестве $Q_\mu$, а функция $y_0(\mu)$ определена на отрезке $[\mu_1,\mu_2]$.
+
+Рассмотрим задачу Коши
+\begin{equation*}\tag{5}
+y'(t)=f(t,y(t),\mu),\; t\in [t_0-T,t_0+T],
+\end{equation*}
+\begin{equation*}\tag{6}
+y(t_0)=y_0(\mu).
+\end{equation*}
+
+\textbf{Теорема 3 (Непрерывная зависимость решения задачи Коши от параметра)}\\
+Пусть функция $f(t,y,\mu)$ непрерывна в $Q_\mu$ и удовлетворяет в $Q_\mu$ условию Липшица по $y$, то есть
+\begin{equation*}
+|f(t,y_1,\mu)-f(t,y_2,\mu)|\leq L|y_1-y_2|, \;\forall(t,y_1,\mu),(t,y_2,\mu)\in Q_\mu
+\end{equation*}
+а функция $y_0(\mu)$ непрерывна на отрезке $[\mu_1,\mu_2]$.\\
+Тогда если $y(t,\mu)$ - решение задачи Коши (5), (6) на отрезке $[t_0-T,t_0+T]$ для всех $\mu \in [\mu_1,\mu_2]$, то функция $y(t,\mu)$ непрерывна $\mu$ по при $t\in [t_0-T,t_0+T], \mu \in [\mu_1,\mu_2]$.\\
+
+\textbf{Теорема 4 (Дифференцируемость решения задачи Коши по параметру)}\\
+Пусть функция $f(t,y,\mu)$ непрерывна в $Q_\mu$ и имеет в $Q_\mu$ непрерывные частные производные $f_y(t,y,\mu)$, $f_\mu(t,y,\mu)$, а функция $y_0(\mu)$ непрерывно дифференцируема на отрезке $[\mu_1,\mu_2]$.\\
+Тогда если $y(t,\mu)$ - решение задачи Коши (5), (6) на отрезке $[t_0-T,t_0+T]$ для всех $\mu \in [\mu_1,\mu_2]$, то функция $y(t,\mu)$ имеет при $t\in [t_0-T,t_0+T], \mu \in [\mu_1,\mu_2]$ производную по $\mu$.\\
+
+
+% -------- source --------
+\bigbreak
+[\cite[6-13]{denisov2}]

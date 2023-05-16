@@ -1,0 +1,111 @@
+\setcounter{section}{4}
+\setcounter{subsection}{18}
+\setcounter{equation}{0}
+\textbf{\LARGE dop 18. Пpинцип максимума для уpавнения теплопpоводности. Единственность pешения пеpвой кpаевой задачи.}
+
+Разберем простейший вариант принципа экстремума на примере одномерного уравнения теплопроводности. 
+
+\noindent\underline{\textbf{Ситуация}}.\\[2mm] Рассмотрим уравнение $u_t = a^2 u_{xx}$ в  прямоугольнике $$\Pi = \{(x, t): l_1 < x < l_2,\;\; 0 < t \leq T \},$$ 
+\noindentгде \;\; $l_1,\; l_2,\; T$ -- конечные числа ($l_1 < l_2$).
+\\ Верхняя крышка $t = T$, \;$l_1 < x < l_2$ включается в $\Pi$ (здесь уравнение тоже должно выполняться). \newline
+\textbf{Параболической границей} для $\Pi$ называется множество $$\Gamma \equiv \left( [l_1, l_2] \times \{0\} \right)\, \cup\, \left( \{l_1\} \times [0, T] \right) \,\cup\, \left( \{l_2\} \times [0, T] \right)$$ -- именно здесь обычно задают начальное и краевые условия (см. штриховку на рисунке).\newline\newline
+$\Pi \cup \Gamma = \overline{\Pi}$ -- замыкание $\Pi$ на плоскости $\mathbb{R}^2_{(x, t)}$.\newline
+
+\theorem{
+ \textbf{(Принцип экстремума.)} Пусть $u(x, t)$ -- решение уравнения $u_t = a^2 u_{xx}$ в прямоугольнике $\Pi$ из класса $C^{2,1}(\Pi)\, \cap\, C(\overline{\Pi})$. Пусть $\displaystyle m \equiv \min_\Gamma (u(x, t))$, $\displaystyle\; M \equiv \max_\Gamma (u(x, t))$ -- минимальное и максимальное значения $u(x, t)$ на параболической границе $\Gamma$. Тогда 
+ \begin{equation}\label{eq6.1}
+         m \leq u(x, t) \leq M \quad\text{для}\quad \forall (x, t) \in \overline{\Pi},
+ \end{equation}
+ т.\,е. минимум и максимум в $\overline{\Pi}$ функции $u(x, t)$ обязательно достигается\\ либо при $t = 0$, либо при $x = l_1$, либо при $x = l_2$.
+}
+
+\noindent \textbf{\underline{Физическая интерпретация}.} При отсутствии внутренних источников тепла температура внутри тела не может превышать максимального значения температуры в начальный момент времени и на боковых границах. \\[2mm]
+\fbox{$\mathrm{N}\!\!\mathrm{B}$}  Аналогичный принцип экстремума справедлив для уравнения теплопроводности в любой размерности.
+
+$\blacktriangleright\;$ Покажем сначала, что $u(x, t) \leq M$ всюду в $\overline{\Pi}$. Доказательство будем вести <<от обратного>>. 
+Допустим, что \underline{$\displaystyle \exists \;(x_0, t_0) \in \Pi: \;\; u(x_0, t_0) \equiv A > M$}. 
+
+\vspace{2mm}\noindentВведем вспомогательную функцию $$ v(x, t) \equiv u(x, t) + \frac{A-M}{2l^2}(x-x_0)^2,\qquad l\equiv l_2 - l_1,\qquad v \in C^{2,1} (\Pi) \cap C(\overline{\Pi}).$$
+\noindent На $\Gamma$ имеем
+$$
+v(x, t) \leq M + \frac{A-M}{2l^2}\cdot l^2 = M + \frac{1}{2} (A - M) = \frac{1}{2} A + \frac{1}{2} M < A.
+$$
+\noindent В точке $(x_0, t_0) \in \Pi$ имеем
+$$
+v(x_0, t_0) = u(x_0, t_0) + 0 = A > \frac{1}{2} A + \frac{1}{2} M \geq \max_\Gamma (v(x, t)).
+$$
+\noindent Итак, $\displaystyle \max_{\overline{\Pi}} (v(x, t))$ не может достигаться на $\Gamma$. Но где-то в $\overline{\Pi}$ он достигается. \\[2mm]
+$\displaystyle \implies \exists (x^*, t^*)\in \Pi:\; v(x^*, t^*) = \max_{\overline{\Pi}} (v(x, t)),$\\
+$\text{\;причем}\; l_1 < x^* < l_2,\;0 < t^* \leq T. $\newline\newline
+В точке $(x^*, t^*)$ имеем \;\fbox{\;$\displaystyle\frac{\partial v}{\partial t} \geq 0$\quadи\quad$\displaystyle \frac{\partial^2 v}{\partial x^2} \leq 0$\;} \;(ибо там максимум для $v(x, t)$). \newline
+
+\noindentПоэтому 
+$$
+\left(\frac{\partial v}{\partial t} - a^2 \frac{\partial^2 v}{\partial x^2} \right) \bigg|_{(x, \, t) = (x^*,\, t^*)} \geq 0 + 0 = 0.
+$$
+\noindent С другой стороны, всюду в $\Pi$ имеем
+$$
+\frac{\partial v}{\partial t} - a^2\, \frac{\partial^2 v}{\partial x^2} = (u_t + 0) - a^2 \left( u_{xx} + \frac{A-M}{l^2}\right) = \underbrace{u_t - a^2 \,u_{xx}}_{\equiv 0} - a^2\, \frac{A-M}{l^2} =$$
+$$= -a^2 \,\frac{A-M}{l^2} < 0.
+$$
+\noindent Получили противоречие: в точке $(x^*, t^*)$ оператор $v_t - a^2 v_{xx}$ и неотрицателен, и отрицателен одновременно. $\implies$ Изначальное допущение неверно и \underline{$u(x, t) \leq M$ всюду в $\overline{\Pi}$}. \newline\newline
+Вторая часть <<$u(x, t)\geq m$ в $\overline{\Pi}$>> доказывается легко. Рассмотрим функцию $(-u(x, t))$. \\Тогда 
+$$\max_\Gamma(-u(x, t)) = - \min_\Gamma(u(x, t)) = -m.$$
+По доказанному $(-u(x, t)) \leq -m$ всюду в $\overline{\Pi}$. $\implies\; u(x, t) \geq m$ для $\forall (x, t) \in \overline{\Pi}$.\newline
+Установили все, что требовалось.$\;\blacksquare$\newline
+
+\noindent\textbf{\underline{Следствия принципа экстремума}}
+
+\noindent\textbf{$I)$} Рассмотрим задачу:
+\begin{equation}\label{eq6.3}
+    \begin{cases}
+    u_t = a^2 u_{xx} + f(x, t),\quad 0<x<l, \quad 0<t \leq T, \\
+    u(0, t) = \mu_0(t),\;\;\; u(l, t) = \mu_1(t),\\
+    u(x, 0) = \varphi(x).
+    \end{cases}
+\end{equation}
+\theorem{
+\textbf{(Принцип единственности.)} Задача \eqref{eq6.3} может иметь не более одного решения в классе $C^{2, 1} (\Pi)\,\cap\, C(\overline{\Pi}).$
+}
+
+$\blacktriangleright\;$ Пусть $u^{(1)}(x, t),\;u^{(2)}(x, t)$ -- два решения задачи \eqref{eq6.3}. Рассмотрим разность $u \equiv u^{(1)} - u^{(2)}$. Тогда $u = u(x, t)$ будет решением задачи:
+$\;\;\;
+    \begin{cases}
+    u_t = a^2 u_{xx},\quad 0<x<l, \quad 0<t \leq T, \\
+    u(0, t) = 0,\;\;\; u(l, t) = 0,\\
+    u(x, 0) = 0.
+    \end{cases} $\newline\noindent
+По принципу экстремума $0 \leq u(x, t) \leq 0$ всюду в $\overline{\Pi}$ (см. \eqref{eq6.1}).\\ $\implies u \equiv 0$ и $u^{(1)} \equiv u^{(2)}$ всюду в $\overline{\Pi}$.$\;\blacksquare$ \newline\newline\noindent
+
+\noindent\textbf{$II)$} Рассмотрим две задачи:
+ \begin{equation}\label{eq6.4}
+     \begin{cases}
+    u_t = a^2 u_{xx},\quad 0<x<l, \quad 0<t \leq T, \\
+    u(0, t) = \mu_0(t),\;\;\; u(l, t) = \mu_1(t),\\
+    u(x, 0) = \varphi(x).
+    \end{cases}
+ \end{equation}
+\begin{equation}\label{eq6.5}
+    \begin{cases}
+    u_t = a^2 u_{xx},\quad 0<x<l, \quad 0<t \leq T, \\
+    u(0, t) = \widetilde{\mu}_0(t),\;\;\; u(l, t) = \widetilde{\mu}_1(t),\\
+    u(x, 0) = \widetilde{\varphi}(x).
+    \end{cases}
+\end{equation}
+
+\theorem{\textbf{(Принцип устойчивости решения.)} Пусть $u(x, t)$ -- решение задачи \eqref{eq6.4}, а $\widetilde{u}(x, t)$ -- решение задачи \eqref{eq6.5} (оба из класса $C^{2, 1} (\Pi)\,\cap\, C(\overline{\Pi})$). Пусть $|\widetilde{\mu}_0(t) - \mu_0(t)| \leq \varepsilon,\;\; |\widetilde{\mu}_1(t) - \mu_1(t)| \leq \varepsilon$ всюду на $[0, T]$ и $|\widetilde{\varphi}(x) - \varphi(x)| \leq \varepsilon$ всюду на $[0, l]$. Тогда $$|\widetilde{u}(x, t) - u(x, t)| \leq \varepsilon \text{ всюду в } \overline{\Pi}.$$}
+
+$\blacktriangleright\;$Рассмотрим разность $v(x, t) = \widetilde{u}(x, t) - u(x, t).$ Тогда
+$$
+\begin{cases}
+    v_t = a^2 v_{xx}, \\
+    v(0, t) = \widetilde{\mu}_0(t) - \mu_0(t),\;\;\; v(l, t) = \widetilde{\mu}_1(t) - \mu_1(t),\\
+    v(x, 0) = \widetilde{\varphi}(x) - \varphi(x).
+\end{cases}
+$$
+По условию $\displaystyle -\varepsilon \leq \widetilde{\mu}_k(t) - \mu_k(t) \leq \varepsilon, \;\, k = 0, 1,\;\;\, -\varepsilon \leq \widetilde{\varphi}(x) - \varphi(x) \leq \varepsilon \implies$ $$-\varepsilon \leq \min_\Gamma v \leq \max_\Gamma v \leq \varepsilon.$$\noindent
+По принципу эстремума $\displaystyle -\varepsilon \leq \min_\Gamma v \leq v(x, t) \leq \max_\Gamma v \leq \varepsilon \implies -\varepsilon \leq \widetilde{u}(x, t) - u(x, t) \leq \varepsilon$ и $|\widetilde{u}(x, t) - u(x, t)| \leq \varepsilon \text{ всюду в } \overline{\Pi}.$$\;\blacksquare$
+
+% -------- source --------
+\bigbreak
+[\cite{umf_tix}, файл 6.1]

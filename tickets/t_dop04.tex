@@ -1,0 +1,152 @@
+\setcounter{section}{4}
+\setcounter{subsection}{4}
+\setcounter{equation}{0}
+\textbf{\LARGE dop 4. Фоpмула Тейлоpа с остаточным членом в фоpме Лагpанжа. Разложение элементаpных функций.}
+
+\textbf{Теорема Тейлора}
+
+\mathLet Функция $f(x)$ имеет в некоторой окрестности  точки $a \ (n+1)$-ую производную $f^{(n+1)}(x)$. \mathLet \ $x$ --- значение из указанной окрестности, $p > 0$ - любое положительное число. Тогда между точками $a$ и $x$ найдется точка $\xi$ такая, что справедливо:
+
+\begin{align}\label{Taylor}
+    f(x) = f(a) + \frac{f'(a)}{1!}(x-a) + \frac{f^{(2)}(a)}{2!}(x-a)^2 + ... \notag\\
+    ... + \frac{f^{(n)}(a)}{n!}(x-a)^n + R_{n+1}(x),
+\end{align}
+где
+\begin{align}\label{R_n+1_condition}
+    R_{n+1}(x) = \bigg(\frac{x-a}{x-\xi}\bigg)^p\frac{(x-\xi)^{n+1}}{n!p}f^{(n+1)}(\xi).
+\end{align}
+$R_{n+1}(x)$ - остаточный член в общей форме.
+
+\begin{proof}
+    Положим
+    \begin{align}
+        \phi(x,a) = f(a) + \frac{f'(a)}{1!}(x-a) + \frac{f^{(2)}(a)}{2!}(x-a)^2 + ... \notag \\
+        ... + \frac{f^{(n)}(a)}{n!}(x-a)^n
+    \end{align}
+    Обозначим за $R_{n+1}(x)$ разность
+    \begin{align}\label{R_n+1_in_proof}
+        R_{n+1}(x) = f(x) - \phi(x,a)
+    \end{align}
+    Теорема будет доказана, если установим, что $R_{n+1}(x)$ определяется формулой (\ref{R_n+1_condition}).
+
+    Фиксируем $\forall x \in$ окрестности, указанной в формулировке теоремы. Ради определенности \\ \mathLet $x>a$. Пусть $t$ --- переменная с областью изменения $[\,a, x]$, и рассмотрим функцию $\psi(t)$:
+    \begin{align}\label{psi(t)}
+        \psi(t) = f(x) - \phi(x,t) - (x-t)^pQ(x),
+    \end{align}
+    где
+    \begin{align}\label{Q(x)}
+        Q(x) = \frac{R_{n+1}(x)}{(x-a)^p}
+    \end{align}
+    т.e.
+    \begin{align}\label{psi(t)_detail}
+        \psi(t) = f(x) - f(t) - \frac{f'(t)}{1!}(x-t) - ... - \frac{f^{(n)}(t)}{n!}(x-t)^n - (x-t)^pQ(x)
+    \end{align}
+    Покажем, что $\psi(t)$ удовлетворяет на $[\,a,x]\,$ всем условиям теоремы Ролля.
+
+    Из формулы (\ref{psi(t)_detail}) и из условий, наложенных на функцию $f(x)$ очевидно, что функция $\psi(t) \in C[\,a,x]\,$ и дифференцируема на $[\,a,x]\,$. При $t=a$ в (\ref{psi(t)}) и, учитывая (\ref{Q(x)}) получим
+    \begin{align*}
+        \psi(a) = f(x) - \phi(x,a) - R_{n+1}(x).
+    \end{align*}
+
+    Учитывая (\ref{R_n+1_in_proof}) получим $\psi(a) = 0$. А равенство $\psi(x) = 0$ сразу вытекает из (\ref{psi(t)_detail}).
+    \bigbreak
+
+    Итак, для $\psi(t)$ на  $[\,a,x]\,$ выполнены условия теоремы Ролля. Согласно этой теореме $\exists \xi \in (a,x): $
+    \begin{align}\label{psi'(xi)}
+        \psi'(\xi)=0
+    \end{align}
+
+    Подсчитаем $\psi'(t)$, продифференцировав (\ref{psi(t)_detail}):
+    \begin{align}\label{psi'(t)}
+        \psi'(t) = -f'(t) + \frac{f'(t)}{1!} - \frac{f^{(2)}(t)}{1!}(x-t) + \frac{f^{(2)}(t)}{2!}2(x-t) - ... \notag \\
+        ... + \frac{f^n(t)}{n!}(x-t)^{n-1} - \frac{f^{(n+1)}(t)}{n!}(x-t)^n + p(x-t)^{p-1}Q(x)
+      \end{align}
+
+    Все члены в (\ref{psi'(t)}) кроме последних двух взаимно уничтожаются. Таким образом
+    \begin{align}
+        \psi'(t) = - \frac{f^{(n+1)}(t)}{n!}(x-t)^n + p(x-t)^{p-1}Q(x)
+    \end{align}
+    Полагая $t = \xi$ и, используя (\ref{psi'(xi)}), получим
+    \begin{align}\label{Q(x)final}
+        Q(x) = \frac{(x-\xi)^{n-p+1}}{n!p}f^{(n+1)}(\xi)
+    \end{align}
+    Из (\ref{Q(x)final}) и (\ref{Q(x)}) следует
+    \begin{align*}
+        R_{n+1}(x) = (x-a)^pQ(x) = \frac{(x-a)^p(x-\xi)^{n-p+1}}{n!p}f^{(n+1)}(\xi).
+    \end{align*}
+    Теорема доказана.
+\end{proof}
+
+\textbf{Остаточный член в форме Лагранжа} \\
+Преобразуем формулу (\ref{R_n+1_condition}). Так как $\xi \in (a,x)$, то найдется такое $\theta \in (0,1): \ \xi -a = \theta(x-a)$. При этом $\xi = a + \theta(x-a), \ x-\xi = (x-a)(1-\theta)$. Тогда для из (\ref{R_n+1_condition}) получим:
+
+\begin{align}\label{R_n+1_with_theta}
+    R_{n+1}(x) = \frac{(x-a)^{n+1}(1-\theta)^{n-p+1}}{n!p} f^{(n+1)}[\,a + \theta(x-a)]\,
+\end{align}
+
+По условию теоремы Тейлора в качестве $p$ можно взять любое положительное число. Пусть $p = n + 1$.
+Тогда из (\ref{R_n+1_with_theta}) получим остаточный член в \textbf{форме Лагранжа}:
+
+\begin{align}
+    R_{n+1}(x) = \frac{(x-a)^{n+1}}{(n+1)!}f^{(n+1)}[\,a + \theta(x-a)]\,.
+\end{align}
+
+
+\textbf{Разложение элементарных функций}\\
+Взяв формулу Тейлора (\ref{Taylor}) при $a=0$ получим \textbf{формулу Маклорена}.
+
+\begin{align}\label{Makloren}
+    f(x) = f(0) + \frac{f'(0)}{1!}x + \frac{f^{(2)}(0)}{2!}x^2 + ... + \frac{f^{(n)}(0)}{n!}x^n + R_{n+1}(x),
+\end{align}
+где остаточный член в форме Лагранжа примет вид:
+\begin{align*}
+     R_{n+1}(x) = \frac{x^{n+1}}{(n+1)!}f^{(n+1)}[\,\theta x]\,.
+\end{align*}
+
+Разложения по формуле Маклорена:
+\begin{enumerate}
+    \item
+        $
+            e^x = 1 + \frac{x}{1!} + \frac{x^2}{2!} + ... + \frac{x^n}{n!} + R_{n+1}(x), \
+        $
+
+        $$
+           \text{где} \ R_{n+1}(x) = \frac{x^{n+1}}{(n+1)!}e^{\theta x}, \quad
+            \theta \in (0,1)
+        $$
+
+    \item
+        $
+            \sin x = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + ... + (-1)^{n-1}\frac{x^{2n-1}}{(2n-1)!} + R_{2n+1}(x), \\
+        $
+
+        $$
+            \text{где} \ R_{2n+1}(x) = \frac{x^{2n+1}}{(2n+1)!} \sin(\theta x + (2n+1) \frac{\pi}{2} + \pi), \quad \theta \in (0,1)
+        $$
+    \item
+        $
+            \cos x = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + ... + (-1)^{n}\frac{x^{2n}}{(2n)!} + R_{2n+2}(x)
+        $
+        $$
+            \text{где} \ R_{2n+2}(x) = \frac{x^{2n+2}}{(2n+2)!} \cos(\theta x + (2n+2) \frac{\pi}{2} + \pi), \quad \theta \in (0,1)
+        $$
+    \item
+        $
+            \ln(1+x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + ... + (-1)^{n-1}\frac{x^n}{n} + R_{n+1}(x),
+        $
+        $$
+            \text{где} \ R_{n+1}(x) = \frac{(-1)^n x^{n+1}}{(n+1)(1+\theta x)^{n+1}}, \quad \theta \in (0,1)
+        $$
+    \item
+        $
+            (1+x)^\alpha = 1 + \frac{\alpha}{1!}x + \frac{\alpha (\alpha - 1)}{2!}x^2 + ... + \frac{\alpha(\alpha-1)...(\alpha - n + 1)}{n!}x^n + R_{n+1}(x),
+        $
+        $$
+            \text{где} \ R_{n+1}(x) = \frac{\alpha(\alpha - 1)...(\alpha - n)}{(n+1)!}(1+\theta x)^{\alpha - (n+1)}x^{n+1}, \quad \theta \in (0,1)
+        $$
+\end{enumerate}
+
+
+% -------- source --------
+\bigbreak
+[\cite{ilin_poznyak_matan}]

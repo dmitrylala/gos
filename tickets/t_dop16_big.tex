@@ -1,0 +1,286 @@
+\setcounter{section}{4}
+\setcounter{subsection}{16}
+\setcounter{equation}{0}
+\textbf{\LARGE dop.16 Постановка ваpиационных задач. Необходимые условия экстpемума.}
+
+Рассмотрим множество $M$, являющееся некоторым подмножеством
+множества непрерывных на отрезке функций $C[x_0, x_1]$.
+
+\begin{definition}
+    Функционалом наз отображение множества $M$ в множество действ чисел.
+\end{definition}
+
+\begin{definition}
+    Допустимой вариацией функции $y_0(x) \in M$ наз любая функция $\delta y(x)$ такая, что $y_0(x) + \delta y(x) \in M$.
+\end{definition}
+
+\begin{definition}
+    Вариацией $\delta\Phi[y_0(x), \delta y(x)]$ функционала
+    $\Phi[y(x)]$ на функции $y_0(x) \in M$ наз: $$\frac{d}{dt}\Phi[y_0(x)+t\delta y(x)]\Big|_{t=0}$$
+\end{definition}
+
+\begin{definition}
+    Функционал $\Phi[y(x)]$ достигает на функции
+    $y_0(x) \in M$ глобального минимума (максимума) на множестве $M$, если для любой $y(x) \in M$ выполнено неравенство $\Phi[y_0(x)]\leq\Phi[y(x)]  (\Phi[y_0(x)]\geq\Phi[y(x)])$.
+\end{definition}
+
+Пусть на множестве $M$ введена некоторая норма функции $y(x)$, например:
+$$\norm{y(x)}=\displaystyle\max_{x_0\leq x \leq x_1} |y(x)|$$
+
+\begin{definition}
+    Функционал $\Phi[y(x)]$ достигает на функции
+    $y_0(x)\in M$ локального минимума (максимума) на множестве $M$, если
+    существует $\varepsilon > 0$ такое, что для $\forall$ $y(x) \in M$ и удовлетворяет неравенству $||y(x) - y_0(x)|| < \varepsilon$, справедливо $\Phi[y_0(x)] \leq \Phi[y(x)] (\Phi[y_0(x)] \geq \Phi[y(x)])$.
+\end{definition}
+
+\begin{theorem}(необходимое условие экстремума)
+    Если функционал $\Phi[y(x)]$ достигает на функции
+    $y_0(x) \in M$ локального максимума или минимума на множестве $M$ и
+    вариация функционала на $y_0(x)$ $\exists$, то вариация функционала $\delta\Phi[y_0(x), \delta y(x)]$ равна нулю для любой допустимой вариации $\delta y(x)$.
+\end{theorem}
+\begin{proof}
+    Пусть функционал $\Phi[y(x)]$ достигает на функции
+    $y_0(x)$ локального экстремума. Рассмотрим $\Phi[y_0(x) + t\delta y(x)]$, где $\delta y(x)$
+    произвол вариация $y_0(x)$. При фиксированном $y_0(x)$ и $\delta y(x)$ функционал 
+    $\Phi[y_0(x) + t\delta y(x)]$ является функцией перемен t:
+    $$\varphi(t) = \Phi[y_0(x) + t\delta y(x)].$$
+    Так как функционал $\Phi[y(x)]$ достигает на функции $y_0(x)$ локального
+    экстремума, то у функции $\varphi(t)$ точка $t=0$ является точкой локального экстремума. $\Longrightarrow$ если $\varphi'(0)$ существует, то
+    $\varphi'(0)=0$. $\exists$ $\varphi'(0)$ следует из $\exists$ вариации функционала $\Phi[y(x)]$ на $y_0(x)$: $$\frac{d}{dt}\varphi(t)\Big|_{t=0}=\frac{d}{dt}\Phi[y_0(x)+t\delta y(x)]\Big|_{t=0} \Longrightarrow$$
+    $$\delta \Phi[y_0(x), \delta y(x)]=\frac{d}{dt}\Phi[y_0(x)+t\delta y(x)]\Big|_{t=0}=0 \text{ для } \forall \delta y(x)$$.
+\end{proof}
+Пусть $C^n_0 [x_0, x_1]$ -- множество функций $y(x)\in C^n[x_0, x_1]:$ $y^{(m)}(x_0)=y^{(m)}(x_1)=0, m=0..n-1.$
+
+\begin{lemma}[Основная лемма вариационного исчисления]
+    Пусть $f(x)$ – непрерывная на отрезке $[x_0, x_1]$ функция: 
+    $$ \int_{x_0}^{x_1} f(x)y(x) \,dx=0$$
+    для любой $y(x) \in C^n_0[x_0, x_1]$. Тогда $f(x) \equiv 0$ на отрезке $[x_0, x_1]$.
+\end{lemma}
+\begin{proof}
+    Предположим, что функция $f(x)$ отлична от нуля на
+    отрезке $[x_0, x_1]$. Тогда $\exists$ точка $x_2 \in (x_0, x_1):$ $f(x2)\neq0$. Пусть для определенности $f(x_2)>0$. В силу непрерывности $f(x)$ $\exists$ $\varepsilon > 0: f(x)\geq \frac{f(x_2)}{2}>0, \forall x \in [x_2 - \varepsilon, x_2 + \varepsilon] \subset (x_0, x_1)$
+    Рассмотрим функцию $y_2(x)$ след вида: 
+    $$y_2(x)=\begin{cases} (x-(x_2-\varepsilon))^{n+1}((x_2+\varepsilon)-x)^{n+1}, x\in[x_2-\varepsilon, x_2+\varepsilon]; \\ 0,  x\notin[x_2-\varepsilon, x_2+\varepsilon] \end{cases}$$
+    функция $y_2(x) \in C^n_0[x_0, x_1]$ и $ y_2(x) > 0$ при $x\in(x_2 - \varepsilon, x_2 + \varepsilon) \Longrightarrow$
+    $$\int_{x_0}^{x_1} f(x)y_2(x) \,dx=\int_{x_2-\varepsilon}^{x_2+\varepsilon} f(x)y_2(x) \,dx>0$$ что противоречит условию леммы.
+\end{proof}
+
+\textbf{Уравнение Эйлера}
+
+Рассмотрим множество $M$ непрерывно дифференцируемых на
+$[x_0, x_1]$ функций $y(x)$ таких, что $y(x_0) = y_0, y(x_1) = y_1$. Определим
+на этом множестве функционал: 
+\begin{equation}
+    \Phi[y(x)]=\int_{x_0}^{x_1}F(x,y(x),y'(x))\,dx
+    \label{func}
+\end{equation}
+
+
+\begin{theorem}
+    Предположим, что при $x\in[x_0,x_1], (y, p) \in \mathbb{R}^2$ у
+    функции $F(x,y,p)$ $\exists$ непрерывные вторые част производные. Если функционал (\ref{func}) достигает локального экстремума на функции $y_0(x)\in M$, имеющей непрерывную вторую производную на отрезке $[x_0, x_1]$, то функция $y_0(x)$ является решением дифференциального уравнения: 
+    \begin{equation}
+        F_y(x, y(x), y'(x))-\frac{d}{dx}F_p(x,y(x),y'(x))=0, x_0\leq x\leq x_1.
+        \label{eq}
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    Найдем вариацию функционала (\ref{func}) на $y_0(x)$. Из
+    определения множества $M$ следует, что допустимой вариацией $\delta y(x)$
+    функции $y_0(x)$ является любая непрерывно дифференцируемая на отрезке $[x_0, x_1]$ функция, обращающаяся в ноль на концах этого отрезка. То есть $\delta y(x) \in C^1_0\in [x_0, x_1]$. Используя определение вариации функционала, получим
+    \begin{equation*}
+    \begin{gathered}
+        \delta\Phi[y_0(x),\delta y(x)]=\frac{d}{dt}\Phi[y_0(x)+t\delta y(x)]\Big|_{t=0}=\frac{d}{dt}\int_{x_0}^{x_1} F(x, y_0(x) + t\delta y(x), y'_0(x) + t(\delta y)'(x))dx\Big|_{t=0}=
+        \\
+        \int_{x_0}^{x_1}\Big\{F_y(x,y_0(x)+t\delta y(x), y'_0(x) + t(\delta y)'(x))\delta y(x)+
+        \\
+        F_p(x,y_0(x)+t\delta y(x), y'_0(x) + t(\delta y)'(x))(\delta y)'(x)\Big\}dx\Big|_{t=0}=
+        \\
+        \int_{x_0}^{x_1} \Big\{F_y(x, y_0(x), y'_0(x))\delta y(x) + F_p(x, y_0(x), y'_0(x))(\delta y)'(x)\Big\}dx
+    \end{gathered}
+    \end{equation*}
+    Из теоремы о необходимом условии экстремума $\Longrightarrow$ что вариация
+    функционала на $y_0(x)$ должна равняться нулю, то есть:
+    $$\int_{x_0}^{x_1} F_y(x, y_0(x), y'_0(x))\delta y(x)dx+\int_{x_0}^{x_1} F_p(x, y_0(x), y'_0(x))(\delta y)'(x)dx=0$$
+    Интегрируя по частям второй интеграл и учитывая то, что $\delta y(x_0)=\delta y(x_1)=0$, получим:
+    $$\int_{x_0}^{x_1}\Big\{F_y(x, y_0(x), y'_0(x))-\frac{d}{dx}F_p(x, y_0(x), y'_0(x))\Big\}\delta y(x)dx=0$$
+    Это равенство выполнено для $\forall$ функции $\delta y(x) \in C^1_0 [x_0, x_1]$. Применяя основную лемму вариационного исчисления, имеем
+    $$F_y(x, y_0(x), y'_0(x))-\frac{d}{dx}F_p(x, y_0(x), y'_0(x))=0,  x_0\leq x\leq x_1$$
+    $\Longrightarrow$ функция $y_0(x)$ является решением уравнения (\ref{eq}).
+\end{proof}
+Уравнение (\ref{eq}) называется уравнением Эйлера для функционала (\ref{func}).
+
+\textbf{Функционал, зависящий от производных порядка выше
+первого}
+Рассмотрим множество $M$ функции $y(x) \in C^n[x_0, x_1]:$
+$$y(x_0) = y_{00} , y'(x_0) = y_{01}, y''(x_0) = y_{02},..., y^{(n-1)}(x_0) = y_{0n-1},$$
+$$y(x_1) = y_{10} , y'(x_1) = y_{11}, y''(x_1) = y_{12},..., y^{(n-1)}(x_1) = y_{1n-1}$$
+Определим на этом множестве функционал:
+\begin{equation}
+    \Phi[y(x)]=\int_{x_0}^{x_1}F(x,y(x),y'(x),...,y^{(n)}(x))dx
+    \label{func1}
+\end{equation}
+
+где функция $F(x,y,p_1,...,p_n)$ определена и непрерывна при $x \in [x_0, x_1]$,
+$(y,p_1,..., p_n) \in \mathbb{R}^{n+1}$.
+\begin{theorem}[необходимое условие экстремума]
+    Пусть функция $F(x,y,p_1,...,p_n)$ имеет при $x\in[x_0, x_1]$,$(y,p_1,..., p_n) \in \mathbb{R}^{n+1}$ непрерывные частные производные порядка $2n$. Если функция $\bar y(x) \in M$, $\bar y(x) \in C^{2n}[x_0, x_1]$, и на ней достигается экстремум функционала (\ref{func1}) на множестве $M$ , то $\bar y(x)$ является решением уравнения
+    решением уравнения:
+    $$F_y-\frac{d}{dx}F_{p_1}+...+(-1)^n\frac{d^n}{dx^n}F_{p_n}=0, x_0 \leq x \leq x_1,$$
+    где $F = F(x,y(x),y'(x),..., y^{(n)}(x))$.
+\end{theorem}
+\begin{proof}
+    В силу необход.усл.экстр вариация
+    функционала (\ref{func1}) на функции $\bar y(x)$ должна обращаться в 0 для
+    $\forall$ допустимой вариации $\delta y(x) \in C^n_0[x_0, x_1]$.
+    По определению вариации функционала имеем:
+    $$\delta\Phi[\bar y(x), \delta y(x)]=\frac{d}{dt}\Phi[\bar y(x)+t\delta y(x)]\Big|_{t=0}=$$
+    $$\frac{d}{dt}\int_{x_0}^{x_1}F(x,\bar y(x) + t\delta y(x), \bar y'(x)+t(\delta y)'(x),...,\bar y^{(n)}(x)+t(\delta y)^{(n)}(x))dx\Big|_{t=0}$$
+    Дифференцируя интеграл по параметру $t$, полагая затем $t = 0$ и приравнивая вариацию к 0, получим:
+    $$\int_{x_0}^{x_1}(F_y\delta y(x) + F_{p_1}(\delta y)'(x)+...+F_{p_n}(\delta y)^{(n)}(x))dx=0$$
+    Интегрируя по частям и учитывая то, что функция $\delta y(x)$ и ее производные обращаются в 0 на концах отрезка, имеем
+    $$\int_{x_0}^{x_1} (F_y-\frac{d}{dx}F_{p_1}+...+(-1)^n\frac{d^n}{dx^n}F_{p_n})\delta y(x) dx=0$$
+    Т.к это равенство вып для $\forall$ функции $\delta y(x) \in C^n_0[x_0, x_1]$,
+    то, применяя основную лемму вариационного исчисления, получим, что
+    функция $\bar y(x)$ является решением дифференциального уравнения (\ref{func1}).
+\end{proof}
+\textbf{Функционал, зависящий от функции двух переменных}
+
+Рассмотрим функционал:
+\begin{equation}
+    \Phi[u(x, y)]=\iint_D F(x, y, u(x, y), u_x(x, y), u_y(x, y))dxdy
+    \label{func2}
+\end{equation}
+где $F(x, y, u, p, q)$ – заданная функция, а $D$ – область, ограниченная контуром $L$. Будем предполагать, что функция $F(x, y, u, p, q)$ имеет непрерывные вторые частные производные при $(x, y) \in \bar D = D \bigcup L, (u, p, q) \in \mathbb{R}^3$. Пусть $M$ – множество функции $u(x, y)$, имеющих в $\bar D$ непрерывные частные производные и принимающих на $L$ заданные значения $u(x, y) = \varphi(x, y),(x, y) \in L$. Вариация функции $u(x, y)$, не выводящая ее из множества $M$, – это функция $\delta u(x, y)$, имеющая в $\bar D$ непрерывные частные производные и обращающаяся в 0 на $L$, то есть $\delta u(x, y) = 0,(x, y) \in L$.
+
+\begin{lemma}[аналог леммы вариационного исчисления]
+    Пусть функция $f(x, y)$ непрерывна в $\bar D$. Если
+    $$\iint_D f(x,y)v(x,y)dxdy=0$$
+    для $\forall$ функции $v(x, y)$, имеющей непрерывные част производные в $\bar D$ и обращающейся в 0 на контуре $L$, то $f(x, y) = 0, (x, y) \in D$.
+\end{lemma}
+\begin{proof}
+    Предположим, что функция $f(x, y)$ отлична от 0
+    в $\bar D$. Тогда $\exists$ точка $(x0, y0) \in D:$ $f(x_0, y+0)\neq0$. Пусть
+    для определенности $f(x_0, y_0) > 0$. Из непрерывности $f(x, y)$ в точке $(x_0, y_0)\Longrightarrow$, что $\exists$ круг: $$S = \{(x, y) : (x-x_0)^2 + (y-y_0)^2 < \varepsilon^2\}$$
+    такой, что $f(x,y) \geq \frac{f(x_0,y_0)}{2}>0$ при $(x,y)\in S \subset \bar D$. Рассмотрим функцию $v_0(x,y):$
+    $$v_0(x,y)=\begin{cases}
+        ((x-x_0) + (y-y_0)-\varepsilon^2)^2,  (x, y) \in S;\\
+        0, (x,y)\in \bar D\backslash S.
+    \end{cases}$$
+    Тогда $$\iint_D f(x,y)v_0(x,y)dxdy=\iint_S f(x,y)v_0(x,y)dxdy \geq \frac{f(x_0,y_0)}{2}\iint_S v_0(x,y)dxdy>0$$
+    что противоречит условию леммы. Полученное противоречие показы-
+    вает, что исходное предположение было неверно.
+\end{proof}
+
+\begin{theorem}
+    Предположим, что функция $F(x, y, u, p, q)$ имеет
+    непрерывные вторые частные производные при $(x, y) \in \bar D, (u, p, q) \in \mathbb{R}^3$.
+    Если экстремум функционала (\ref{func2}) достиг на функции $\bar u(x, y) \in M$, имеющей непрерывные вторые частные производные в $\bar D$, то эта функция является решением уравнения в частных производных.
+    \begin{equation}
+        F_u-\frac{\partial F_p}{\partial x}-\frac{\partial F_q}{\partial y}=0, (x,y)\in D.
+        \label{resh1}
+    \end{equation}
+    
+\end{theorem}
+\begin{proof}
+    Пусть экстремум функционала (\ref{func2}) достиг на функции $\bar u(x, y) \in M$, имеющей непрерывные вторые частные производные $\bar D$. Из необходимого условия экстремума $\Longrightarrow$, что вариация
+    функционала (\ref{func2}) на этой функции равна 0:
+    $$\delta \Phi[\bar u(x,y), \delta u(x,y)]=\frac{d}{dt}\Phi[\bar u(x,y)+t\delta u(x,y)]\Big|_{t=0}=0$$ то есть:
+    $$\frac{d}{dt} \iint_D F(x, y, w(x, y, t), w_x(x, y, t), w_y(x, y, t))dxdy\Big|_{t=0}=0$$   
+    где $w(x, y, t) = \bar u(x, y) + t\delta u(x, y)$. Дифференцируя по $t$ под знаком интеграла и полагая $t$ равным 0, получим
+    \begin{equation}
+    \begin{gathered}
+        \iint_D F_u(x, y, \bar u, \bar u_x, \bar u_y)\delta u(x, y)dxdy+\iint_D \Big\{F_p(x, y, \bar u, \bar u_x, \bar u_y)(\delta u)_x(x, y)+\\
+        +F_q(x, y,\bar u,\bar u_x, \bar u_y)(\delta u)_y(x, y)\Big\}dxdy=0        
+    \end{gathered}
+        \label{dd}
+    \end{equation}
+    Преобразуем это равенство. Очевидно, что
+    $$F_p(x, y, \bar u, \bar u_x, \bar u_y)(\delta u)_x(x, y)=\frac{\partial}{\partial x}
+    (F_p\delta u) - \frac{\partial F_p}{\partial x}\delta u$$
+    $$F_q(x, y, \bar u, \bar u_x, \bar u_y)(\delta u)_y(x, y)=\frac{\partial}{\partial y}
+    (F_q\delta u) - \frac{\partial F_q}{\partial y}\delta u \Longrightarrow$$
+    $$\iint_D \Big\{ F_p(x,y,\bar u, \bar u_x, \bar u_y)(\delta u)_x(x, y)+F_q(x,y,\bar u, \bar u_x, \bar u_y)(\delta u)_y(x, y)\Big\}dxdy=$$
+    $$\iint_D \Big( \frac{\partial}{\partial x}(F_p\delta u) + \frac{\partial}{\partial y}(F_q\delta u)\Big)dxdy-\iint_D \Big( \frac{\partial F_p}{\partial x}+\frac{\partial F_q}{\partial y}\Big)\delta u dxdy$$
+    Применяя формулу Грина к интегралу
+    $$\iint_D \Big( \frac{\partial}{\partial x}(F_p\delta u) + \frac{\partial}{\partial y}(F_q\delta u)\Big)dxdy$$
+    и учитывая то, что $\delta u(x, y)=0, (x, y) \in L$, получим
+    $$\iint_D \Big( \frac{\partial}{\partial x}(F_p\delta u) + \frac{\partial}{\partial y}(F_q\delta u)\Big)dxdy=\oint_L\Big(F_p\delta udy-F_q\delta udx\Big)=0\Longrightarrow$$
+    $$\iint_D \Big\{ F_p(x,y,\bar u, \bar u_x, \bar u_y)(\delta u)_x(x, y)+F_q(x,y,\bar u, \bar u_x, \bar u_y)(\delta u)_y(x, y)\Big\}dxdy=$$
+    $$=-\iint_D \Big( \frac{\partial F_p}{\partial x}+\frac{\partial F_q}{\partial y}\Big)\delta u dxdy$$
+    и равенство (\ref{dd}) принимает вид:
+    $$\iint_D \Big\{F_u-\frac{\partial}{\partial x}F_p-\frac{\partial}{\partial y}F_q\Big\}\delta u(x,y)dxdy=0$$
+    где $F_u,F_p,F_q$ вычисляются в точке $(x, y, \bar u(x, y), \bar u_x(x, y), \bar u_y(x, y))$. Т.к полученное равенство выполнено для $\forall$ допустимой вариации
+    $\delta u(x, y)$, то, применяя лемму.2, получаем, что функция $\bar u(x, y)$ является решением уравнения (\ref{resh1}).
+\end{proof}
+
+\textbf{Вариационная задача на условный экстремум}
+
+Рассмотрим 2 функционала:
+\begin{equation}
+    \Phi[y(x)]=\int_{x_0}^{x_1} F(x,y(x),y'(x))dx
+    \label{func3}
+\end{equation}
+
+\begin{equation}
+    \Psi[y(x)]=\int_{x_0}^{x_1} G(x,y(x),y'(x))dx
+    \label{func4}
+\end{equation}
+где $F(x, y, p), G(x, y, p)$ – заданные дважды непрерывно дифференцируемая функции своих аргументов.
+Рассмотрим след экстр задачу. Пусть требуется найти функцию $\bar y(x)$, на которой достигается экстремум функционала (\ref{func3}) на множестве функций:
+$$M_\Psi=\{y(x)\in C^1[x_0, x_1] : y(x_0) = y_0, y(x_1) = y_1, \Psi[y(x)]=l\}$$
+Т.е, нужно найти экстремум функционала (\ref{func3}) на
+множестве функции определяемом тем условием, что функционал (\ref{func4})
+принимает на этом множестве const значение. Вариационные задачи такого типа называются \textbf{задачами на условный экстремум}.
+
+Найдем вариацию функционала (\ref{func4}) на множестве функции 
+
+$M = {y(x) \in C^1[x_0, x_1] : y(x_0) = y_0, y(x_1) = y_1}$.
+Пусть $\delta y(x)$ – допустимая вариация функции на $M$, то есть $\delta y(x) \in C^1[x_0, x_1], \delta y(x_0) = \delta y(x_1) = 0$.Тогда вариация функционала $\Psi [y(x)]$ на функции $\widetilde y(x)\in M$ равна $\delta \Psi[\widetilde y(x), \delta y(x)]=\frac{d}{dt}\Psi[\widetilde y(x) + t\delta y(x)]\Big|_{t=0}$. Дифференцируя по $t$ и полагая $t = 0$, получаем 
+$$\delta\Psi[\widetilde y(x), \delta y(x)]= \int_{x_0}^{x_1}\Big\{G_y(x, \widetilde y(x), \widetilde y'(x))\delta y(x) + G_p(x, \widetilde y(x), \widetilde y'(x))(\delta y)'(x) \Big\}dx$$
+\begin{theorem}
+    Пусть на функции $\bar y(x) \in M_\Psi, \bar y(x) \in C^2[x_0, x_1]$,
+    достигается экстремум функционала (\ref{func3}) на множестве $M_\Psi$. Если
+    $\exists$ функция $\delta y_0(x) \in C^1[x_0, x_1], \delta y_0(x_0) = \delta y_0(x_1) = 0:$ вариация $\delta\Psi[\bar y(x), \delta y_0(x)] \neq 0$, то найдется число $\lambda:$ $\bar y(x)$ удовлетворяет уравнению:
+    \begin{equation}
+        L_y(x, y(x), y'(x))-\frac{d}{dx}L_p(x, y(x), y'(x))=0, x_0 \leq x \leq x_1
+        \label{kak_ze_i_zaebalsya}
+    \end{equation}
+    где 
+    \begin{equation}
+        L(x, y, p) = F(x, y, p) + \lambda G(x, y, p)
+        \label{wtf}
+    \end{equation}
+
+\end{theorem}
+\begin{proof}
+    Возьмем произвол функцию $\delta y(x): \delta y(x) \in C^1[x_0, x_1], \delta y(x_0) = \delta y(x_1) = 0$. Рассмотрим функции 
+    $$\varphi(t, \tau) = \Psi[\bar y(x) + t\delta y(x) +  \tau\delta y_0(x)]$$
+    $$\psi(t, \tau) = \Phi[\bar y(x) + t\delta y(x) +  \tau\delta y_0(x)]$$
+    
+    где $t, \tau$ – произвольные действительные числа. Из определения функций $\varphi(t, \tau)$ и $\psi(t, \tau)$ следует, что
+    $$\varphi(0, 0) = \Phi[\bar y(x)], \psi(0, 0) = \Psi[\bar y(x)],$$
+    $$\varphi_t(0, 0) = \delta\Phi[\bar y(x), \delta y(x)], \varphi_\tau (0, 0) = \delta\Phi[\bar y(x), \delta y_0(x)],$$
+    $$\psi_t(0,0)=\delta \Psi[\bar y(x), \delta y(x)], \psi_\tau(0,0)=\delta \Psi[\bar y(x), \delta y_0(x)]$$
+    Покажем, что для $\forall$ $\delta y(x) \in C^1_0[x_0, x_1]$ якобиан
+    \begin{equation}
+        \frac{D(\varphi, \psi)}{D(t,\tau)}\Big|_{t=\tau=0}=det\Bigg(\begin{matrix} \delta\Phi[\bar y(x), \delta y(x)] & \delta\Phi[\bar y(x), \delta y_0(x)]\\ \delta\Psi[\bar y(x), \delta y(x)] & \delta \Psi[\bar y(x), \delta y_0(x)]  \end{matrix}\Bigg)=0
+        \label{yakob}
+    \end{equation}
+    Предположим, что это не так и $\exists$ $\delta\widetilde y(x):$ что для нее якобиан
+    $$det\Bigg(\begin{matrix} \delta\Phi[\bar y(x), \delta \widetilde y(x)] & \delta\Phi[\bar y(x), \delta y_0(x)]\\ \delta\Psi[\bar y(x), \delta \widetilde y(x)] & \delta \Psi[\bar y(x), \delta y_0(x)]  \end{matrix}\Bigg)\neq 0$$
+    Тогда из теоремы о неявных функциях $\Longrightarrow$, что при $\delta y(x) = \delta \widetilde y(x)$ система: $\varphi(t, \tau) = u, \psi(t, \tau) = v$ однозначно разрешима для $(u, v)$, находящихся в достаточно малой окрестности $(u_0, v_0)$, где $u_0 = \varphi(0, 0), v_0 = \psi(0, 0)$. Пусть $\bar y(x)$ – функция, на которой достиг локальный минимум задачи на усл экстремум. Рассмотрим систему
+    $$\varphi(t, \tau) = \varphi(0, 0) - \varepsilon = \Phi[\bar y(x)] - \varepsilon$$
+    $$\psi(t, \tau) = \psi(0, 0) = \Psi[\bar y(x)] = l$$
+    где $\varepsilon$ – достаточно малое положительное число. Т.к $(\varphi(0, 0) - \varepsilon, \psi(0, 0))$ находится в достаточно малой окр $(u_0, v_0)$, то по теор о неявной функции система имеет единственного решение $t_\varepsilon, \tau_\varepsilon \Longrightarrow \varphi(t_\varepsilon, \tau_\varepsilon) = \Phi[\bar y(x) + t_\varepsilon\delta \widetilde y(x) + \tau_\varepsilon\delta y_0(x)] = \Phi[\bar y(x)] - \varepsilon, \psi(t_\varepsilon, \tau_\varepsilon) = \Psi[\bar y(x) + t_\varepsilon\delta\widetilde y(x) + \tau_\varepsilon\delta y_0(x)] = l \Longrightarrow$ на функции $\bar y(x) + t_\varepsilon\delta \widetilde y(x) + \tau_\varepsilon\delta y_0(x) \in M_\Psi$ функционал (\ref{func3}) принимает значение меньшее, чем на $\bar y(x)$. Это противоречит тому, что на функции $\bar y(x)$ достигается локальный минимум. Из полученного противоречия $\Longrightarrow$ справедливость (\ref{yakob}).Раскрывая определитель:
+    $$\delta \Phi[\bar y(x), \delta y(x)]\delta \Psi[\bar y(x), \delta y_0(x)] - \delta \Phi[\bar y(x), \delta y_0(x)]\delta\Psi[\bar y(x), \delta y(x)] = 0$$
+    для всех $\delta y(x) \in C^1_0[x_0, x_1]$. По условию теоремы $\delta\Psi[\bar y(x), \delta y_0(x)] \neq 0$. Поделив на $\delta \Psi[\bar y(x), \delta y_0(x)]$ и обозначив через $\lambda=-\frac{\delta\Phi[\bar y(x), \delta y_0(x)]}{\delta\Psi[\bar y(x), \delta y_0(x)]}$ получим $\delta\Phi[\bar y(x), \delta y(x)] + \lambda\delta\Psi[\bar y(x), \delta y(x)] = 0$.Учитывая формулы для $\delta\Phi[\bar y(x),\delta y(x)]$ и $\delta\Psi[\bar y(x), \delta y(x)]$, это равенство можно переписать так:
+    $$\int_{x_0}^{x_1}\Big\{ F_y(x, \bar y(x), \bar y'(x)) + \lambda G_y(x, \bar y(x), \bar y'(x))\Big\}\delta y(x)dx+$$
+    $$\int_{x_0}^{x_1}\Big\{ F_p(x, \bar y(x), \bar y'(x)) + \lambda G_p(x, \bar y(x), \bar y'(x))\Big\}\delta y'(x)dx=0$$
+    Интегрируя по частям второй интеграл и учитывая определение (\ref{wtf}) функции $L(x, y, p)$, имеем
+    $$\int_{x_0}^{x_1} \Big\{ L_y(x,\bar y(x),\bar y'(x)) - \frac{d}{dx} L_p(x,\bar y(x),\bar y'(x))\Big\}\delta y(x)dx = 0, \forall\delta y(x) \in C^1_0[x_0, x_1].$$
+    Применяя основную лемму вариационного исчисления, получим, что функция $\bar y(x)$ удовлетворяет уравнению (\ref{kak_ze_i_zaebalsya}).
+    
+\end{proof}
+\bigbreak
+[\cite{denisov2}]

@@ -1,0 +1,136 @@
+\setcounter{section}{4}
+\setcounter{subsection}{21}
+\setcounter{equation}{0}
+\textbf{\LARGE dop 21. Фоpмулы Гpина.}
+
+\noindentРассмотрим пространство $\mathbb{R}^n$,  \quad $n \geq 2$\,, \quad $x = (x_1,\,\ldots,\, x_n) \in \mathbb{R}^n$, \quad $x$ -- точка в $\mathbb{R}^n$. 
+$\Omega\subset\mathbb{R}^n\:$ -- область в $\mathbb{R}^n\:$ (открытое связное множество). 
+$\overline{\Omega} = \Omega \cup \partial\,\Omega$ -- замыкание области (или замкнутая область). Здесь $\partial\,\Omega$ -- граница множества $\Omega$.
+
+\fbox{\textbf{Опр. 1}} $u \in C^k(\overline{\Omega})$, если всюду в $\Omega$ существуют частные производные от $u(x)$ порядка $\leq k$, непрерывные вплоть до $\partial\,\Omega$.\\
+\noindent\underline{\textbf{Производная по направлению}}\\
+Пусть $u \in C^1(\Omega)$, \quad $x\in\Omega$ -- фиксированная точка, $\overrightarrow{\nu} = \nu = (\nu_1,\,\ldots,\, \nu_n)$ -- фиксированный вектор.
+$$\frac{\partial u}{\partial \nu} = \frac{d}{ds}\,u(x+s\nu)\bigg|_{s=0} =
+\nu_1 \: \frac{\partial u}{\partial x_1} + \ldots + \nu_n \: \frac{\partial u}{\partial x_n} = (\nu, \nabla u(x)),$$
+где\quad$\nabla u = \displaystyle\operatorname{grad} u = \left(\frac{\partial u}{\partial x_1},\,\ldots,\, \frac{\partial u}{\partial x_n}\right)$ -- градиент $u(x).$ \\
+
+\noindent\underline{\textbf{Формула Гаусса-Остроградского}}\\
+Пусть $\Omega$ -- ограниченная <<хорошая>> область в $\mathbb{R}^n$ (например, выпуклая область с кусочно гладкой границей). 
+$\overrightarrow{\nu_y} = \nu_y$ -- единичная верхняя нормаль к $\partial\:\Omega$ в точке $y\in\partial\:\Omega$,\quad$\displaystyle |\overrightarrow{\nu_y}| = 1$. 
+
+\noindent Пусть $\overrightarrow{A}(x) = (A_1(x),\, \ldots,\, A_n(x))$ -- векторное поле (в.\,п.) в $\overline{\Omega}$, причем $\overrightarrow{A}\in C^1(\overline{\Omega})$.\;\; Тогда
+
+\begin{equation}
+\centering
+    \int\limits_{\partial\:\Omega} (\overrightarrow{A}(y),\; \overrightarrow{\nu_y})\,ds_y = \int\limits_{\Omega}\operatorname{div}\overrightarrow{A}(x)\,dx, 
+    \label{eq:GO}
+\end{equation}
+
+где \quad $\displaystyle \operatorname{div}\overrightarrow{A}(x) \equiv \frac{\partial A_1}{\partial x_1}(x)  + \frac{\partial A_2}{\partial x_2}(x) + \ldots + \frac{\partial A_n}{\partial x_n}(x) $. 
+\newline\newline
+\noindent\fbox{$\mathrm{N}\!\!\mathrm{B}$} При $n = 3$ формула \eqref{eq:GO} принимает вид
+$$
+    \iint\limits_S(P\cos(\alpha)+Q\cos(\beta)+R\cos(\gamma))ds = \iiint\limits_V \left(\frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y}+\frac{\partial R}{\partial z}\right)dxdydz. 
+$$
+
+\noindent\textbf{\underline{Приложения формулы \eqref{eq:GO}}}
+
+\fbox{\textbf{Опр. 2}} Запись $\Omega \in \eqref{eq:GO}$ означает, что для $\forall$ векторного поля $\overrightarrow{A}(x)$ класса $C^1(\overline{\Omega})$ выполняется формула \eqref{eq:GO}.
+
+\noindent Будем всюду полагать, что\quad $\Omega\in \eqref{eq:GO},$\quad $\overrightarrow{\nu_y} = \nu_y = \nu $ -- единичная $(|\overrightarrow{\nu_y}|=1)$ внешняя нормаль к $\partial \,\Omega\;$. 
+
+\textbf{I)} Пусть $u \in C^2(\overline{\Omega})$.\; Тогда $\displaystyle\nabla u = \left( \frac{\partial u}{\partial x_1},\,\ldots,\, \frac{\partial u}{\partial x_n} \right)$ -- векторное поле класса $C^1(\overline{\Omega})$,\\ $\displaystyle(\nu, \nabla u) = \sum\limits_{i=1}^n \nu_i\,\frac{\partial u}{\partial x_i} = \frac{\partial u}{\partial \nu}, \;\;$ $\displaystyle \operatorname{div}(\nabla u) = \frac{\partial^2 u}{\partial x_1^2} + \ldots + \frac{\partial^2 u}{\partial x_n^2}\equiv\Delta u$ 
+$\overset{\eqref{eq:GO}}{\implies}$ 
+
+\textbf{Теорема Гаусса:}
+$
+\int\limits_{\partial\:\Omega} \frac{\partial u}{\partial \nu_y }\, ds_y = \int\limits_\Omega \Delta u(x)\, dx, $ $\quad \forall u\in C^2(\overline{\Omega}).$
+
+\noindent\textbf{II)} Пусть $u \in C^2(\overline{\Omega}), \;\; v \in C^1(\overline{\Omega})$.\quad Тогда
+$$
+\operatorname{div}(v(x)\:\nabla u(x)) = \sum\limits_{i = 1}^n \frac{\partial}{\partial x_i} \left( v\: \frac{\partial u}{\partial x_i}\right) = 
+\sum\limits_{i = 1}^n v \: \frac{\partial^2 u}{\partial x_i^2} + \sum\limits_{i = 1}^n \frac{\partial u}{\partial x_i}\:\frac{\partial v}{\partial x_i} =$$
+$$
+= v\Delta u + \sum\limits_{i = 1}^n \frac{\partial u}{\partial x_i}\:\frac{\partial v}{\partial x_i}. \implies
+$$
+\begin{multline*}
+\int\limits_{\Omega}v(x)\:\Delta u(x)\, dx\; + \int\limits_\Omega\sum\limits_{i = 1}^n \frac{\partial u}{\partial x_i}\:\frac{\partial v}{\partial x_i}\, dx = \int\limits_\Omega \operatorname{div}(v(x)\:\nabla u(x))\,dx \overset{\eqref{eq:GO}}{=} \\ \overset{\eqref{eq:GO}}{=} \int\limits_{\partial\:\Omega}\left(\overrightarrow{\nu_y},\; v(y)\:\nabla u(y)\right)\,ds_y = \int\limits_{\partial\:\Omega} v(y)\:\frac{\partial u(y)}{\partial \nu_y}\,ds_y.
+\end{multline*}
+
+\textbf{Первая формула Грина:}\\
+\fbox{
+$
+\int\limits_{\partial\:\Omega} v(y)\:\frac{\partial u(y)}{\partial \nu_y}\,ds_y = \int\limits_{\Omega}v(x)\:\Delta u(x)\, dx + \int\limits_\Omega\sum\limits_{i = 1}^n \frac{\partial u}{\partial x_i}\:\frac{\partial v}{\partial x_i}\, dx,$} 
+
+$ \forall u\in C^2(\overline{\Omega}), \forall v \in C^1(\overline{\Omega}).
+$
+
+\noindent\textbf{III)} Пусть $u,\; v \in C^2(\overline{\Omega})$.\;\;\; Тогда вычтем из равенства а) равенство б)
+\begin{equation*}
+\begin{gathered}
+     \textit{а})\; \int\limits_{\partial\:\Omega} v\:\frac{\partial u}{\partial \nu_y}\,ds_y = \int\limits_{\Omega}v\:\Delta u\, dx + \int\limits_\Omega\sum\limits_{i = 1}^n \frac{\partial u}{\partial x_i}\:\frac{\partial v}{\partial x_i}\, dx,\, \\[2mm]
+    \textit{б})\; \int\limits_{\partial\:\Omega} u\:\frac{\partial v}{\partial \nu_y}\,ds_y = \int\limits_{\Omega}u\:\Delta v\, dx + \int\limits_\Omega\sum\limits_{i = 1}^n \frac{\partial v}{\partial x_i}\:\frac{\partial u}{\partial x_i}\, dx.\, 
+    \end{gathered}
+\end{equation*}
+\textbf{Вторая формула Грина:}\\
+\fbox{
+$
+\int\limits_{\partial\:\Omega}\left( v\:\frac{\partial u}{\partial \nu_y} - u\:\frac{\partial v}{\partial \nu_y} \right)\,ds_y = \int\limits_{\Omega}(v\:\Delta u - u\:\Delta v)\, dx,$
+}
+$\quad \forall u,\;v\in C^2(\overline{\Omega}).$\\
+
+\textbf{\underline{Фундаментальная формула Грина}}
+
+\fbox{\textbf{Опр. 3}} Функция $E(x)$, определенная в $\mathbb{R}^n \setminus \{0\}$, называется \textbf{фундаментальным решением} уравнения Лапласа в $\mathbb{R}^n$: 
+$$\displaystyle E(x) = \begin{cases}
+\displaystyle
+\;\frac{1}{2\pi} \ln{|x|},  &n=2, \vspace{2mm}\\
+\displaystyle
+\;-\frac{1}{\omega_n \, (n-2) \, |x|^{n-2}}, \;\; &n \geq 3,
+\end{cases}
+\text{ \qquadгде\;\;} x \in \mathbb{R}^n, \;\; |x| > 0.$$
+Здесь $\omega_n$ -- площадь единичной сферы в $\mathbb{R}^n$.
+
+\noindent \textbf{\underline{Ситуация}}. \\
+Зафиксируем точку $x \in \Omega$. $\exists\, \varepsilon_0 > 0: \;\; B_\varepsilon(x) \subset \Omega\;$ при $\;\forall \varepsilon \in (0, \varepsilon_0)$. Где $B_\varepsilon(x)$ -- шар радиуса $\varepsilon$ с центром в точке $x$.\;\;$\;\vphantom{\displaystyle\int}\Omega_\varepsilon = \Omega \setminus \overline{B_\varepsilon(x)}.\;$
+
+\noindent Пусть $\; u \in C^2\, (\overline{\Omega}),\;$ $\; v(y) = E(y-x)\;$ -- сдвинутое фундаментальное решение. Тогда $\;v \in C^2\,(\overline{\Omega_\varepsilon})\;$ и $\; \Delta v \equiv 0\;$ в $\;\Omega_\varepsilon$.
+
+\noindent Применим вторую формулу Грина к паре $u,\, v$ в области $\Omega_\varepsilon$:
+$$
+\int\limits_{\Omega_\varepsilon} \big(E(y-x) \Delta u(y)\, -\, 0\big)\,dy 
+= \int\limits_{\partial\,\Omega} \left( E(y-x)\, \frac{\partial u}{\partial \nu_y}\, -\, u(y)\,\frac{\partial E(y-x)}{\partial \nu_y}\right)\,ds_y\, + $$
+$$
++\,
+\int\limits_{S_\varepsilon(x)} \left( E(\varepsilon)\, \frac{\partial u}{\partial \nu_y}\, - \, u(y) \cdot \left(- \frac{1}{\omega_n \varepsilon^{n-1}}\right)  \right)\, ds_y.
+$$
+\noindent Здесь $\;S_\varepsilon(x)$ -- сфера радиуса $\varepsilon$ с центром в точке $x$, $\displaystyle E(\varepsilon) = E(y-x)\big|_{|y-x| = \varepsilon}$, $\;\; \displaystyle -\frac{1}{\omega_n \varepsilon^{n-1}} = -\frac{\partial E(y-x)}{\partial r}\bigg|_{|y-x| = \varepsilon}$ -- производная по нормали к $\;S_\varepsilon(x)$, направленной в точку $x$ \; ($r = |y-x|$).
+\newline
+
+\noindent Заметим, что
+
+\begin{enumerate}
+    \item [а)] $\displaystyle \left | \, \int\limits_{S_{\varepsilon(x)}} E(\varepsilon) \frac{\partial u}{\partial \nu_y} \, ds_y \right | \leq C \cdot | E(\varepsilon) | \cdot \omega_n \, \varepsilon^{n-1} \rightarrow 0$ при $\varepsilon \rightarrow 0+$ 
+    \item [б)] $\displaystyle \int\limits_{S_{\varepsilon(x)}} u(y)  \frac{1}{\omega_n  \varepsilon^{n-1}} ds_y = \frac{1}{\omega_n  \varepsilon^{n-1}} \int\limits_{S_{\varepsilon(x)}} u(y)  ds_y \to u(x)$ при $\varepsilon \to 0+$
+\end{enumerate}
+
+\vspace{2mm}\noindent а), б) $\implies \exists \displaystyle \int\limits_{\Omega} E(y-x) \, \Delta u(y) \, dy \equiv \lim\limits_{\varepsilon \to 0+} \int\limits_{\Omega_\varepsilon} E(y-x) \, \Delta u(y) \, dy$ -- несобственный интеграл. \\
+\noindent При этом
+\begin{equation}
+\label{eq11.*}
+    u(x) = \int\limits_{\Omega} E(y-x) \, \Delta u(y)  dy + \int\limits_{\partial \, \Omega} \frac{\partial E(y-x)}{\partial \nu_y}  u(y) - E(y-x)  \frac{\partial u(y)}{\partial \nu_y} ds_y. 
+\end{equation}
+
+\noindent Это и есть \textbf{фундаментальная формула Грина}. Здесь $x \in \Omega$ -- произвольная точка.\\
+
+\fbox{\textbf{Теорема}} Пусть $\Omega \in \eqref{eq:GO}, \, E(x)$ -- фундаментальное решение в $\mathbb{R}^n, \, u \in C^2(\overline{\Omega}).$ Тогда для $\forall x \in \Omega$ справедливо соотношение \eqref{eq11.*}. Первый интеграл в этой формуле понимается как несобственный.\\
+
+\noindent \underline{\textbf{Важнейший частный случай}}. Пусть $\;\;u \in C^2(\overline{\Omega})\;\;$ и $\;\;\Delta u(x) = 0\;\;$ всюду\;\; в $\;\;\Omega.$ Тогда \eqref{eq11.*} принимает вид
+\begin{equation*}
+    u(x) = \int\limits_{\partial \, \Omega} \left ( \frac{\partial E(y-x)}{\partial \nu_y} \, u(y) - E(y-x) \, \frac{\partial u(y)}{\partial \nu_y} \right ) d s_y, \quad \forall x \in \Omega.
+\end{equation*}
+\noindent Это \textbf{фундаментальная формула Грина для гармонических функций}. 
+
+% -------- source --------
+
+[\cite{umf_tix}, файлы 2.1, 10, 11.1]

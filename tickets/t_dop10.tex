@@ -1,0 +1,110 @@
+\setcounter{section}{4}
+\setcounter{subsection}{10}
+\setcounter{equation}{0}
+\textbf{\LARGE dop 10. Сопpяженный опеpатоp в гильбеpтовом пpостpанстве. Вполне непpеpывные опеpатоpы.}
+
+\begin{definition}
+Полное евклидово (унитарное) пространство называется \emph{гильбертовым}. Гильбертово пространство --- это банахово пространство, в котором введено скалярное произведение, согласованное с нормой: $\|x\| = \sqrt{(x, x)}$.
+\end{definition}
+
+\begin{Commentwhite}
+Примеры: пространство $l_2, L_2$. В гильбертовом пространстве справедливо неравенство Коши-Буняковского: $|(x, y)|\le\|x\|\cdot\|y\|$.
+\end{Commentwhite}
+
+\begin{Commentwhite}
+$\mathLet~H$ --- гильбертово пространство, $\mcA\colon H\to H$ --- линейный ограниченный оператор.
+\end{Commentwhite}
+
+\begin{definition}
+Оператор $\mcA^*\colon H\to H$ называется \emph{сопряженным} к оператору $\mcA$, если
+$$\forall x,y\in H \quad (\mcA x, y) = (x,\mcA^* y).$$
+\end{definition}
+
+\begin{example}
+Определим в $H=L_2$ интегральный оператор:
+$$\mcA x = \int\limits_D K(t, s) x(s) ds,~\iint\limits_{D^2}\big|K(t, s)\big|^2 ds dt < \infty.$$
+Сопряженным к нему оператором является следующий интегральный оператор:
+$$\mcA^* y = \int\limits_D \overline{K}(t, s) y(t) dt.$$
+\end{example}
+
+\begin{theorem}
+~\\
+$\exists~!$ линейный ограниченный $ \mcA^*$, причем $\norm{\mcA^*} = \norm{\mcA} $.
+\end{theorem}
+\begin{proofocre}
+
+\boxed{\exists}
+Построим $\mcA^*$. Рассмотрим функционал $f(x) = (\mcA x, y),~\forall y\in H$, он:
+\begin{enumerate}
+    \item линейный, в силу линейности $\mcA$ и скалярного произведения
+    \item ограниченный: $|f(x)|=|(\mcA x, y)|\le\norm{\mcA x}\cdot\norm{y}\le\norm{\mcA}\cdot\norm{x}\cdot\norm{y}$
+\end{enumerate}
+Тогда для него справедлива теорема Рисса: $\exists!h\in H\colon f(x) = (x, h)$, и получаем $$(\mcA x, y) = (x, h),~\forall x,y\in H$$
+Таким образом, так как $\forall y\in H~\exists!h\in H$, положим $\mcA^* y = h$, существование доказано.
+
+\boxed{\text{Ограниченность}} Пусть $x = \mcA^* y$, тогда
+$$(\mcA x, y)=(\mcA \mcA^* y, y)\le\norm{\mcA \mcA^* y}\cdot\norm{y}\le\norm{\mcA}\cdot\norm{\mcA^* y}\cdot\norm{y}$$
+С другой стороны, $(\mcA \mcA^* y, y)=\sqnorm{\mcA^* y}$, и имея нер-во $\sqnorm{\mcA^* y}\le\norm{\mcA}\cdot\norm{\mcA^* y}\cdot\norm{y}$, в случае $\norm{\mcA^* y}\ne0$, делим на $\norm{\mcA^* y}$, получая
+\begin{equation}
+    \label{Неравенство с нормой сопряженного}
+    \norm{\mcA^* y}\le\norm{\mcA}\cdot\norm{y},~\forall y\in H
+\end{equation}
+следовательно $\mcA^*$ --- ограничен.
+
+\boxed{\text{Равенство норм}} Пусть $y\ne\theta$, разделив нер-во~\ref{Неравенство с нормой сопряженного} на $\norm{y}$ и переходя к $\sup$, получаем
+$$\sup\limits_{\norm{y} = 1}\norm{\mcA^* y} = \norm{\mcA^*}\le\norm{\mcA}$$
+В обратную сторону: положим $y=\mcA x$ и рассмотрим цепочку
+\begin{gather*}
+    (\mcA x, y)=(\mcA x, \mcA x)=\sqnorm{\mcA x} = (x, \mcA\mcA^* x) \le \norm{x}\cdot\norm{\mcA\mcA^* x}\le\\
+    \le\norm{x}\cdot\norm{\mcA^*}\cdot\norm{\mcA x}
+\end{gather*}
+Аналогично, деля обе части на $\norm{\mcA x}\ne 0$, получаем $\norm{\mcA x}\le\norm{\mcA^*}\cdot\norm{x} \Rightarrow \norm{\mcA}\le\norm{\mcA^*}$ и в итоге $\norm{\mcA}=\norm{\mcA^*}$.
+
+\boxed{\text{Единственность}} От противного: пусть $\exists\mcA^*,~\widetilde{\mcA^*}\colon(\mcA x, y) = (x, \mcA^* y) = (x, \widetilde{\mcA^*} y)$. Тогда
+$$0 = (x, (\mcA^* - \widetilde{\mcA^*}) y),~\forall x\in H \Rightarrow \mathLet~x=(\mcA^* - \widetilde{\mcA^*})y \Rightarrow \sqnorm{\mcA^* - \widetilde{\mcA^*}) y} = 0$$
+и $\mcA^* y = \widetilde{\mcA^*}y,~\forall y\in H$.
+\end{proofocre}
+
+\begin{lemma}
+Если $x_n\xrightarrow{w}x$, то $\mcA x_n \xrightarrow{w} \mcA x$.
+\end{lemma}
+\begin{proofocre}
+$(\mcA x_n, y) = (x_n, \mcA^* y)\longrightarrow(x, \mcA^* y)=(\mcA x, y),~\forall y\in H$, и по определению имеем $\mcA x_n\xrightarrow{w}\mcA x$.
+\end{proofocre}
+
+\begin{example}
+Пример тождественного оператора показывает, что не всякий огр. оператор переводит слабо сход. посл. в последовательность, сходящуюся по норме (или в сильно сходящуюся).
+\end{example}
+
+\begin{definition}
+Оператор $\mcA\colon H\to H$ называется \emph{вполне непрерывным}, если он любую слабо
+сходящуюся последовательность переводит в последовательность, сходящуюся по норме, то есть 
+$$\forall\{x_n\}\colon x_n\xrightarrow{w}x \;\Rightarrow\; \norm{\mcA x_n - \mcA x}\xrightarrow{n\to\infty}0.$$
+\end{definition}
+
+\begin{Commentwhite}
+Вполне непр. оператор ограничен, т.е. непрерывен.
+\end{Commentwhite}
+
+\begin{theorem}
+Если $\mcA$ --- вполне непрерывный оператор, то $\mcA^*$ --- тоже вполне непрерывен.
+\end{theorem}
+\begin{proofocre}
+~\\
+Пусть $x_n\xrightarrow{w}x$. Рассмотрим $\sqnorm{\mcA^*(x_n - x)}$:
+\begin{multline*}
+    \sqnorm{\mcA^* x_n - \mcA^* x} = \big(\mcA^* (x_n - x), \mcA^* (x_n - x)\big) = (\mcA\mcA^*(x_n - x), x_n - x)\le\\
+    \le\norm{\mcA(\mcA^*(x_n - x))}\cdot\norm{x_n - x}\longrightarrow0,
+\end{multline*}
+так как:
+\begin{enumerate}
+    \item $\norm{\mcA(\mcA^*(x_n - x))}\longrightarrow0$, т.к. $\{ \mcA^*(x_n - x) \}$ сх-ся слабо, а $\mcA$ --- вполне непрерывен,
+    \item $\norm{x_n - x}$ ограничена.
+\end{enumerate}
+\end{proofocre}
+
+
+
+% -------- source --------
+\bigbreak
+[\cite{funcan_spring}]
