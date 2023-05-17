@@ -1,16 +1,18 @@
+\setcounter{section}{15}
+\setcounter{subsection}{6}
+\setcounter{equation}{0}
 \textbf{\LARGE osn 6. Криволинейный интеграл, формула Грина.}
 
-$\mathLet ~ \varphi(t), \psi(t)$ непр. на $[a,b]$. 
+$\mathLet ~ \varphi(t), \psi(t)$ непр. на $[\alpha,\beta]$. 
 Если рассматривать $t$ как время, эти функции определяют закон движения по плоскости точки $M$ с координатами 
 $x = \varphi(t), y = \psi(t), ~ \alpha < t < \beta$. Множество $\{M\}$ всех точек $M$, координаты $x,y$ которых определяются уравнениями $\varphi(t), \psi(t)$, называется \textbf{простой плоской кривой} $L$, если различным значениям параметра $t$ из $[\alpha, \beta]$ отвечают различные точки этого множества.
 
-$\mathLet ~ \varphi(t), \psi(t) \in C[\{t\}]$. Уравнения $x = \varphi(t), y = \psi(t)$ задают параметрически кривую L, если $\exists$ такая система сегментов $\{[t_{i-1}, t_i]\}$, разбивающих множество $\{t\}$, что для значений $t$ из каждого данного сегмента этой системы все уравнения определяют простую кривую.
+% $\mathLet ~ \varphi(t), \psi(t) \in C[\{t\}]$. Уравнения $x = \varphi(t), y = \psi(t)$ задают параметрически кривую L, если $\exists$ такая система сегментов $\{[t_{i-1}, t_i]\}$, разбивающих множество $\{t\}$, что для значений $t$ из каждого данного сегмента этой системы все уравнения определяют простую кривую.
 
 \textbf{Спрямляемая кривая} --- кривая, имеющая конечную длину.
 
-\textbf{Длина кривой} -- это предел последовательности длин ломаных, вписанных в эту линию, при условии, что длина наибольшего звена $\rightarrow 0$.
+\textbf{Длина кривой} -- это предел последовательности длин ломаных, вписанных в эту линию, при условии, что длина наибольшего звена $\rightarrow 0$.\\
 
-\bigbreak
 $\mathLet ~ x = \varphi(t), y = \psi(t) \in C[\alpha, \beta]$. Тогда кривая $L$, определяемая $x, y$, спрямляема и длину $l$ ее дуги можно вычислить по формуле
 $$l = \int^{\beta}_{\alpha} \sqrt{\varphi'^2(t) + \psi'^2(t)}dt$$
 
@@ -29,12 +31,8 @@ $\Delta l_k = |\smile M_{k-1}M_k|$ (длина дуги), $\Delta \equiv \displa
 
 $\Delta x_k = x_k - x_{k-1},~x_k = \varphi(t_k),~\Delta y_k = y_k - y_{k-1},~y_k = \psi(t_k)$
 
-\faEye \ три интегральные суммы:
-\begin{enumerate}
-    \item $\sigma_1=\displaystyle\sum_{k=1}^n f(N_k)\Delta l_k$
-    \item $\sigma_2=\displaystyle\sum_{k=1}^n P(N_k)\Delta x_k$
-    \item $\sigma_3=\displaystyle\sum_{k=1}^n Q(N_k)\Delta y_k$
-\end{enumerate}
+\faEye \ три интегральные суммы:\\
+1. $\sigma_1=\displaystyle\sum_{k=1}^n f(N_k)\Delta l_k$\;  2. $\sigma_2=\displaystyle\sum_{k=1}^n P(N_k)\Delta x_k$  \;3. $\sigma_3=\displaystyle\sum_{k=1}^n Q(N_k)\Delta y_k$
 
 Число $I_s,~s=1,2,3$ называется \textbf{пределом интегральной суммы} $\sigma_s$ при $\Delta \rightarrow 0$, если $\forall\varepsilon>0~\exists\delta>0:~\Delta<\delta\implies|I_s-\sigma_s|<\varepsilon$ независимо от выбора точек $N_k\in\smile M_{k-1}M_k$.
 
@@ -45,64 +43,101 @@ $$I_1=\displaystyle\lim_{\Delta\to 0}\sigma_1
 =\int\limits_{a}^{b} f(\varphi(t), \psi(t)) \sqrt{ \varphi_t^{'2}(t) + \psi_t^{'2}(t) } dt $$
 
 Если существуют пределы $I_2,~I_3$ интегральных сумм $\sigma_2,~\sigma_3$ при $\Delta \rightarrow 0$, то они называются \textbf{криволинейными интегралами 2} рода от функций $P,~Q$ по кривой $AB$.
-$$I_2=\displaystyle\lim_{\Delta\to 0}\sigma_2= \int\limits_{\smile AB}P(x,y)dx =\int\limits_{\smile AB}P(M)dx $$
-$$I_3=\displaystyle\lim_{\Delta\to 0}\sigma_3= \int\limits_{\smile AB}Q(x,y)dy =\int\limits_{\smile AB}Q(M)dy $$
+$$I_2=\displaystyle\lim_{\Delta\to 0}\sigma_2= \int\limits_{\smile AB}P(x,y)dx  = \int\limits_a^b P(\varphi(t), \psi(t)) \varphi'(t) \,dt$$
+$$I_3=\displaystyle\lim_{\Delta\to 0}\sigma_3= \int\limits_{\smile AB}Q(x,y)dy =\int\limits_a^b Q(\varphi(t), \psi(t)) \varphi'(t) \,dt$$
 
 $I_2+I_3=\int\limits_{\smile AB}P(x,y)dx+\int\limits_{\smile AB}Q(x,y)dy = \int\limits_{\smile AB}P(x,y)dx+Q(x,y)dy$ 
 
 -- \textbf{общий криволинейный интеграл 2 рода}.
 
-Из определения криволинейных интегралов следует, что:
-\begin{enumerate}
-    \item криволинейный интеграл первого рода не зависит от того, в каком направлении пробегает кривая $L$, а для криволинейного интеграла второго рода изменение направления кривой ведёт к изменению знака, т.е. $\int\limits_{\smile AB}P(x,y)dx+Q(x,y)dy=-\int\limits_{\smile BA}P(x,y)dx+Q(x,y)dy$
-    \item физически криволинейный интеграл первого рода представляет собой массу кривой $L$, линейная плотность которой равна $f(x, y)$;
-
-    общий линейный интеграл второго рода физически представляет собой работу по перемещению материальной точки $A$ в точку $B$ вдоль кривой $L$ под действием силы, имеющей составляющие $P(x, y)$ и $Q(x, y)$.
-
-\end{enumerate}
-
-\todo{Во второй части билета какая-то херня. Закоментированны} \\
-\todo{совершенно рандомные куски ибо не влезает. Надо что-то придумать.}
-
-% Область $D$ называется\textbf{ односвязной}, если любая кусочно гладкая замкнутая без самопересечения кривая, расположенная в $D$, ограничивает область, все точки которой также принадлежат $D$.
-% $\mathLet ~ \pi$ --- плоскость в пространстве $E_3$, $k$ --- единичный вектор нормали к $\pi$, $D$ --- односвязная область на $\pi$. \mathLet \ далее, область $D$ удовлетворяет следующим условиям:
+% Из определения криволинейных интегралов следует, что:
 % \begin{enumerate}
-%     \item граница $C$ области $D$ является замкнутой кусочно-гладкой кривой без особых точек;
-%     \item на плоскости $\pi$ можно выбрать такую прямоугольную декартову систему координат, что все прямые, параллельные координатным осям, пересекают $C$ не более чем в двух точках.
+%     \item криволинейный интеграл первого рода не зависит от того, в каком направлении пробегает кривая $L$, а для криволинейного интеграла второго рода изменение направления кривой ведёт к изменению знака, т.е. $\int\limits_{\smile AB}P(x,y)dx+Q(x,y)dy=-\int\limits_{\smile BA}P(x,y)dx+Q(x,y)dy$
+%     \item физически криволинейный интеграл первого рода представляет собой массу кривой $L$, линейная плотность которой равна $f(x, y)$;
+
+%     общий линейный интеграл второго рода физически представляет собой работу по перемещению материальной точки $A$ в точку $B$ вдоль кривой $L$ под действием силы, имеющей составляющие $P(x, y)$ и $Q(x, y)$.
 % \end{enumerate}
 
-$\mathLet ~ t$ --- единичный вектор касательной к кривой $C$, согласованной с $k$, т.е. положительное направление обхода кривой $C$ совпадает в точке приложения вектора $t$ с направлением этого вектора, и если смотреть с конца нормали $k$, то контур $C$ ориентирован положительно (Его обход осуществляется против часовой стрелки). Говорят, что ориентация кривой $C$ согласована с нормалью <<по правилу штопора>>.
+% \todo{Во второй части билета какая-то херня. Закоментированны} \\
+% \todo{совершенно рандомные куски ибо не влезает. Надо что-то придумать.}
+\begin{center}
+    \textbf{Формула Грина}
+\end{center}
+% Область $D$ называется\textbf{ односвязной}, если любая кусочно гладкая замкнутая без самопересечения кривая, расположенная в $D$, ограничивает область, все точки которой также принадлежат $D$.
 
-\textbf{Опр.} \textbf{Векторным полем} в $\mathcal{R}^3$ называется векторная функция, определенная в $\mathcal{R}^3$ (или на $D \subset \mathcal{R}^3$): $\overline{f}(M): \mathcal{R}^3 \rightarrow \mathcal{R}^3$
+$\mathLet ~ \pi$ --- плоскость в пространстве $E_3$, $\overrightarrow{k}$ --- единичный вектор нормали к $\pi$, $D$ --- односвязная область на $\pi$. \mathLet \ далее, область $D$ удовлетворяет следующим условиям:
+\begin{enumerate}
+    \item граница $C$ области $D$ является замкнутой кусочно-гладкой кривой без особых точек;
+    \item на плоскости $\pi$ можно выбрать такую прямоугольную декартову систему координат, что все прямые, параллельные координатным осям, пересекают $C$ не более чем в двух точках.
+\end{enumerate}
 
-\textbf{Опр.} \textbf{Ротором} векторного поля $f(M)$ называется $rot\mathcal{A}$
+% $\mathLet ~ \overrightarrow{t}$ --- единичный вектор касательной к кривой $C$, согласованной с $\overrightarrow{k}$.
+% т.е. положительное направление обхода кривой $C$ совпадает в точке приложения $\overrightarrow{t}$ с направлением этого вектора, и если смотреть с конца нормали $\overrightarrow{k}$, то контур $C$ ориентирован положительно. 
+% (Его обход осуществляется против часовой стрелки). Говорят, что ориентация кривой $C$ согласована с нормалью <<по правилу штопора>>.
 
-В Орт-Норм Базисе выражение для $rot(f) = rot(f_x \overline{e}_1 + f_y \overline{e}_2 + f_z \overline{e}_3):$ \newline 
-$\left(\frac{\partial f_z}{\partial y} - \frac{\partial f_y}{\partial z}\right) \overline{e}_1$ + $\left(\frac{\partial f_x}{\partial z} - \frac{\partial f_z}{\partial x}\right) \overline{e}_2$ + $\left(\frac{\partial f_y}{\partial x} - \frac{\partial f_x}{\partial y}\right) \overline{e}_3$
+\textbf{Опр.} \textbf{Векторным полем} в $\mathcal{R}^3$ называется векторная функция, определенная в $\mathcal{R}^3$.
 
-\textbf{Формула Грина.} $\mathLet ~ a$ --- векторное поле, дифференцируемое в области $D$, удовлетворяющей условиям 1 и 2, и такое, что его градиент непрерывен в объединении $D \cup C = \overline{D}$. Тогда справедлива формула
-$$\iint\limits_{\overline{D}}(k,rot~a)d\sigma = \oint\limits_{C} (a,t) dl $$
-Выражение справа обычно называют \textbf{циркуляцией векторного поля} $a$ по кривой $C$, а выражение слева --- \textbf{потоком векторного пол}я $rot~a$ через область $D$.
+\textbf{Опр.} \textbf{Ротором} векторного поля $p$ называется $rot~p = \nabla \times p$. 
+% В ОНБ имеет вид:
+
+% $\left(\frac{\partial a_z}{\partial y} - \frac{\partial a_y}{\partial z}\right) \overline{e}_1$ + $\left(\frac{\partial a_x}{\partial z} - \frac{\partial a_z}{\partial x}\right) \overline{e}_2$ + $\left(\frac{\partial a_y}{\partial x} - \frac{\partial a_x}{\partial y}\right) \overline{e}_3$
+
+\textbf{Формула Грина.} Пусть область $D$ удовлетворяет условиям 1 и 2, $\overrightarrow{t}$ – единичный вектор касательной к кривой C,
+согласованный с вектором k (т.е. положительное направление
+обхода C совпадает с направлением касательной), векторное
+поле $\overrightarrow{p}(\overrightarrow{r})$ определено и непрерывно в $\overline{D} = D \cup C$, дифференцируемо в $D$ и производная по любому направлению
+непрерывна в $D$. Тогда
+\begin{equation}\label{eq06.1}
+    \iint\limits_{\overline{D}}(\overrightarrow{k},rot~\overrightarrow{p})d\sigma = \oint\limits_{C} (\overrightarrow{p},\overrightarrow{t}) dl 
+\end{equation}
+% Выражение справа обычно называют \textbf{циркуляцией векторного поля} $a$ по кривой $C$, а выражение слева --- \textbf{потоком векторного поля} $rot~a$ через область $D$.
 
 % \includegraphics[scale=0.06]{pics/osn06_L.jpeg}
 
-% Представим формулу Грина в покоординатной форме.
+$\blacktriangleright\;$
+Введем ортонорм. декартову сис. коорд.: $Oz \uparrow\uparrow \overrightarrow{k}$, $O_{xy}$ -- в плоскости $\pi$ и выбраны так, чтобы выполнялось условие 2 на $D$.
 
-% \begin{proof}
-% Введем ортонорм. Декартову сис. коорд.: $Oz \uparrow\uparrow \overline{k}$, $O_{xy}$ -- в плоскости $\pi$ и выбраны так, чтобы выполнялось "координатное свойство" на $D$
-% $L: \{ x=x(t), ~ y = y(t) \}$ -- согласовано с направлением обхода.
+Запишем координаты используемых векторов в введенной системе координат: $\overrightarrow{k} = \{0, 0, 1\}, \; \overrightarrow{p}(x,y) = \{P(x,y), Q(x,y), R(x,y)\},\; \overrightarrow{t} = \{\cos(\alpha), \cos(\beta), 0\}$.
 
-% $\overline{a} = a_1(x,y,z)\overline{e}_1 + a_2(x,y,z)\overline{e}_2 + a_3(x,y,z)\overline{e}_3, ~ \overline{e}_3 = \overline{k}$, \\
-% $rot(\overline{a}) = \dots + \left(\frac{\partial a_2}{\partial x} - \frac{\partial a_1}{\partial y} \right)\overline{e}_3 \Longrightarrow rot\left(\overline{a}, \overline{k}\right) = \frac{\partial a_2}{\partial x} - \frac{\partial a_1}{\partial y}$ в области $D$.
+Тогда $(\overrightarrow{k},rot~\overrightarrow{p}) = \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}, \;\; d\sigma = dx\,dy$, так как множество $D$ находится в плоскости $z(x,y) = 0$.
 
-% $\overline{t} = \{x'(t), y'(t), 0\} \frac{1}{\sqrt{x'^2(t) + y'^2(t)}}$, $dl = \sqrt{x'^2(t) + y'^2(t)}dt \Longrightarrow
-% \oint (\overline{a}, \overline{t})dl = \int_{t_1}^{t_2}(a_1(x,y,0)x'(t) + a_2(x,y,0)y'(t))dt = \oint\limits_{\mathcal{L}} (a_1(x,y,0)dx + a_2(x,y,0)dy)$
+Подставив полученные соотношения в \eqref{eq06.1}, получим \textbf{формулу Грина в ОНБ}
+\begin{equation}\label{eq06.2}
+    \iint\limits_{\overline{D}} (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}) dx dy = \oint\limits_{C} (P \cos(\alpha) + Q \cos(\beta)) dl = \oint\limits_{C} (P dx + Q dy).
+\end{equation} 
 
-% $\iint\limits_{D}(\frac{\partial a_2}{\partial x} - \frac{\partial a_1}{\partial y})\bigg|_{z=0} dxdy$
+Формулу \eqref{eq06.2} достаточно доказать <<покомпонентно>>: 
+$$ I_1 = -\iint\limits_{\overline{D}}  \frac{\partial P}{\partial y} dx dy = \oint\limits_{C} P dx, \;\; I_2=\iint\limits_{\overline{D}}  \frac{\partial Q}{\partial x} dx dy = \oint\limits_{C} Q dy$$
+Докажем для $I_1$ (для $I_2$ аналогично). 
 
-% Пусть $P(x,y) = a_1(x,y,0), ~ Q(x, y) = a_2(x,y,0)$, тогда \textbf{Формула Грина} в покоординатной форме:
-% $$\oint\limits_{L} (P(x,y)dx + Q(x,y)dy) = \iint\limits_{\overline{D}} (\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}) dx dy$$
-% \end{proof}
+По условию 2 на область $D$ прямая, параллельная оси $Oy$ пересекает контур $C$ не более, чем в двух точках: $y_1(x)$ и $y_2(x)$ ($y_1(x) \leq y_2(x)$). Пусть $[x_1, x_2]$ -- проекция множества $\overline{D}$ на ось $Ox$. Разбиваем кривую $C = C_1 \cup C_2, \; C_1: y = y_1(x), \; C_2: y = y_2(x)$. Учитывая, что движение по $C_1$ происходит в положительном направлении, а по $C_2$ -- в отрицательном, имеем:\\
+$
+I_1 = - \int\limits_{x_1}^{x_2} dx \int\limits_{y_1(x)}^{y_2(x)} \frac{\partial P}{\partial y}dy = \int\limits_{x_1}^{x_2} P(x, y_1(x)) dx - \int\limits_{x_1}^{x_2}P(x, y_2(x)) dx = \int\limits_{C_1} P(x,y) dx - (-\int\limits_{C_2} P(x,y) dx) = \oint\limits_{C} P dx. \; \blacksquare$\\
+
+Теперь обоснуем последнее равенство в формуле \eqref{eq06.2}. Рассмотрим гладкую кривую $C = \smile AB$ и выберем в качестве параметра длину дуги $t = |\smile AM|, \; M \in C$. Представим кривую $C$ уравнениями $x = x(t), \; y = y(t), \; 0 \leq t \leq L, \; L = |\smile AB|$. 
+
+Функции $x(t), \; y(t)$ имеют непрерывные производные $x'(t), \; y'(t)$. Обозначим через $\alpha$ угол, составленный с осью $Ox$ касательной $\overrightarrow{a}$ к кривой $C$, направленной в сторону роста $t$. Пусть $\beta$ -- дополнение угла $\alpha$ до $\pi / 2$. Имеет место следующее утверждение.
+
+\textbf{Лемма.} $\cos(\alpha) = x'(t), \; \sin(\alpha) = \cos(\beta) = y'(t), \; t \in [0, L].$
+
+$\blacktriangleright\;$ Пусть точке $M$ отвечает значение $t$ длины дуги. Придадим приращение $\Delta t > 0$, тогда $t + \Delta t$ определяет точку $M_1 \in C$, лежащую от $M$ в сторону возрастания дуг. 
+
+Обозначим через $\alpha'$ угол, который составляет секущая $\overrightarrow{M M_1}$ и ось $Ox$. Приращению $\Delta t$ отвечают приращения $\Delta x = |\overrightarrow{M M_1}| \cos(\alpha'), \; \Delta y = \overrightarrow{M M_1} \sin(\alpha')$. Так как $\Delta t = |\smile MM_1|$, то 
+$$
+\cos(\alpha') = \frac{\Delta x}{\Delta t} \cdot \frac{|\smile MM_1|}{|\overrightarrow{M M_1}|}, \;\; \sin(\alpha') = \frac{\Delta y}{\Delta t} \cdot \frac{|\smile MM_1|}{|\overrightarrow{M M_1}|}.
+$$
+Но $\frac{|\smile MM_1|}{|\overrightarrow{M M_1}|} \to 1$ при $\Delta t \to 0$ $\implies$
+$\cos(\alpha) = \frac{dx}{dt}, \;\; \sin(\alpha) = \cos(\beta) = \frac{dy}{dt}.
+\; \blacksquare$
+
+Продолжим обоснование перехода в \eqref{eq06.2}. Пусть вдоль кривой $C$ задана непрерывная функция $f(M) = f(x,y)$. Тогда $\int\limits_C f(M) dx = \int\limits_0^L f(x(t), y(t)) x'(t) dt = \int\limits_0^L f(x(t), y(t)) \cos(\alpha) dt = \int\limits_C f(M) \cos(\alpha) dl$, где мы учли, что $dl = \sqrt{x'^2(t) + y'^2(t)} dt = \sqrt{\cos^2(\alpha) + \sin^2(\alpha)}dt = dt$. 
+% Аналогично $\int\limits_C f(M) dy = \int\limits_C f(M) \cos(\beta) dl$. 
+
+Таким образом, если функции $P,\; Q$ непрерывны на $C$, то 
+$$
+\int\limits_C P dx + Q dy = \int\limits_C (P \cos(\alpha) + Q \cos(\beta)) dl.
+$$
+Эта формула и использовалась в последнем переходе в \eqref{eq06.2}.
 
 % Таким образом значение функции по третьей координате ($k$) не влияет на значение.
 % Поэтому, не теряя общности, можем рассматривать функции, определенные только на плоскости: $a=\{P(x,y),Q(x,y)\}$.
@@ -125,50 +160,50 @@ $$\iint\limits_{\overline{D}}(k,rot~a)d\sigma = \oint\limits_{C} (a,t) dl $$
 % Аналогично, спроецируем D на $O_y$ - докажем вторую формулу.
 % \end{proof}
 
-\textbf{Формулировка}
-Пусть $C$ -- положительно ориентированная кусочно-гладкая замкнутая кривая на плоскости, а $D$ -- область, ограниченная кривой $C$. 
-Если 
-%функция $P = P(x,y)$, $Q = Q(x,y)$ определены в области $D$ и имеют непрерывные частные производные
-$\frac{\partial P}{\partial y}$, $\frac{\partial Q}{\partial x} \in \mathcal{C}(D)$, то
+% \textbf{Формулировка}
+% Пусть $C$ -- положительно ориентированная кусочно-гладкая замкнутая кривая на плоскости, а $D$ -- область, ограниченная кривой $C$. 
+% Если 
+% %функция $P = P(x,y)$, $Q = Q(x,y)$ определены в области $D$ и имеют непрерывные частные производные
+% $\frac{\partial P}{\partial y}$, $\frac{\partial Q}{\partial x} \in \mathcal{C}(D)$, то
 
-$\oint\limits_{C} P \,dx + Q \,dy = \iint\limits_{D} \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) \,dx\,dy$
+% $\oint\limits_{C} P \,dx + Q \,dy = \iint\limits_{D} \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) \,dx\,dy$
 
-На символе интеграла часто рисуют окружность, чтобы подчеркнуть, что кривая $C$ замкнута.
+% На символе интеграла часто рисуют окружность, чтобы подчеркнуть, что кривая $C$ замкнута.
 
-\begin{proof}
-\textbf{Доказательство ф. Грина для простой области}
-%$D$ -- область, правильная в направлении $OY$, ограниченная замкнутой кривой $C$
-\mathLet \ область $D$ -- криволинейная трапеция (область, правильная в направлении $OY$)
-: $D = \{ (x,y)|a \le x \le b, y_1(x) \le y \le y_2(x) \}$
+% \begin{proof}
+% \textbf{Доказательство ф. Грина для простой области}
+% %$D$ -- область, правильная в направлении $OY$, ограниченная замкнутой кривой $C$
+% \mathLet \ область $D$ -- криволинейная трапеция (область, правильная в направлении $OY$)
+% : $D = \{ (x,y)|a \le x \le b, y_1(x) \le y \le y_2(x) \}$
 
-Для кривой $C$, ограничивающей область $D$ зададим направление обхода по часовой стрелке. Тогда:
+% Для кривой $C$, ограничивающей область $D$ зададим направление обхода по часовой стрелке. Тогда:
 
-$\iint\limits_{D} \frac{\partial P}{\partial y} \,dx\,dy = \int\limits_{a}^{b}dx \int\limits_{y_1(x)}^{y_2(x)} \frac{\partial P}{\partial y} \,dy = \int\limits_{a}^{b} (P(x,y_2(x)) - P(x,y_1(x))) \,dx =$
-$= \int\limits_{a}^{b} P(x,y_2(x)) \,dx - \int\limits_{a}^{b} P(x,y_1(x)) \,dx \quad (1)$
+% $\iint\limits_{D} \frac{\partial P}{\partial y} \,dx\,dy = \int\limits_{a}^{b}dx \int\limits_{y_1(x)}^{y_2(x)} \frac{\partial P}{\partial y} \,dy = \int\limits_{a}^{b} (P(x,y_2(x)) - P(x,y_1(x))) \,dx =$
+% $= \int\limits_{a}^{b} P(x,y_2(x)) \,dx - \int\limits_{a}^{b} P(x,y_1(x)) \,dx \quad (1)$
 
-Заметим, что оба полученных интеграла можно заменить криволинейными интегралами:
-$\int\limits_{C_1} P(x,y) \,dx = -\int\limits_{-C_1} P(x,y) \,dx = -\int\limits_{a}^{b} P(x,y_1(x)) \,dx \quad (2)$
-$\int\limits_{C_3} P(x,y) \,dx = \int\limits_{a}^{b} P(x,y_2(x)) \,dx \quad (3)$
-Интеграл по $C_1$ берётся со знаком «минус», так как согласно ориентации контура $C$ направление обхода данной части -- от $b$ до $a$.
+% Заметим, что оба полученных интеграла можно заменить криволинейными интегралами:
+% $\int\limits_{C_1} P(x,y) \,dx = -\int\limits_{-C_1} P(x,y) \,dx = -\int\limits_{a}^{b} P(x,y_1(x)) \,dx \quad (2)$
+% $\int\limits_{C_3} P(x,y) \,dx = \int\limits_{a}^{b} P(x,y_2(x)) \,dx \quad (3)$
+% Интеграл по $C_1$ берётся со знаком «минус», так как согласно ориентации контура $C$ направление обхода данной части -- от $b$ до $a$.
 
-Криволинейные интегралы по $C_2$ и $C_4$ будут равны нулю, так как $x = \operatorname{const}$:
-$\int\limits_{C_2} P(x,y) \,dx = 0 \quad (4)$
-$\int\limits_{C_4} P(x,y) \,dx = 0 \quad (5)$
+% Криволинейные интегралы по $C_2$ и $C_4$ будут равны нулю, так как $x = \operatorname{const}$:
+% $\int\limits_{C_2} P(x,y) \,dx = 0 \quad (4)$
+% $\int\limits_{C_4} P(x,y) \,dx = 0 \quad (5)$
 
-Заменим в (1) интегралы согласно (2) и (3), а также прибавим (4) и (5), равные нулю и поэтому не влияющие на значение выражения:\\
-$\iint\limits_{D} \frac{\partial P}{\partial y} \,dx\,dy = \int\limits_{C_1} P(x,y) \,dx + \int\limits_{C_3} P(x,y) \,dx + \int\limits_{C_2} P(x,y) \,dx + \int\limits_{C_4} P(x,y) \,dx$
+% Заменим в (1) интегралы согласно (2) и (3), а также прибавим (4) и (5), равные нулю и поэтому не влияющие на значение выражения:\\
+% $\iint\limits_{D} \frac{\partial P}{\partial y} \,dx\,dy = \int\limits_{C_1} P(x,y) \,dx + \int\limits_{C_3} P(x,y) \,dx + \int\limits_{C_2} P(x,y) \,dx + \int\limits_{C_4} P(x,y) \,dx$
 
-Так как обход по часовой стрелке при правой ориентации плоскости является отрицательным направлением, то сумма интегралов в правой части является криволинейным интегралом по замкнутой кривой $C$ в отрицательном направлении:
-$\iint\limits_{D} \frac{\partial P}{\partial y} \,dx\,dy = -\int\limits_{C} P(x,y) \,dx \quad (6)$
+% Так как обход по часовой стрелке при правой ориентации плоскости является отрицательным направлением, то сумма интегралов в правой части является криволинейным интегралом по замкнутой кривой $C$ в отрицательном направлении:
+% $\iint\limits_{D} \frac{\partial P}{\partial y} \,dx\,dy = -\int\limits_{C} P(x,y) \,dx \quad (6)$
 
-Аналогично доказывается формула:\\
-$\iint\limits_{D} \frac{\partial Q}{\partial x} \,dx\,dy = \int\limits_{C} Q(x,y) \,dy \quad (7)$
-если в качестве области $D$ взять область, правильную в направлении $OX$.
+% Аналогично доказывается формула:\\
+% $\iint\limits_{D} \frac{\partial Q}{\partial x} \,dx\,dy = \int\limits_{C} Q(x,y) \,dy \quad (7)$
+% если в качестве области $D$ взять область, правильную в направлении $OX$.
 
-Сложим (6) и (7):
-$\int\limits_{C} P \,dx + Q \,dy = \iint\limits_{D} \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) \,dx\,dy$
-\end{proof}
+% Сложим (6) и (7):
+% $\int\limits_{C} P \,dx + Q \,dy = \iint\limits_{D} \left( \frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y} \right) \,dx\,dy$
+% \end{proof}
 
-% % -------- source --------
-% \bigbreak
-% [\cite[page 69-96]{replace_me}]
+% -------- source --------
+\bigbreak
+[\cite[page 463-472]{lomov}]
